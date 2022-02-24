@@ -1,7 +1,3 @@
-//
-// Created by Liga on 2/23/2022.
-//
-
 #ifndef SKELETONS_CX_QANGLE_HPP
 #define SKELETONS_CX_QANGLE_HPP
 
