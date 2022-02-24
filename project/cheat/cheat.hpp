@@ -6,8 +6,7 @@
 #define SKELETONS_CX_CHEAT_HPP
 
 #include <iostream>
-#include <windows.h>
-
+#include <Windows.h>
 #include "globals/globals.hpp"
 
 namespace cheat

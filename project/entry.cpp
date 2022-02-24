@@ -10,7 +10,7 @@ void entry::impl::shutdown( )
 
 }
 
-bool win_api dll_main( HINSTANCE module_handle, uintptr_t reason, void* reserved )
+bool win_api dll_main( HINSTANCE module_handle, std::uintptr_t reason, void* reserved )
 {
 	switch ( reason ) {
 	case DLL_PROCESS_ATTACH:

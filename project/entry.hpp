@@ -4,9 +4,10 @@
 #include "cheat/globals/globals.hpp"
 #include "cheat/cheat.hpp"
 
+#include <Windows.h>
 #include <cstdint>
 #include <iostream>
-#include <windows.h>
+
 
 namespace entry
 {
