@@ -3,7 +3,7 @@ project(sekeletons_cx)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_library(sekeletons_cx SHARED project/entry.cpp project/cheat/helpers/cheat.cpp project/cheat/helpers/cheat.hpp project/cheat/globals/snakeify.hpp project/cheat/globals/globals.hpp)
+add_library(sekeletons_cx SHARED project/entry.cpp project/cheat/helpers/cheat.cpp project/cheat/helpers/cheat.hpp project/cheat/globals/snakeify.hpp project/cheat/globals/globals.hpp project/cheat/sdk/interfaces/i_engine_client.hpp project/cheat/sdk/include.hpp)
 
 link_directories("$ENV{DXSDK_DIR}/Lib/x86")
 

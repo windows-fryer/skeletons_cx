@@ -12,14 +12,13 @@
 
 namespace cheat
 {
-    struct impl
-    {
-    public:
-        static void init();
-        static void shutdown();
-    };
-}
+	struct impl {
+	public:
+		static void init( );
+		static void shutdown( );
+	};
+} // namespace cheat
 
 inline cheat::impl g_cheat;
 
-#endif //WEDNESDAY_TF2_CHEAT_HPP
+#endif // WEDNESDAY_TF2_CHEAT_HPP
