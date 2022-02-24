@@ -2,9 +2,12 @@
 // Created by Liga on 2/23/2022.
 //
 
-#ifndef SEKELETONS_CX_INCLUDE_HPP
-#define SEKELETONS_CX_INCLUDE_HPP
+#ifndef SKELETONS_CX_INCLUDE_HPP
+#define SKELETONS_CX_INCLUDE_HPP
 
 #include "interfaces/i_engine_client.hpp"
 
-#endif // SEKELETONS_CX_INCLUDE_HPP
+#include "structs/qangle.hpp"
+#include "structs/vector.hpp"
+
+#endif // SKELETONS_CX_INCLUDE_HPP

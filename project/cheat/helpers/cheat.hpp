@@ -2,8 +2,8 @@
 // Created by Liga on 2/23/2022.
 //
 
-#ifndef WEDNESDAY_TF2_CHEAT_HPP
-#define WEDNESDAY_TF2_CHEAT_HPP
+#ifndef SKELETONS_CX_CHEAT_HPP
+#define SKELETONS_CX_CHEAT_HPP
 
 #include <iostream>
 #include <windows.h>

@@ -2,8 +2,8 @@
 // Created by Liga on 2/23/2022.
 //
 
-#ifndef SEKELETONS_CX_I_ENGINE_CLIENT_HPP
-#define SEKELETONS_CX_I_ENGINE_CLIENT_HPP
+#ifndef SKELETONS_CX_I_ENGINE_CLIENT_HPP
+#define SKELETONS_CX_I_ENGINE_CLIENT_HPP
 
 #include <iostream>
 
@@ -396,4 +396,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SEKELETONS_CX_I_ENGINE_CLIENT_HPP
+#endif // SKELETONS_CX_I_ENGINE_CLIENT_HPP

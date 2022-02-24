@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.21)
-project(sekeletons_cx)
+project(skeletons_cx)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_library(sekeletons_cx SHARED project/entry.cpp project/cheat/helpers/cheat.cpp project/cheat/helpers/cheat.hpp project/cheat/globals/snakeify.hpp project/cheat/globals/globals.hpp project/cheat/sdk/interfaces/i_engine_client.hpp project/cheat/sdk/include.hpp)
+add_library(skeletons_cx SHARED project/entry.cpp project/cheat/helpers/cheat.cpp project/cheat/helpers/cheat.hpp project/cheat/globals/snakeify.hpp project/cheat/globals/globals.hpp project/cheat/sdk/interfaces/i_engine_client.hpp project/cheat/sdk/include.hpp project/cheat/sdk/structs/vector.hpp project/cheat/sdk/structs/qangle.hpp)
 
 link_directories("$ENV{DXSDK_DIR}/Lib/x86")
 

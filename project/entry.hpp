@@ -1,5 +1,5 @@
-#ifndef WEDNESDAY_TF2_ENTRY_HPP
-#define WEDNESDAY_TF2_ENTRY_HPP
+#ifndef SKELETONS_CX_ENTRY_HPP
+#define SKELETONS_CX_ENTRY_HPP
 
 #include "cheat/globals/globals.hpp"
 #include "cheat/helpers/cheat.hpp"
@@ -19,4 +19,4 @@ namespace entry
 
 inline entry::impl g_entry;
 
-#endif // WEDNESDAY_TF2_ENTRY_HPP
+#endif // SKELETONS_CX_ENTRY_HPP
