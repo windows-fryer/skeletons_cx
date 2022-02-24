@@ -42,7 +42,7 @@ namespace sdk{
 			return ( *this - end ).length( );
 		}
 
-		constexpr float dist_to_sqr( const vector& end ) const
+		float dist_to_sqr( const vector& end ) const
 		{
 			return ( *this - end ).length_sqr( );
 		}
