@@ -7,12 +7,13 @@
 
 #include <iostream>
 
+#include "../structs/qangle.hpp"
+#include "../structs/vector.hpp"
+
 namespace sdk
 {
 	struct color;
 
-	struct vector;
-	struct qangle;
 	struct matrix_3x4;
 	struct view_matrix;
 

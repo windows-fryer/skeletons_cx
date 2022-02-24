@@ -2,7 +2,7 @@
 #define SKELETONS_CX_ENTRY_HPP
 
 #include "cheat/globals/globals.hpp"
-#include "cheat/helpers/cheat.hpp"
+#include "cheat/cheat.hpp"
 
 #include <cstdint>
 #include <iostream>
