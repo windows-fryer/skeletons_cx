@@ -45,6 +45,19 @@ namespace math{
 		return {pitch, yaw, 0};
 	}
 
+	sdk::vector angle_to_vector( const sdk::qangle& angle )
+	{
+		const auto sy = std::sin( angle.yaw / 180.f * PI );
+		const auto cy = std::cos( angle.yaw / 180.f * PI );
+
+		const auto sp = std::sin( angle.pitch / 180.f * PI );
+		const auto cp = std::cos( angle.pitch / 180.f * PI );
+
+		return sdk::vector( cp * cy, cp * sy, -sp );
+	}
+
+	
+
 
 }
 

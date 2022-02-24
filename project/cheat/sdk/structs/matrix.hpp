@@ -62,7 +62,7 @@ namespace sdk{
 			out[ 2 ][ 3 ] = in1[ 2 ][ 0 ] * in2[ 0 ][ 3 ] + in1[ 2 ][ 1 ] * in2[ 1 ][ 3 ] + in1[ 2 ][ 2 ] * in2[ 2 ][ 3 ] + in1[ 2 ][ 3 ];
 		}
 	};
-	
+
 	struct matrix_4x4 {
 		float data[ 4 ][ 4 ]{ };
 
