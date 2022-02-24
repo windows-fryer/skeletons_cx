@@ -5,6 +5,11 @@
 #ifndef WEDNESDAY_TF2_CHEAT_HPP
 #define WEDNESDAY_TF2_CHEAT_HPP
 
+#include <iostream>
+#include <windows.h>
+
+#include "../globals/globals.hpp"
+
 namespace cheat
 {
     struct impl

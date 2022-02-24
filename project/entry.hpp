@@ -1,6 +1,13 @@
 #ifndef WEDNESDAY_TF2_ENTRY_HPP
 #define WEDNESDAY_TF2_ENTRY_HPP
 
+#include "cheat/helpers/cheat.hpp"
+#include "cheat/globals/globals.hpp"
+
+#include <cstdint>
+#include <iostream>
+#include <windows.h>
+
 namespace entry
 {
     struct impl
