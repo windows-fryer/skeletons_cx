@@ -27,7 +27,7 @@ void interfaces::impl::init( )
 	for ( auto& module : needed_modules ) {
 		auto create_interface = reinterpret_cast< std::uintptr_t >( get_proc_address( get_module_handle( module ), "CreateInterface" ) );
 
-		while ( *reinterpret_cast< std::uint8_t* >( create_interface ) != 0xE9 )
+		while ( *reinterpret_cast< unsigned char* >( create_interface ) != 0xE9 )
 			++create_interface;
 
 		create_interface = jump_address( create_interface );
@@ -40,7 +40,7 @@ void interfaces::impl::init( )
 		char buffer_name[ 128 ]{ };
 
 		while ( node ) {
-			std::size_t size;
+			std::size_t size{};
 
 			for ( size = 0; node->name[ size ] != '\0'; ++size )
 				buffer_name[ size ] = node->name[ size ];
@@ -55,6 +55,9 @@ void interfaces::impl::init( )
 }
 
 void interfaces::impl::shutdown( ) { }
+
+
+
 
 std::uintptr_t interfaces::impl::jump_address( std::uintptr_t address )
 {
