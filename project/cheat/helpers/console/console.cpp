@@ -3,7 +3,7 @@
 #include "../assertion/assertion.hpp"
 #include "console.hpp"
 
-void console::impl::init( )
+void console::init( )
 {
 	if ( !AllocConsole( ) ) {
 		// todo: assert shit instead.
@@ -17,7 +17,7 @@ void console::impl::init( )
 	freopen_s( &con_err, "CONERR$", "w", stderr );
 }
 
-void console::impl::shutdown( )
+void console::shutdown( )
 {
 	FreeConsole();
 }
