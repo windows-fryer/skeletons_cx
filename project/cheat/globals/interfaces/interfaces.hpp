@@ -3,14 +3,30 @@
 
 #include <iostream>
 #include <unordered_map>
+#include <vector>
+#include <windows.h>
 
 #include "../../sdk/include.hpp"
+#include "../snakeify.hpp"
 
 namespace interfaces
 {
+	struct interface_node {
+	public:
+		void* ( *get )( );
+		const char* name;
+		interface_node* next;
+	};
+
 	struct impl {
+	private:
+		std::uintptr_t jump_address( std::uintptr_t address );
+
 	public:
 		std::unordered_map< std::uint32_t, std::uintptr_t > interfaces;
+
+		void init( );
+		void shutdown( );
 	};
 } // namespace interfaces
 

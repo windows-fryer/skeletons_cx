@@ -1,7 +1,11 @@
 #include "cheat.hpp"
 
-void cheat::impl::init( )
+void cheat::init( )
 {
+	g_interfaces.init();
 }
 
-void cheat::impl::shutdown( ) { }
+void cheat::shutdown( )
+{
+	g_interfaces.shutdown();
+}

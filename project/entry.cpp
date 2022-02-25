@@ -1,11 +1,11 @@
 #include "entry.hpp"
 
-void entry::impl::init( )
+void entry::init( )
 {
-	create_thread( g_cheat.init );
+	create_thread( cheat::init );
 }
 
-void entry::impl::shutdown( )
+void entry::shutdown( )
 {
 
 }
@@ -14,10 +14,7 @@ bool win_api dll_main( HINSTANCE module_handle, std::uintptr_t reason, void* res
 {
 	switch ( reason ) {
 	case DLL_PROCESS_ATTACH:
-		entry::impl::init( );
-		break;
-	case DLL_PROCESS_DETACH:
-		entry::impl::shutdown( );
+		entry::init( );
 		break;
 	}
 

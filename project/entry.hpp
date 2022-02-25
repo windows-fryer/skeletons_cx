@@ -8,16 +8,10 @@
 #include <cstdint>
 #include <iostream>
 
-
 namespace entry
 {
-	struct impl {
-	public:
-		static void init( );
-		static void shutdown( );
-	};
+	void init( );
+	void shutdown( );
 } // namespace entry
-
-inline entry::impl g_entry;
 
 #endif // SKELETONS_CX_ENTRY_HPP

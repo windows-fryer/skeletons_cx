@@ -3,7 +3,7 @@ project(skeletons_cx)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_library(skeletons_cx SHARED project/entry.cpp project/cheat/cheat.cpp project/cheat/cheat.hpp project/cheat/globals/snakeify.hpp project/cheat/globals/globals.hpp project/cheat/sdk/interfaces/i_engine_client.hpp project/cheat/sdk/include.hpp project/cheat/sdk/structs/vector.hpp project/cheat/sdk/structs/qangle.hpp project/cheat/helpers/math/math.hpp project/cheat/sdk/structs/matrix.hpp project/cheat/sdk/structs/color.hpp project/cheat/helpers/utilities/utilities.cpp project/cheat/helpers/utilities/utilities.hpp project/cheat/globals/interfaces/interfaces.cpp project/cheat/globals/interfaces/interfaces.hpp)
+add_library(skeletons_cx SHARED project/entry.cpp project/cheat/cheat.cpp project/cheat/cheat.hpp project/cheat/globals/snakeify.hpp project/cheat/globals/globals.hpp project/cheat/sdk/interfaces/i_engine_client.hpp project/cheat/sdk/include.hpp project/cheat/sdk/structs/vector.hpp project/cheat/sdk/structs/qangle.hpp project/cheat/helpers/math/math.hpp project/cheat/sdk/structs/matrix.hpp project/cheat/sdk/structs/color.hpp project/cheat/helpers/utilities/utilities.cpp project/cheat/helpers/utilities/utilities.hpp project/cheat/globals/interfaces/interfaces.cpp project/cheat/globals/interfaces/interfaces.hpp project/dependencies/fnv/fnv.hpp)
 
 link_directories("$ENV{DXSDK_DIR}/Lib/x86")
 
