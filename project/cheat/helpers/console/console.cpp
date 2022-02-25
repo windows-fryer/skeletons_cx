@@ -1,21 +1,10 @@
 #include <Windows.h>
-#include <format>
-#include <iostream>
 
 #include "../assertion/assertion.hpp"
 #include "console.hpp"
 
-bool is_console_initialized = false;
-
 void console::impl::init( )
 {
-	/*  */
-	{
-		if ( is_console_initialized )
-			return;
-		is_console_initialized = true;
-	}
-
 	if ( !AllocConsole( ) ) {
 		// todo: assert shit instead.
 		return;
@@ -27,7 +16,6 @@ void console::impl::init( )
 	freopen_s( &con_in, "CONOUT$", "w", stdout );
 	freopen_s( &con_err, "CONERR$", "w", stderr );
 }
-
 
 void console::impl::shutdown( )
 {
