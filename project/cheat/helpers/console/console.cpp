@@ -28,7 +28,7 @@ void console::impl::initialize( )
 }
 
 
-void console::impl::log( std::string_view message )
+constexpr void console::impl::log( std::string_view message )
 {
 	std::cout << message << '\n';
 }
