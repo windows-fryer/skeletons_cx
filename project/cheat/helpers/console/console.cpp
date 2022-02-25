@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <format>
 #include <iostream>
 
 #include "../assertion/assertion.hpp"
@@ -27,7 +28,8 @@ void console::impl::init( )
 	freopen_s( &con_err, "CONERR$", "w", stderr );
 }
 
+
 void console::impl::shutdown( )
 {
-
+	FreeConsole();
 }
