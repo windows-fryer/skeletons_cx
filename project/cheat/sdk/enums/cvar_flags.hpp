@@ -3,9 +3,7 @@
 
 namespace sdk
 {
-
-	enum cvar_ids : int
-	{
+	enum cvar_ids : int {
 		fcvar_unregistered            = ( 1 << 0 ),
 		fcvar_developmentonly         = ( 1 << 1 ),
 		fcvar_gamedll                 = ( 1 << 2 ),
@@ -37,8 +35,6 @@ namespace sdk
 		fcvar_clientcmd_can_execute   = ( 1 << 30 ),
 		fcvar_material_thread_mask    = ( fcvar_reload_materials | fcvar_reload_textures | fcvar_material_system_thread )
 	};
-
 } // namespace sdk
-
 
 #endif // SKELETONS_CX_CVAR_FLAGS_HPP

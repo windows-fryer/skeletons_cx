@@ -1,11 +1,9 @@
 #ifndef SKELETONS_CX_MATERIALVAR_FLAGS_HPP
 #define SKELETONS_CX_MATERIALVAR_FLAGS_HPP
 
-
 namespace sdk
 {
-	enum material_var_flags
-	{
+	enum material_var_flags {
 		material_var_debug                    = ( 1 << 0 ),
 		material_var_no_debug_override        = ( 1 << 1 ),
 		material_var_no_draw                  = ( 1 << 2 ),
@@ -40,6 +38,5 @@ namespace sdk
 		material_var_vertexfog                = ( 1 << 31 )
 	};
 } // namespace sdk
-
 
 #endif // SKELETONS_CX_MATERIALVAR_FLAGS_HPP

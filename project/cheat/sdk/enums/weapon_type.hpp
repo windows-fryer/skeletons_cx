@@ -1,10 +1,9 @@
 #ifndef SKELETONS_CX_WEAPON_TYPE_HPP
 #define SKELETONS_CX_WEAPON_TYPE_HPP
 
-namespace sdk{
-
-	enum tfweapontype
-	{
+namespace sdk
+{
+	enum tf_weapon_type {
 		tf_weapon_none,
 		tf_weapon_bat,
 		tf_weapon_bat_wood,
@@ -116,8 +115,6 @@ namespace sdk{
 		tf_weapon_grenade_jar_gas,
 		tf_weapon_flame_ball
 	};
-
 } // namespace sdk
-
 
 #endif // SKELETONS_CX_WEAPON_TYPE_HPP
