@@ -6,7 +6,7 @@
 
 bool is_console_initialized = false;
 
-void console::impl::initialize( )
+void console::impl::init( )
 {
 	/*  */
 	{
@@ -27,6 +27,10 @@ void console::impl::initialize( )
 	freopen_s( &con_err, "CONERR$", "w", stderr );
 }
 
+void console::impl::shutdown( )
+{
+
+}
 
 constexpr void console::impl::log( std::string_view message )
 {

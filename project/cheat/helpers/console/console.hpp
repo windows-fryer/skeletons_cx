@@ -9,7 +9,8 @@ namespace console
 	struct impl {
 	public:
 
-		void initialize( );
+		void init( );
+		void shutdown( );
 		constexpr void log( std::string_view message );
 
 	};
