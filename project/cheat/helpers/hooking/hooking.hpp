@@ -18,7 +18,7 @@ namespace hooking
 		hook_helper( auto source, auto destination, const char* name = "undefined" )
 		{
 			if ( MH_CreateHook( ( void* )source, ( void* )destination, &original ) != MH_OK )
-				g_console.log( "Failed to create hook [{}]", name );
+				console::log( "Failed to create hook [{}]", name );
 
 
 		}
