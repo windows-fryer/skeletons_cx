@@ -2,6 +2,7 @@
 #define SKELETONS_CX_CONSOLE_HPP
 
 #include <format>
+#include <iostream>
 #include <string>
 
 namespace console
