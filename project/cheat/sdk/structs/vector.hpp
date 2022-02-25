@@ -1,9 +1,11 @@
 #ifndef SKELETONS_CX_VECTOR_HPP
 #define SKELETONS_CX_VECTOR_HPP
 
+#include <cmath>
 #include <iostream>
 
-namespace sdk{
+namespace sdk
+{
 	struct vector {
 	public:
 		float x{ }, y{ }, z{ };
@@ -21,19 +23,23 @@ namespace sdk{
 			return ( this->x * dot.x + this->y * dot.y + this->z * dot.z );
 		}
 
-		float length( ) const {
-			return sqrt( x * x + y * y + z * z );
+		float length( ) const
+		{
+			return sqrtf( x * x + y * y + z * z );
 		}
 
-		float length_2d( ) const {
-			return sqrt( x * x + y * y );
+		float length_2d( ) const
+		{
+			return sqrtf( x * x + y * y );
 		}
 
-		float length_sqr( ) const {
+		float length_sqr( ) const
+		{
 			return x * x + y * y + z * z;
 		}
 
-		float length_sqr_2d( ) const {
+		float length_sqr_2d( ) const
+		{
 			return x * x + y * y;
 		}
 
@@ -64,9 +70,6 @@ namespace sdk{
 			out.normalize_in_place( );
 			return out;
 		}
-
-
-		/* operators */
 
 		bool operator==( const vector& base ) const
 		{

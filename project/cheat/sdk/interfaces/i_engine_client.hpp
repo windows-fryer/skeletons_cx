@@ -7,16 +7,13 @@
 
 #include <iostream>
 
+#include "../structs/color.hpp"
+#include "../structs/matrix.hpp"
 #include "../structs/qangle.hpp"
 #include "../structs/vector.hpp"
 
 namespace sdk
 {
-	struct color;
-
-	struct matrix_3x4;
-	struct view_matrix;
-
 	struct model_t;
 	struct i_material;
 	struct player_info_t;

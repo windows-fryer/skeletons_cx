@@ -6,12 +6,13 @@
 #define SKELETONS_CX_MATRIX_HPP
 #include <iostream>
 
-namespace sdk{
-
+namespace sdk
+{
 	struct matrix_3x4 {
+	public:
 		float data[ 3 ][ 4 ]{ };
 
-		constexpr matrix_3x4( ) = default;
+		matrix_3x4( ) = default;
 
 		float* operator[]( const std::int32_t idx )
 		{
@@ -64,9 +65,10 @@ namespace sdk{
 	};
 
 	struct matrix_4x4 {
+	public:
 		float data[ 4 ][ 4 ]{ };
 
-		constexpr matrix_4x4( ) = default;
+		matrix_4x4( ) = default;
 
 		float* operator[]( const std::int32_t idx )
 		{
@@ -79,6 +81,10 @@ namespace sdk{
 		}
 	};
 
+	struct view_matrix : matrix_4x4 {
+	public:
+		view_matrix( ) = default;
+	};
 } // namespace sdk
 
 #endif // SKELETONS_CX_MATRIX_HPP
