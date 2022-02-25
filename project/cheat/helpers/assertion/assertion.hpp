@@ -1,6 +1,8 @@
 #ifndef SKELETONS_CX_ASSERTION_HPP
 #define SKELETONS_CX_ASSERTION_HPP
+
 #include <string>
+
 
 namespace assertion{
 
@@ -11,11 +13,7 @@ namespace assertion{
 		assertion_log_max 					// unused
 	};
 
-	void assert(std::string_view assertion_message, unsigned char assertion_flag ) {
-		if(assertion_flag & assertion_log_console){
-
-		}
-	}
+	void assert(std::string_view assertion_message, unsigned char assertion_flag );
 
 
 }
