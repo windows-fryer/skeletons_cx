@@ -2,6 +2,7 @@
 
 void cheat::init( )
 {
+	modules::init();
 	g_interfaces.init( );
 }
 
