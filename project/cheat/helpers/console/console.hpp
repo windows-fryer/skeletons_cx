@@ -1,6 +1,7 @@
 #ifndef SKELETONS_CX_CONSOLE_HPP
 #define SKELETONS_CX_CONSOLE_HPP
 
+#include <format>
 #include <string>
 
 namespace console
@@ -8,11 +9,16 @@ namespace console
 
 	struct impl {
 	public:
-
 		void init( );
 		void shutdown( );
-		constexpr void log( std::string_view message );
 
+		template< typename... ARGS >
+		void log( std::string_view message, ARGS&&... arguments )
+		{
+			std::string_view formatted_string = std::vformat( message, std::make_format_args( arguments... ) );
+
+			std::cout << formatted_string;
+		}
 	};
 
 } // namespace console
