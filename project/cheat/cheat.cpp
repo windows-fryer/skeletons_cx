@@ -2,10 +2,10 @@
 
 void cheat::init( )
 {
-	g_interfaces.init();
+	g_interfaces.init( );
 }
 
 void cheat::shutdown( )
 {
-	g_interfaces.shutdown();
+	g_interfaces.shutdown( );
 }
