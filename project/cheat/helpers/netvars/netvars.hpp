@@ -19,4 +19,11 @@ namespace netvar_manager
 
 inline netvar_manager::impl g_netvar_manager;
 
+
+#define NETVAR(name, type, table, var) inline type &name()\
+{\
+	static int offset = g_netvar_manager.get_table(table, var);\
+	return *reinterpret_cast<type*>(reinterpret_cast<std::uint32_t>(this) + offset);\
+}
+
 #endif // SKELETONS_CX_NETVARS_HPP
