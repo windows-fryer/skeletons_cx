@@ -28,6 +28,7 @@ namespace interfaces
 		std::uintptr_t jump_address( std::uintptr_t address );
 
 	public:
+		sdk::i_client_mode* client_mode;
 		sdk::i_engine_client* engine_client;
 		sdk::i_base_client_dll* base_client;
 		sdk::i_client_entity_list* entity_list;

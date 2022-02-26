@@ -1,12 +1,14 @@
 #include "hooks.hpp"
 #include "functions/create_move/create_move.hpp"
+#include "functions/render_view/render_view.hpp"
 
 void hooks::impl::init( )
 {
 	MH_Initialize( );
 
 	create_move::init( );
-
+	render_view::init( );
+	
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 

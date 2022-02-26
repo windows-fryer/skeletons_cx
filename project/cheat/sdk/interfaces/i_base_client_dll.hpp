@@ -100,7 +100,7 @@ namespace sdk
 		virtual void view_render( vrect_t* rect ) = 0;
 
 		// allow engine to expressly render a view (e.g., during timerefresh)
-		// see iv_render_view.h, push_view_flags_t for n_flags values
+		// see iv_render_view.h, push_view_flags_t for n_flags values 27
 		virtual void render_view( const c_view_setup& view, int n_clear_flags, int what_to_draw ) = 0;
 
 		// apply screen fade directly from engine
