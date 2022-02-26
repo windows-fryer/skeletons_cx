@@ -29,6 +29,12 @@ namespace sdk
 		// sizes entity list to specified size
 		virtual void set_max_entities( int maxents ) = 0;
 		virtual int get_max_entities( )              = 0;
+
+		// for da culture!
+		template< class T >
+		T* get(const std::uint32_t& index){
+			return (T*)get_client_entity(index);
+		}
 	};
 } // namespace sdk
 
