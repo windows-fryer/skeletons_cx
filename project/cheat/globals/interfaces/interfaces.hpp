@@ -6,6 +6,8 @@
 #include <vector>
 #include <windows.h>
 
+#include "../../helpers/modules/modules.hpp"
+#include "../../helpers/signatures/signatures.hpp"
 #include "../../sdk/include.hpp"
 #include "../snakeify.hpp"
 
@@ -30,6 +32,8 @@ namespace interfaces
 		sdk::i_base_client_dll* base_client;
 		sdk::i_client_entity_list* entity_list;
 		sdk::i_debug_overlay* debug_overlay;
+		sdk::i_input* input;
+
 		void init( );
 		void shutdown( );
 	};

@@ -56,8 +56,9 @@ namespace sdk
 		NETVAR( model_index_overrides, void*, "CBaseEntity", "m_nModelIndexOverrides" );
 		NETVAR( movetype, int, "CBaseEntity", "movetype" );
 
-		void get_bone_position(std::uint32_t bone_index, vector* position, qangle* angles);
+		void get_bone_position( std::uint32_t bone_index, vector* position, qangle* angles );
 
+		bool is_player( );
 	};
 } // namespace sdk
 
