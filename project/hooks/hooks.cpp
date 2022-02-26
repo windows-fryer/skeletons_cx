@@ -1,3 +1,3 @@
-//
-// Created by blanket on 2/25/2022.
-//
+#include "hooks.hpp"
+
+void hooking::impl::init( ) { }

@@ -49,4 +49,6 @@ namespace hooking
 	void shutdown( );
 } // namespace hooking
 
+#define CREATE_HOOK_HELPER( name, args, return_type ) inline hooking::hook_helper< args, return_type > name;
+
 #endif // SKELETONS_CX_HOOKING_HPP

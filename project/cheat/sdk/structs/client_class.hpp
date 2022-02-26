@@ -2,6 +2,7 @@
 #define SKELETONS_CX_CLIENT_CLASS_HPP
 
 #include "dt_recv.hpp"
+#include "../enums/class_ids.hpp"
 
 namespace sdk
 {
@@ -13,7 +14,7 @@ namespace sdk
 		const char* network_name;
 		recv_table* recv_table;
 		client_class* next;
-		int class_id;
+		sdk::e_class_ids class_id;
 	};
 } // namespace sdk
 
