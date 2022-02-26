@@ -12,7 +12,12 @@
 #include "interfaces/i_engine_client.hpp"
 #include "interfaces/i_input.hpp"
 
+#include "structs/c_tf_knife.hpp"
+#include "structs/c_tf_medigun.hpp"
+#include "structs/c_tf_minigun.hpp"
+#include "structs/c_tf_pipebomb_launcher.hpp"
 #include "structs/c_tf_player.hpp"
+#include "structs/c_tf_sniper_rifle.hpp"
 #include "structs/c_user_cmd.hpp"
 
 #include "structs/color.hpp"

@@ -27,7 +27,7 @@ namespace signatures
 	public:
 		std::unordered_map< std::uint32_t, patternscan::address > database{ };
 
-		constexpr patternscan::address operator[]( const char* pattern )
+		patternscan::address operator[]( const char* pattern )
 		{
 			return database[ fnv( pattern ) ];
 		}

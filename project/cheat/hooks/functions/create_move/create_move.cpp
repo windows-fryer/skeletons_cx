@@ -16,6 +16,27 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 
 	g_globals.command = command;
 
+	for ( int index = 0; index < 65; index++ ) {
+		auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( index );
+
+		if ( !entity || !entity->is_player( ) )
+			continue;
+
+		auto weapon_handle = entity->active_weapon( );
+
+		if ( !weapon_handle.index )
+			continue;
+
+		auto weapon = g_interfaces.entity_list->get< sdk::c_tf_weapon_base >( weapon_handle );
+
+		if ( !weapon )
+			continue;
+
+		auto weapon_print_name = weapon->get_name( );
+
+		console::log( "{}: {}\n", index, weapon_print_name );
+	}
+
 	verified->cmd = *command;
 	verified->crc = command->get_checksum( );
 

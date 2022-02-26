@@ -1,13 +1,14 @@
 #ifndef SKELETONS_CX_C_TF_WEAPON_BASE_HPP
 #define SKELETONS_CX_C_TF_WEAPON_BASE_HPP
 
+#include "../../helpers/vfunc/vfunc.hpp"
 #include "../enums/weapon_stat_trak_module_type.hpp"
+#include "../enums/weapon_strange_type.hpp"
 #include "c_base_combat_weapon.hpp"
 #include "c_econ_entity.hpp"
 #include "c_game_event_listener.hpp"
 #include "c_tf_weapon_info.hpp"
 #include "i_has_owner.hpp"
-#include "../enums/weapon_strange_type.hpp
 
 namespace sdk
 {
@@ -52,6 +53,21 @@ namespace sdk
 		int last_crit_check_frame;
 		int current_seed;
 		float last_rapid_fire_crit_check_time;
+
+		int get_slot( )
+		{
+			return reinterpret_cast< int( __thiscall* )( void* ) >( g_vfunc.get_virtual_function_index( this, 327 ) )( this );
+		}
+
+		int get_weapon_id( )
+		{
+			return reinterpret_cast< int( __thiscall* )( void* ) >( g_vfunc.get_virtual_function_index( this, 377 ) )( this );
+		}
+
+		char* get_name( )
+		{
+			return reinterpret_cast< char*( __thiscall* )( void* ) >( g_vfunc.get_virtual_function_index( this, 331 ) )( this );
+		}
 	};
 } // namespace sdk
 
