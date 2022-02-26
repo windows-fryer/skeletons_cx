@@ -8,7 +8,7 @@
 
 namespace sdk
 {
-	struct c_cvar : public i_app_system {
+	struct i_con_var : public i_app_system {
 	public:
 		virtual c_var_dll_identifier_t allocate_dll_identifier( )                                                 = 0;
 		virtual void register_con_command( con_command_base* p_command_base )                                     = 0;

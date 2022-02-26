@@ -4,6 +4,7 @@
 
 #ifndef SKELETONS_CX_INCLUDE_HPP
 #define SKELETONS_CX_INCLUDE_HPP
+#include "../helpers/math/math.hpp"
 
 #include "interfaces/i_base_client_dll.hpp"
 #include "interfaces/i_client_entity_list.hpp"

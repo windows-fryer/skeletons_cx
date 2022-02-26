@@ -1,4 +1,5 @@
 #include "create_move.hpp"
+#include "../../../features/include.hpp"
 
 void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, int sequence_number, float input_sample_frametime, bool active )
 {
@@ -13,7 +14,8 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	__asm mov _ebp, ebp;
 	bool& send_packet = *reinterpret_cast< bool* >( *_ebp - 0x1 );
 
-	g_globals.command = command;
+	g_globals.command           = command;
+	const sdk::qangle old_angle = command->view_angles;
 
 	for ( int index = 0; index < 65; index++ ) {
 		auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( index );
@@ -30,11 +32,11 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 
 		if ( !weapon )
 			continue;
-
-		auto weapon_print_name = weapon->get_name( );
-
-		console::log( "{}: {}\n", index, weapon_print_name );
 	}
+
+	command->view_angles.normalize( );
+
+	g_movement.move_fix( command, old_angle );
 
 	verified->cmd = *command;
 	verified->crc = command->get_checksum( );
