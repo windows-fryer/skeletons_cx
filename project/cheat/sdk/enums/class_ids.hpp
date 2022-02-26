@@ -3,7 +3,7 @@
 
 namespace sdk
 {
-	enum class classids
+	enum class e_class_ids
 	{
 		ctfwearablerazorback                  = 340,
 		ctfwearabledemoshield                 = 337,

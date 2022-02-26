@@ -1,11 +1,12 @@
 #ifndef SKELETONS_CX_I_CLIENT_ENTITY_LIST_HPP
 #define SKELETONS_CX_I_CLIENT_ENTITY_LIST_HPP
 
+#include "../structs/c_base_handle.hpp"
+
 namespace sdk
 {
 	struct i_client_networkable;
 	struct i_client_unknown;
-	struct c_base_handle;
 	struct i_client_entity;
 
 	struct i_client_entity_list {
@@ -30,10 +31,17 @@ namespace sdk
 		virtual void set_max_entities( int maxents ) = 0;
 		virtual int get_max_entities( )              = 0;
 
-		// for da culture!
+		// fo' da cultua!
 		template< class T >
-		T* get(const std::uint32_t& index){
-			return (T*)get_client_entity(index);
+		T* operator[]( const std::uint32_t& index )
+		{
+			return ( T* )get_client_entity( index );
+		}
+
+		template< class T >
+		T* operator[]( c_base_handle handle )
+		{
+			return ( T* )get_client_entity_from_handle( handle );
 		}
 	};
 } // namespace sdk
