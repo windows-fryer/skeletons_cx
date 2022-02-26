@@ -7,8 +7,8 @@ void hooks::impl::init( )
 	MH_Initialize( );
 
 	create_move::init( );
-	render_view::init( );
-	
+	override_view::init( );
+
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 
