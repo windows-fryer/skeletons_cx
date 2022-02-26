@@ -1,6 +1,6 @@
 #include "netvars.hpp"
 
-#include "../../globals/interfaces/interfaces.hpp"
+#include "../../helpers/interfaces/interfaces.hpp"
 
 recv_var_proxy_fn netvar_manager::impl::find_proxy_table( recv_table* table, const char* var, recv_var_proxy_fn function )
 {

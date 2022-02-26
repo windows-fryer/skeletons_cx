@@ -1,5 +1,5 @@
 #include "c_base_entity.hpp"
-#include "../../globals/interfaces/interfaces.hpp"
+#include "../../helpers/interfaces/interfaces.hpp"
 #include "../../helpers/modules/modules.hpp"
 
 void sdk::c_base_entity::get_bone_position( std::uint32_t bone_index, vector* position, qangle* angles )

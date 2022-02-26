@@ -3,9 +3,8 @@
 
 #include "snakeify.hpp"
 
-#include "interfaces/interfaces.hpp"
-
 #include "../helpers/console/console.hpp"
+#include "../helpers/interfaces/interfaces.hpp"
 #include "../helpers/modules/modules.hpp"
 #include "../helpers/signatures/signatures.hpp"
 

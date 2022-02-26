@@ -1,15 +1,15 @@
 #ifndef SKELETONS_CX_INTERFACES_HPP
 #define SKELETONS_CX_INTERFACES_HPP
 
+#include <Windows.h>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <windows.h>
 
-#include "../../helpers/modules/modules.hpp"
-#include "../../helpers/signatures/signatures.hpp"
+#include "../../globals/snakeify.hpp"
 #include "../../sdk/include.hpp"
-#include "../snakeify.hpp"
+#include "../modules/modules.hpp"
+#include "../signatures/signatures.hpp"
 
 namespace interfaces
 {
