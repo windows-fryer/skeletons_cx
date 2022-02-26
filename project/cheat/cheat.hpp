@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <Windows.h>
+
 #include "globals/globals.hpp"
 
 namespace cheat

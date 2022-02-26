@@ -20,10 +20,13 @@ namespace interfaces
 
 	struct impl {
 	private:
+		std::unordered_map< std::uint32_t, std::uintptr_t > interfaces;
+
+		void find_interfaces( );
 		std::uintptr_t jump_address( std::uintptr_t address );
 
 	public:
-		std::unordered_map< std::uint32_t, std::uintptr_t > interfaces;
+		sdk::i_engine_client* engine_client;
 
 		void init( );
 		void shutdown( );

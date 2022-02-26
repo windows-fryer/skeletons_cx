@@ -13,7 +13,7 @@ namespace console
 	template< typename... ARGS >
 	void log( std::string_view message, ARGS&&... arguments )
 	{
-		std::string_view formatted_string = std::vformat( message, std::make_format_args( arguments... ) );
+		std::string formatted_string = std::vformat( message.data( ), std::make_format_args( arguments... ) );
 
 		std::cout << formatted_string;
 	}

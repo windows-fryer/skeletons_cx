@@ -2,30 +2,42 @@
 
 void interfaces::impl::init( )
 {
+	find_interfaces( );
+
+	engine_client = reinterpret_cast< sdk::i_engine_client* >( interfaces[ fnv( "VEngineClient013" ) ] );
+}
+
+void interfaces::impl::shutdown( ) { }
+
+void interfaces::impl::find_interfaces( )
+{
 	std::vector< const char* > needed_modules = {
-		//		"client.dll",
+		"client.dll",
 		"engine.dll",
-		//		"localize.dll",
-		//		"materialsystem.dll",
-		//		"vguimatsurface.dll",
-		//		"vgui2.dll",
-		//		"shaderapidx9.dll",
-		//		"gameoverlayrenderer.dll",
-		//		"vphysics.dll",
-		//		"vstdlib.dll",
-		//		"tier0.dll",
-		//		"inputsystem.dll",
-		//		"studiorender.dll",
-		//		"datacache.dll",
-		//		"steam_api.dll",
-		//		"matchmaking.dll",
-		//		"server.dll",
-		//		"serverbrowser.dll",
-		//		"filesystem_stdio.dll",
+		"localize.dll",
+		"materialsystem.dll",
+		"vguimatsurface.dll",
+		"vgui2.dll",
+		"shaderapidx9.dll",
+		"gameoverlayrenderer.dll",
+		"vphysics.dll",
+		"vstdlib.dll",
+		"tier0.dll",
+		"inputsystem.dll",
+		"studiorender.dll",
+		"datacache.dll",
+		"steam_api.dll",
+		"matchmaking.dll",
+		"server.dll",
+		"serverbrowser.dll",
+		"filesystem_stdio.dll",
 	};
 
 	for ( auto& module : needed_modules ) {
 		auto create_interface = reinterpret_cast< std::uintptr_t >( get_proc_address( get_module_handle( module ), "CreateInterface" ) );
+
+		if ( !create_interface )
+			continue;
 
 		while ( *reinterpret_cast< std::uint8_t* >( create_interface ) != 0xE9 )
 			++create_interface;
@@ -53,8 +65,6 @@ void interfaces::impl::init( )
 		}
 	}
 }
-
-void interfaces::impl::shutdown( ) { }
 
 std::uintptr_t interfaces::impl::jump_address( std::uintptr_t address )
 {

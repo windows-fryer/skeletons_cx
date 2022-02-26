@@ -2,7 +2,9 @@
 
 void cheat::init( )
 {
-	modules::init();
+	modules::init( );
+	console::init( );
+
 	g_interfaces.init( );
 }
 

@@ -4,7 +4,9 @@
 #include "snakeify.hpp"
 
 #include "interfaces/interfaces.hpp"
+
 #include "../helpers/modules/modules.hpp"
+#include "../helpers/console/console.hpp"
 
 #include "../sdk/include.hpp"
 
