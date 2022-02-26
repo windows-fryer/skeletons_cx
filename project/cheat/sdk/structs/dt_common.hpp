@@ -130,8 +130,8 @@ public:
 			//m_vector[0], m_vector[1] );
 			break;
 		case dpt_string :
-			if ( m_p_string )
-				return m_p_string;
+			if ( string )
+				return string;
 			else
 				return "null";
 			break;
@@ -153,8 +153,8 @@ public:
 	{
 		float	m_float;
 		int		m_int;
-		const char	*m_p_string;
-		void	*m_p_data;	// for data_tables.
+		const char	*string;
+		void	*data;	// for data_tables.
 		float	m_vector[3];
 	};
 	send_prop_type	m_type;
