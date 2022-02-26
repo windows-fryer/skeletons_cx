@@ -11,3 +11,5 @@ void modules::init( )
 	filesystem_stdio_dll = module( "filesystem_stdio.dll" );
 	server_dll           = module( "server.dll" );
 };
+
+void modules::shutdown( ) { }

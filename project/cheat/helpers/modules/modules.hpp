@@ -22,12 +22,13 @@ namespace modules
 			// ASSERT( module_handle )
 		}
 
-		patternscan::address pattern_scan(std::string_view sig){
-			const auto module_address   = reinterpret_cast< std::uint8_t* >( module_handle );
-			const auto dos_header       = reinterpret_cast< PIMAGE_DOS_HEADER >( module_handle );
-			const auto nt_headers       = reinterpret_cast< PIMAGE_NT_HEADERS >( module_address + dos_header->e_lfanew );
-			
-			return g_patternscan.find_pattern( module_address, nt_headers->OptionalHeader.SizeOfImage, sig.data());
+		patternscan::address pattern_scan( std::string_view sig )
+		{
+			const auto module_address = reinterpret_cast< std::uint8_t* >( module_handle );
+			const auto dos_header     = reinterpret_cast< PIMAGE_DOS_HEADER >( module_handle );
+			const auto nt_headers     = reinterpret_cast< PIMAGE_NT_HEADERS >( module_address + dos_header->e_lfanew );
+
+			return g_patternscan.find_pattern( module_address, nt_headers->OptionalHeader.SizeOfImage, sig.data( ) );
 		}
 		std::string get_module_name( )
 		{
@@ -50,6 +51,7 @@ namespace modules
 	};
 
 	void init( );
+	void shutdown( );
 
 } // namespace modules
 

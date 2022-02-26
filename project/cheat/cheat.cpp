@@ -10,5 +10,8 @@ void cheat::init( )
 
 void cheat::shutdown( )
 {
+	modules::shutdown( );
+	console::shutdown( );
+
 	g_interfaces.shutdown( );
 }
