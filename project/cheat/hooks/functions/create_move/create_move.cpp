@@ -7,8 +7,7 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	auto command  = &g_interfaces.input->get_cmds( )[ sequence_number % 90 ];
 	auto verified = &g_interfaces.input->get_verified_cmds( )[ sequence_number % 90 ];
 
-	if ( !command || !verified )
-		return;
+	[[unlikely]] if ( !command || !verified ) return;
 
 	std::uintptr_t* _ebp;
 	__asm mov _ebp, ebp;
