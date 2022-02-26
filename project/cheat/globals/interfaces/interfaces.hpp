@@ -27,6 +27,7 @@ namespace interfaces
 
 	public:
 		sdk::i_engine_client* engine_client;
+		sdk::i_base_client_dll* base_client;
 
 		void init( );
 		void shutdown( );

@@ -5,6 +5,7 @@ void interfaces::impl::init( )
 	find_interfaces( );
 
 	engine_client = reinterpret_cast< sdk::i_engine_client* >( interfaces[ fnv( "VEngineClient013" ) ] );
+	base_client   = reinterpret_cast< sdk::i_base_client_dll* >( interfaces[ fnv( "VClient017" ) ] );
 }
 
 void interfaces::impl::shutdown( ) { }
