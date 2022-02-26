@@ -6,6 +6,7 @@
 #define SKELETONS_CX_C_BASE_ENTITY_HPP
 
 #include "../../helpers/netvars/netvars.hpp"
+#include "../../helpers/signatures/signatures.hpp"
 
 #include "i_client_entity.hpp"
 #include "vector.hpp"
@@ -56,9 +57,15 @@ namespace sdk
 		NETVAR( model_index_overrides, void*, "CBaseEntity", "m_nModelIndexOverrides" );
 		NETVAR( movetype, int, "CBaseEntity", "movetype" );
 
-		void get_bone_position( std::uint32_t bone_index, vector* position, qangle* angles );
+		void get_bone_position( std::uint32_t bone_index, vector* position, qangle* angles ){ };
 
-		bool is_player( );
+		bool is_player( )
+		{
+			static auto is_player_address = g_signatures[ "B0 ? C3 CC CC CC CC CC CC CC CC CC CC CC CC CC 55 8B EC 56" ].as< std::uintptr_t >( );
+			using is_player_type          = bool( __thiscall* )( void* );
+
+			return reinterpret_cast< is_player_type >( is_player_address )( this );
+		}
 	};
 } // namespace sdk
 
