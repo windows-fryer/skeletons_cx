@@ -7,7 +7,7 @@ namespace sdk
 {
 	struct c_tf_medigun : public c_tf_weapon_base {
 	public:
-		NETVAR( healting_target, c_base_handle, "CWeaponMedigun", "m_hHealingTarget" );
+		NETVAR( healing_target, c_base_handle, "CWeaponMedigun", "m_hHealingTarget" );
 		NETVAR( healing, bool, "CWeaponMedigun", "m_bHealing" );
 		NETVAR( attacking, bool, "CWeaponMedigun", "m_bAttacking" );
 		NETVAR( charge_release, bool, "CWeaponMedigun", "m_bChargeRelease" );
