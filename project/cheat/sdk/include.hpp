@@ -10,6 +10,8 @@
 #include "interfaces/i_client_mode.hpp"
 #include "interfaces/i_engine_client.hpp"
 
+#include "structs/c_base_entity.hpp"
+
 #include "structs/color.hpp"
 #include "structs/matrix.hpp"
 #include "structs/qangle.hpp"

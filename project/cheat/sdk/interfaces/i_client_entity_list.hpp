@@ -33,13 +33,13 @@ namespace sdk
 
 		// fo' da cultua!
 		template< class T >
-		T* operator[]( const std::uint32_t& index )
+		T* get( const std::uint32_t& index )
 		{
 			return ( T* )get_client_entity( index );
 		}
 
 		template< class T >
-		T* operator[]( c_base_handle handle )
+		T* get( c_base_handle handle )
 		{
 			return ( T* )get_client_entity_from_handle( handle );
 		}
