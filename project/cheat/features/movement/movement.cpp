@@ -48,4 +48,7 @@ void movement::impl::move_fix( sdk::c_user_cmd* cmd, const sdk::qangle& old_angl
 	cmd->forward_move = std::clamp( x, -max_forward_speed, max_forward_speed );
 	cmd->side_move    = std::clamp( y, -max_side_speed, max_side_speed );
 	cmd->up_move      = std::clamp( z, -max_up_speed, max_up_speed );
+
+	// not really needed
+	cmd->view_angles.normalize( );
 }
