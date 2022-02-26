@@ -15,6 +15,9 @@ namespace globals
 	struct impl {
 	public:
 		sdk::c_user_cmd* command;
+
+		sdk::c_tf_player* local;
+		sdk::c_tf_weapon_base* local_weapon;
 	};
 } // namespace globals
 
