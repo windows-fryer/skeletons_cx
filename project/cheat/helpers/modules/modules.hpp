@@ -21,7 +21,7 @@ namespace modules
 			// todo: add assertion
 			// ASSERT( module_handle )
 		}
-
+		
 		patternscan::address pattern_scan( std::string_view sig )
 		{
 			const auto module_address = reinterpret_cast< std::uint8_t* >( module_handle );
