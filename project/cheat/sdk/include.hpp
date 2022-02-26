@@ -12,7 +12,7 @@
 #include "interfaces/i_engine_client.hpp"
 #include "interfaces/i_input.hpp"
 
-#include "structs/c_base_entity.hpp"
+#include "structs/c_tf_player.hpp"
 #include "structs/c_user_cmd.hpp"
 
 #include "structs/color.hpp"
