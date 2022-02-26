@@ -9,6 +9,8 @@
 #include "interfaces/i_client_entity_list.hpp"
 #include "interfaces/i_client_mode.hpp"
 #include "interfaces/i_engine_client.hpp"
+#include "interfaces/i_debug_overlay.hpp"
+
 
 #include "structs/c_base_entity.hpp"
 

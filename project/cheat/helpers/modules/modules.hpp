@@ -55,7 +55,7 @@ namespace modules
 
 } // namespace modules
 
-inline modules::module client_dll{ }, engine_dll{ }, materialsystem_dll{ }, vguimatsurface_dll{ }, inputsystem_dll{ }, studiorender_dll{ },
-	filesystem_stdio_dll{ }, server_dll{ };
+inline modules::module g_client_dll{ }, g_engine_dll{ }, g_materialsystem_dll{ }, g_vguimatsurface_dll{ }, g_inputsystem_dll{ },
+	g_studiorender_dll{ }, g_filesystem_stdio_dll{ }, g_server_dll{ };
 
 #endif // SKELETONS_CX_MODULES_HPP

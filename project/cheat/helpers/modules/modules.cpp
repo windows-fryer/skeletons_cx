@@ -2,14 +2,14 @@
 
 void modules::init( )
 {
-	client_dll           = module( "client.dll" );
-	engine_dll           = module( "engine.dll" );
-	materialsystem_dll   = module( "materialsystem.dll" );
-	vguimatsurface_dll   = module( "vguimatsurface.dll" );
-	inputsystem_dll      = module( "inputsystem.dll" );
-	studiorender_dll     = module( "studiorender.dll" );
-	filesystem_stdio_dll = module( "filesystem_stdio.dll" );
-	server_dll           = module( "server.dll" );
+	g_client_dll           = module( "client.dll" );
+	g_engine_dll           = module( "engine.dll" );
+	g_materialsystem_dll   = module( "materialsystem.dll" );
+	g_vguimatsurface_dll   = module( "vguimatsurface.dll" );
+	g_inputsystem_dll      = module( "inputsystem.dll" );
+	g_studiorender_dll     = module( "studiorender.dll" );
+	g_filesystem_stdio_dll = module( "filesystem_stdio.dll" );
+	g_server_dll           = module( "server.dll" );
 };
 
 void modules::shutdown( ) { }

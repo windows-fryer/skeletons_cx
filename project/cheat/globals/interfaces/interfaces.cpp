@@ -7,6 +7,8 @@ void interfaces::impl::init( )
 	engine_client = reinterpret_cast< sdk::i_engine_client* >( interfaces[ fnv( "VEngineClient013" ) ] );
 	base_client   = reinterpret_cast< sdk::i_base_client_dll* >( interfaces[ fnv( "VClient017" ) ] );
 	entity_list   = reinterpret_cast< sdk::i_client_entity_list* >( interfaces[ fnv( "VClientEntityList003" ) ] );
+	debug_overlay = reinterpret_cast< sdk::i_debug_overlay* >( interfaces[ fnv( "VDebugOverlay003" ) ] );
+
 }
 
 void interfaces::impl::shutdown( ) { }
