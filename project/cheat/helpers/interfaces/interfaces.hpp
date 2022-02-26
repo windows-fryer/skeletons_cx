@@ -34,6 +34,7 @@ namespace interfaces
 		sdk::i_client_entity_list* entity_list;
 		sdk::i_debug_overlay* debug_overlay;
 		sdk::i_input* input;
+		sdk::i_con_var* cvar;
 
 		void init( );
 		void shutdown( );

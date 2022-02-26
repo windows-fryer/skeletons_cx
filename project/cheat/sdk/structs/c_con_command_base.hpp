@@ -5,8 +5,7 @@ namespace sdk
 
 	struct c_var_dll_identifier_t;
 
-	class con_command_base
-	{
+	struct con_command_base {
 	public:
 		virtual ~con_command_base( void );
 		virtual bool is_command( void ) const;

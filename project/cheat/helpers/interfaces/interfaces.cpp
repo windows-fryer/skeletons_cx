@@ -8,8 +8,10 @@ void interfaces::impl::init( )
 	base_client   = reinterpret_cast< sdk::i_base_client_dll* >( interfaces[ fnv( "VClient017" ) ] );
 	entity_list   = reinterpret_cast< sdk::i_client_entity_list* >( interfaces[ fnv( "VClientEntityList003" ) ] );
 	debug_overlay = reinterpret_cast< sdk::i_debug_overlay* >( interfaces[ fnv( "VDebugOverlay003" ) ] );
-	input         = g_signatures[ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75" ].add( 0x2 ).get( 2 ).as< sdk::i_input* >( );
-	client_mode   = g_signatures[ "8B 0D ? ? ? ? 8B 02 D9 05" ].add( 0x2 ).get( 2 ).as< sdk::i_client_mode* >( );
+	cvar          = reinterpret_cast< sdk::i_con_var* >( interfaces[ fnv( "VEngineCvar004" ) ] );
+
+	input       = g_signatures[ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75" ].add( 0x2 ).get( 2 ).as< sdk::i_input* >( );
+	client_mode = g_signatures[ "8B 0D ? ? ? ? 8B 02 D9 05" ].add( 0x2 ).get( 2 ).as< sdk::i_client_mode* >( );
 }
 
 void interfaces::impl::shutdown( ) { }

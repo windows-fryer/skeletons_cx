@@ -4,8 +4,7 @@
 #include "c_con_command_base.hpp"
 namespace sdk
 {
-	class c_con_var
-	{
+	struct c_con_var {
 	public:
 		virtual void set_value( const char* p_value ) = 0;
 		virtual void set_value( float fl_value )      = 0;
@@ -14,8 +13,7 @@ namespace sdk
 		virtual bool is_flag_set( int n_flag ) const  = 0;
 	};
 
-	class con_var : public con_command_base, public c_con_var
-	{
+	struct con_var : public con_command_base, public c_con_var {
 	public:
 		~con_var( void ) override;
 		bool is_flag_set( int flag ) const override;
