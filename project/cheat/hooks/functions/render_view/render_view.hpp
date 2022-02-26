@@ -3,8 +3,6 @@
 #include "../../../globals/globals.hpp"
 #include "../../hooks.hpp"
 
-// 27 or 28
-
 namespace hooks
 {
 	CREATE_HOOK_HELPER( override_view_hook, void( __fastcall )( void*, void*, int, float, bool ), void );
@@ -14,15 +12,12 @@ namespace hooks
 
 		static void init( )
 		{
-			std::uintptr_t* overrideview  = g_vfunc.get_virtual_function_index( g_interfaces.client_mode, 16 );
-			std::uintptr_t* overrideview1 = g_vfunc.get_virtual_function_index( g_interfaces.client_mode, 17 );
-			std::cout << "random shit to break on\n";
-			// render_view_hook.create( render_view_address, render_view_detour, "render_view_detour" );
+			std::uintptr_t* overrideview = g_vfunc.get_virtual_function_index( g_interfaces.client_mode, 16 );
 		}
 
 		static void shutdown( )
 		{
-			render_view_hook.disable( );
+			override_view_hook.disable( );
 		}
 	};
 } // namespace hooks

@@ -1,9 +1,9 @@
 #ifndef SKELETONS_CX_HITBOXES_HPP
 #define SKELETONS_CX_HITBOXES_HPP
 
-namespace sdk{
-	enum hitboxes
-	{
+namespace sdk
+{
+	enum hitboxes {
 		hitbox_head,
 		hitbox_neck,
 		hitbox_pelvis,
@@ -25,6 +25,6 @@ namespace sdk{
 		hitbox_left_forearm,
 		hitbox_max
 	};
-}
+} // namespace sdk
 
 #endif // SKELETONS_CX_HITBOXES_HPP
