@@ -11,9 +11,8 @@ void interfaces::impl::init( )
 	cvar          = reinterpret_cast< sdk::i_con_var* >( interfaces[ fnv( "VEngineCvar004" ) ] );
 	model_info    = reinterpret_cast< sdk::i_model_info* >( interfaces[ fnv( "VModelInfoClient006" ) ] );
 	render_view   = reinterpret_cast< sdk::i_render_view* >( interfaces[ fnv( "VEngineRenderView014" ) ] );
-	prediction    = reinterpret_cast< sdk::i_prediction* >( interfaces[ fnv( "VClientPrediction001" ) ] );
+	prediction    = reinterpret_cast< sdk::c_prediction* >( interfaces[ fnv( "VClientPrediction001" ) ] );
 	game_movement = reinterpret_cast< sdk::i_game_movement* >( interfaces[ fnv( "GameMovement001" ) ] );
-	// move_helper   = reinterpret_cast< sdk::i_move_helper* >( interfaces[ fnv( "GameMovement001" ) ] );
 
 	input       = g_signatures[ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75" ].add( 0x2 ).get( 2 ).as< sdk::i_input* >( );
 	move_helper = g_signatures[ "8B 0D ? ? ? ? 8B 46 08 68 ? ? ? ? 05 ? ? ? ? 8B 11 50" ].add( 0x2 ).get( 2 ).as< sdk::i_move_helper* >( );

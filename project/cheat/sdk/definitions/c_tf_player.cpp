@@ -3,12 +3,12 @@
 
 
 void sdk::c_tf_player::pre_think( ) {
-	(g_client_dll.pattern_scan("56 8B F1 8B 06 FF 90 ? ? ? ? 8B 06 8B CE FF 90 ? ? ? ? 8B CE").as<void(__thiscall*)(void*)>())
-		(this);
+	static auto fucking_sig = (g_client_dll.pattern_scan("56 8B F1 8B 06 FF 90 ? ? ? ? 8B 06 8B CE FF 90 ? ? ? ? 8B CE").as<void(__thiscall*)(void*)>());
+	fucking_sig(this);
 }
 
 void sdk::c_tf_player::post_think( )
 {
-	(g_client_dll.pattern_scan("53 56 8B 35 ? ? ? ? 8B D9 8B CE 8B 06").as<void(__thiscall*)(void*)>())
-		(this);
+	static auto fucking_sig = (g_client_dll.pattern_scan("53 56 8B 35 ? ? ? ? 8B D9 8B CE 8B 06").as<void(__thiscall*)(void*)>());
+	fucking_sig(this);
 }
