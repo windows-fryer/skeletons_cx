@@ -38,7 +38,10 @@ namespace interfaces
 		sdk::i_con_var* cvar;
 		sdk::i_model_info* model_info;
 		sdk::i_net_channel* net_channel;
-		
+		sdk::i_prediction* prediction;
+		sdk::i_game_movement* game_movement;
+		sdk::i_move_helper* move_helper;
+
 		IDirect3DDevice9* device;
 		sdk::i_global_vars_base* globals;
 		sdk::i_render_view* render_view;

@@ -20,29 +20,29 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 		g_interfaces.net_channel = net_chan;
 	}
 
+	auto local_player = g_interfaces.entity_list->get< sdk::c_tf_player >( g_interfaces.engine_client->get_local_player( ) );
+
+	const sdk::qangle old_angle = command->view_angles;
+	g_globals.command           = command;
 	g_antiaim.fakelag( command, send_packet );
 
-	g_globals.command           = command;
-	const sdk::qangle old_angle = command->view_angles;
+	g_prediction.start(command, local_player);{
+		for ( int index = 0; index < 65; index++ ) {
+			auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( index );
 
-	for ( int index = 0; index < 65; index++ ) {
-		auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( index );
+			if ( !entity || !entity->is_player( ) || !entity->is_alive( ) || entity->entindex( ) == local_player->entindex( ) )
+				continue;
 
-		if ( !entity || !entity->is_player( ) || entity->entindex( ) == g_interfaces.engine_client->get_local_player( ) )
-			continue;
+			sdk::vector hitbox_position = entity->get_hitbox_position( 0 );
+			sdk::qangle angle_to_entity = math::vector_to_angle( hitbox_position - ( local_player->origin( ) + local_player->view_offset( ) ) );
 
-		auto weapon_handle = entity->active_weapon( );
+			command->view_angles = angle_to_entity;
 
-		if ( !weapon_handle.index )
-			continue;
-
-		auto weapon = g_interfaces.entity_list->get< sdk::c_tf_weapon_base >( weapon_handle );
-
-		if ( !weapon )
-			continue;
-
-		// std::cout << entity->life_state( ) << '\n';
+			// std::cout << entity->life_state( ) << '\n';
+		}
 	}
+	g_prediction.finish(command, local_player);
+
 
 	command->view_angles.normalize( );
 

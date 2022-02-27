@@ -73,6 +73,9 @@ namespace sdk
 
 		std::string name( );
 
+		vector get_hitbox_position(const std::uint32_t hitbox);
+
+
 		bool is_alive( )
 		{
 			return !deadflag( ) && health( ) > 0;

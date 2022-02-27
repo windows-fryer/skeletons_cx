@@ -175,6 +175,9 @@ namespace sdk
 		NETVAR( campaign_medals, int, "CTFPlayer", "m_iCampaignMedals" );
 		NETVAR( player_skin_override, int, "CTFPlayer", "m_iPlayerSkinOverride" );
 		NETVAR( viewing_cyoapda, bool, "CTFPlayer", "m_bViewingCYOAPDA" );
+
+		void post_think( );
+		void pre_think( );
 	};
 } // namespace sdk
 
