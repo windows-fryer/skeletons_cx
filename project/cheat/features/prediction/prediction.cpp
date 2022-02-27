@@ -7,11 +7,9 @@ void prediction::impl::start( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )
 	pred_backup.tick_count = g_interfaces.globals->tick_count;
 	pred_backup.tick_base  = entity->tick_base( );
 
-
-
-	*reinterpret_cast<sdk::c_user_cmd**>(reinterpret_cast<uint32_t>(entity) + 0x107C) = cmd;
-	set_prediction_player(entity);
-	set_prediction_random_seed(cmd);
+	*reinterpret_cast< sdk::c_user_cmd** >( reinterpret_cast< uint32_t >( entity ) + 0x107C ) = cmd;
+	set_prediction_player( entity );
+	set_prediction_random_seed( cmd );
 
 	const int tick_base = entity->tick_base( );
 
@@ -32,12 +30,12 @@ void prediction::impl::start( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )
 
 	g_interfaces.game_movement->start_track_prediction_errors( entity );
 
-	//g_interfaces.prediction->check_moving_ground( entity, g_interfaces.globals->frame_count );
+	// g_interfaces.prediction->check_moving_ground( entity, g_interfaces.globals->frame_count );
 	g_interfaces.prediction->set_local_view_angles( cmd->view_angles ); // not always wanted
 
 	entity->pre_think( );
 
-	g_interfaces.move_helper->set_host( entity );
+	//g_interfaces.move_helper->set_host( entity );
 
 	g_interfaces.prediction->setup_move( entity, cmd, g_interfaces.move_helper, &move_data );
 	g_interfaces.game_movement->process_movement( entity, &move_data );
@@ -64,15 +62,21 @@ void prediction::impl::finish( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )
 
 	reset( );
 }
-void prediction::impl::set_prediction_random_seed( sdk::c_user_cmd* cmd ) {
-	(g_client_dll.pattern_scan("55 8B EC 8B 45 ? 85 C0 75 ? C7 05").as<void(*)(sdk::c_user_cmd*)>())(cmd);
+
+void prediction::impl::set_prediction_random_seed( sdk::c_user_cmd* cmd )
+{
+	( g_client_dll.pattern_scan( "55 8B EC 8B 45 ? 85 C0 75 ? C7 05" ).as< void ( * )( sdk::c_user_cmd* ) >( ) )( cmd );
 }
 
-void prediction::impl::set_prediction_player( sdk::c_tf_player* entity ){
-	*g_client_dll.pattern_scan("83 3D ? ? ? ? ? 74 ? 6A ? 50").add(2).get(1).as<sdk::c_tf_player*>() = *entity;
+void prediction::impl::set_prediction_player( sdk::c_tf_player* entity )
+{
+	static auto predicted_player = *reinterpret_cast<sdk::c_tf_player**>(g_client_dll.pattern_scan( "83 3D ? ? ? ? ? 74 ? 6A ? 50" ).as< uintptr_t >( ));
+	predicted_player = entity;
+
 }
 
-void prediction::impl::reset(){
-	//68 ? ? ? ? 6A ? 68 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 ? C3
-	(g_client_dll.pattern_scan("68 ? ? ? ? 6A ? 68 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 ? C3").as<void(*)()>())();
+void prediction::impl::reset( )
+{
+	// 68 ? ? ? ? 6A ? 68 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 ? C3
+	( g_client_dll.pattern_scan( "68 ? ? ? ? 6A ? 68 ? ? ? ? C7 05 ? ? ? ? ? ? ? ? E8 ? ? ? ? 83 C4 ? C3" ).as< void ( * )( ) >( ) )( );
 }
