@@ -10,11 +10,32 @@ namespace entity_list
 		int index;
 	};
 
+	struct dormant_info {
+	public:
+		sdk::vector last_position{ };
+
+		sdk::vector vouchable_position{ };
+
+		int vouchable_tick{ };
+		int found_tick{ };
+
+		bool valid{ };
+	};
+
 	struct player {
 	public:
-		int index;
+		std::string name{ };
 
-		std::string name;
+		sdk::vector mins{ };
+		sdk::vector maxs{ };
+
+		sdk::matrix_3x4 rgfl{ };
+
+		int index{ };
+
+		bool valid{ };
+
+		dormant_info dormant_info{ };
 	};
 
 	struct building {
@@ -24,8 +45,8 @@ namespace entity_list
 
 	struct impl {
 	public:
-		std::vector< player > players;
-		std::vector< building > buildings;
+		std::array< player, 65 > players;
+		std::array< building, 65 > buildings;
 
 		void update( );
 	};

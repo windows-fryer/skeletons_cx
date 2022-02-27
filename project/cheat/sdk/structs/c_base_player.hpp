@@ -70,9 +70,12 @@ namespace sdk
 		NETVAR( buttons, int, "CBasePlayer", "m_nButtons" );
 		NETVAR( f_button_pressed, int, "CBasePlayer", "m_afButtonPressed" );
 		NETVAR( f_button_released, int, "CBasePlayer", "m_afButtonReleased" );
+
+		std::string name( );
+
 		bool is_alive( )
 		{
-			return health( ) > 0;
+			return !deadflag( ) && health( ) > 0;
 		}
 	};
 } // namespace sdk

@@ -65,7 +65,7 @@ namespace sdk
 		                                     vector* p_lighting_center )                          = 0;
 
 		virtual int get_model_contents( int model_index )                 = 0;
-		virtual studio_hdr_t* get_studiomodel( const model_t* mod )       = 0;
+		virtual studio_hdr_t* get_studio_model( const model_t* mod )      = 0;
 		virtual int get_model_sprite_width( const model_t* model ) const  = 0;
 		virtual int get_model_sprite_height( const model_t* model ) const = 0;
 

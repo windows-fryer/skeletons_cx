@@ -9,6 +9,7 @@
 #include "../../helpers/signatures/signatures.hpp"
 
 #include "i_client_entity.hpp"
+#include "matrix.hpp"
 #include "var_mapping.hpp"
 #include "vector.hpp"
 
@@ -58,7 +59,20 @@ namespace sdk
 		NETVAR( model_index_overrides, void*, "CBaseEntity", "m_nModelIndexOverrides" );
 		NETVAR( movetype, int, "CBaseEntity", "movetype" );
 
-		void get_bone_position( std::uint32_t bone_index, vector* position, qangle* angles ){ };
+		sdk::vector get_bone_position( std::uint32_t bone_index )
+		{
+			if ( sdk::matrix_3x4 matrix[ 128 ]; setup_bones( matrix, 128, 256, 0.f ) ) {
+				auto bone_matrix = matrix[ bone_index ];
+
+				return {
+					bone_matrix[ 0 ][ 3 ],
+					bone_matrix[ 1 ][ 3 ],
+					bone_matrix[ 2 ][ 3 ],
+				};
+			}
+
+			return { };
+		};
 
 		bool is_player( )
 		{
@@ -77,6 +91,14 @@ namespace sdk
 		{
 			return reinterpret_cast< var_mapping* >( reinterpret_cast< std::uintptr_t >( this ) + 0x14 );
 		}
+
+		int max_health( );
+
+		matrix_3x4& rgfl_coordinate_frame( );
+
+		void set_abs_origin( sdk::vector& position );
+
+		void invalidate_bone_cache( );
 	};
 } // namespace sdk
 

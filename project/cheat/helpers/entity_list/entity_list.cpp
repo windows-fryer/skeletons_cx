@@ -2,9 +2,6 @@
 
 void entity_list::impl::update( )
 {
-	players.clear( );
-	buildings.clear( );
-
 	g_globals.local        = nullptr;
 	g_globals.local_weapon = nullptr;
 
@@ -27,32 +24,41 @@ void entity_list::impl::update( )
 	if ( !local_player_entity )
 		return;
 
-	for ( int index = 0; index < g_interfaces.entity_list->get_highest_entity_index( ); index++ ) {
-		auto entity = g_interfaces.entity_list->get< sdk::c_base_entity >( index );
+	for ( int iterator = 0; iterator < 65; iterator++ ) {
+		auto player = g_interfaces.entity_list->get< sdk::c_tf_player >( iterator );
 
-		if ( !entity )
+		auto& player_info = players[ iterator ];
+
+		player_info.valid = false;
+
+		if ( !player || player == g_globals.local )
 			continue;
 
-		if ( index == local_player_index )
-			continue;
+		if ( player->is_player( ) ) {
+			player_info.dormant_info.valid = false;
 
-		if ( entity->is_dormant( ) )
-			continue;
+			if ( !player->is_alive( ) )
+				continue;
 
-		if ( entity->is_player( ) ) {
-			auto player_entity = reinterpret_cast< sdk::c_tf_player* >( entity );
+			if ( player->is_dormant( ) ) {
+				if ( ticks_to_time( g_interfaces.globals->tick_count - player_info.dormant_info.found_tick ) < 3.f )
+					player_info.dormant_info.valid = true;
 
-			if ( player_entity->is_alive( ) && player_entity->is_enemy( local_player_entity ) ) {
-				sdk::player_info player_info;
-
-				g_interfaces.engine_client->get_player_info( player_entity->entindex( ), &player_info );
-
-				if ( player_info.name ) {
-					auto new_player = player{ player_entity->entindex( ), std::string( player_info.name ) };
-
-					players.push_back( new_player );
-				}
+				continue;
 			}
+
+			if ( !player->is_enemy( g_globals.local ) )
+				continue;
+
+			player_info.valid = true;
+			player_info.name  = player->name( );
+			player_info.index = iterator;
+
+			player_info.dormant_info.last_position = player->get_abs_origin( );
+			player_info.dormant_info.found_tick    = g_interfaces.globals->tick_count;
+
+			player_info.dormant_info.vouchable_position = player->get_abs_origin( );
+			player_info.dormant_info.vouchable_tick     = g_interfaces.globals->tick_count;
 		}
 	}
 }

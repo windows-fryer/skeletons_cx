@@ -38,6 +38,8 @@ namespace interfaces
 		sdk::i_con_var* cvar;
 		sdk::i_model_info* model_info;
 		IDirect3DDevice9* device;
+		sdk::i_global_vars_base* globals;
+		sdk::i_render_view* render_view;
 
 		void init( );
 		void shutdown( );

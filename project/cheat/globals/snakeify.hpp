@@ -16,6 +16,9 @@
 #define close_handle                     CloseHandle
 #define free_console                     FreeConsole
 
+#define time_to_ticks( time )  static_cast< std::int32_t >( 0.5f + time / g_interfaces.globals->interval_per_tick )
+#define ticks_to_time( ticks ) static_cast< float >( ticks ) * g_interfaces.globals->interval_per_tick
+
 #define ROUND_UP( value ) static_cast< int >( static_cast< float >( value ) + 0.5f )
 #define DEVICE_SAFETY( )                                                                                                                             \
 	if ( !render::device ) {                                                                                                                         \

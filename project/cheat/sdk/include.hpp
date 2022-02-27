@@ -13,8 +13,10 @@
 #include "interfaces/i_cvar.hpp"
 #include "interfaces/i_debug_overlay.hpp"
 #include "interfaces/i_engine_client.hpp"
+#include "interfaces/i_global_vars_base.hpp"
 #include "interfaces/i_input.hpp"
 #include "interfaces/i_model_info.hpp"
+#include "interfaces/i_render_view.hpp"
 
 #include "structs/c_tf_knife.hpp"
 #include "structs/c_tf_medigun.hpp"
@@ -23,8 +25,10 @@
 #include "structs/c_tf_player.hpp"
 #include "structs/c_tf_sniper_rifle.hpp"
 #include "structs/c_user_cmd.hpp"
+#include "structs/i_collideable.hpp"
 #include "structs/player_info.hpp"
 
+#include "structs/box.hpp"
 #include "structs/color.hpp"
 #include "structs/matrix.hpp"
 #include "structs/qangle.hpp"

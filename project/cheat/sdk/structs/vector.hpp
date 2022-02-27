@@ -11,7 +11,7 @@ namespace sdk
 		float x{ }, y{ }, z{ };
 
 		vector( ) = default;
-		vector( float x, float y, float z ) : x( x ), y( y ), z( z ){ };
+		vector( float x, float y, float z = 0 ) : x( x ), y( y ), z( z ){ };
 
 		vector( float* v )
 		{

@@ -23,6 +23,9 @@ namespace globals
 
 		sdk::c_tf_player* local;
 		sdk::c_tf_weapon_base* local_weapon;
+
+		sdk::vector screen_size;
+		sdk::view_matrix view_matrix;
 	};
 } // namespace globals
 

@@ -10,10 +10,12 @@ void interfaces::impl::init( )
 	debug_overlay = reinterpret_cast< sdk::i_debug_overlay* >( interfaces[ fnv( "VDebugOverlay003" ) ] );
 	cvar          = reinterpret_cast< sdk::i_con_var* >( interfaces[ fnv( "VEngineCvar004" ) ] );
 	model_info    = reinterpret_cast< sdk::i_model_info* >( interfaces[ fnv( "VModelInfoClient006" ) ] );
+	render_view   = reinterpret_cast< sdk::i_render_view* >( interfaces[ fnv( "VEngineRenderView014" ) ] );
 
 	input       = g_signatures[ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75" ].add( 0x2 ).get( 2 ).as< sdk::i_input* >( );
 	client_mode = g_signatures[ "8B 0D ? ? ? ? 8B 02 D9 05" ].add( 0x2 ).get( 2 ).as< sdk::i_client_mode* >( );
 	device      = g_signatures[ "A1 ? ? ? ? 50 8B 08 FF 51 0C" ].add( 0x1 ).get( 2 ).as< IDirect3DDevice9* >( );
+	globals     = g_signatures[ "68 ? ? ? ? 50 50 FF 12" ].add( 0x1 ).get( 1 ).as< sdk::i_global_vars_base* >( );
 }
 
 void interfaces::impl::shutdown( ) { }
