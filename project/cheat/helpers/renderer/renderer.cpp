@@ -52,6 +52,8 @@ void render::impl::setup_state( )
 	device->SetRenderState( D3DRS_COLORWRITEENABLE,
 	                        D3DCOLORWRITEENABLE_RED | D3DCOLORWRITEENABLE_GREEN | D3DCOLORWRITEENABLE_BLUE | D3DCOLORWRITEENABLE_ALPHA );
 
+	device->SetTexture( 0, nullptr );
+
 	device->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
 	device->SetTextureStageState( 0, D3DTSS_COLORARG1, D3DTA_TEXTURE );
 	device->SetTextureStageState( 0, D3DTSS_COLORARG2, D3DTA_DIFFUSE );
