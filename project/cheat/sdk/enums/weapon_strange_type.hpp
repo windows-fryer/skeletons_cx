@@ -4,9 +4,9 @@
 namespace sdk
 {
 	enum weapon_strange_type {
-		STRANGE_UNKNOWN     = -1,
-		STRANGE_NOT_STRANGE = 0,
-		STRANGE_IS_STRANGE  = 1,
+		strange_unknown     = -1,
+		strange_not_strange = 0,
+		strange_is_strange  = 1,
 	};
 } // namespace sdk
 

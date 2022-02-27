@@ -16,7 +16,7 @@ namespace sdk
 {
 	struct model_t;
 	struct i_material;
-	struct player_info_t;
+	struct player_info;
 	struct key_values;
 
 	struct i_material_system;
@@ -54,7 +54,7 @@ namespace sdk
 		virtual void client_cmd( const char* sz_cmd_string ) = 0;
 
 		// fill in the player info structure for the specified player index (name, model, etc.)
-		virtual bool get_player_info( int ent_num, player_info_t* pinfo ) = 0;
+		virtual bool get_player_info( int ent_num, player_info* pinfo ) = 0;
 
 		// retrieve the player entity number for a specified user_id
 		virtual int get_player_for_user_id( int user_id ) = 0;

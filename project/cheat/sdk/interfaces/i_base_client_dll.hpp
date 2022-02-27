@@ -96,7 +96,7 @@ namespace sdk
 		virtual void encode_user_cmd_to_buffer( bf_write& buf, int slot )  = 0;
 		virtual void decode_user_cmd_from_buffer( bf_read& buf, int slot ) = 0;
 
-		// set up and render one or more views (e.g., rear view window, etc.).  this called into render_view below
+		// set up and render one or more views (e.g., rear view window, etc.).  this called into override_view below
 		virtual void view_render( vrect_t* rect ) = 0;
 
 		// allow engine to expressly render a view (e.g., during timerefresh)

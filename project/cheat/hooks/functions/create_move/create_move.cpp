@@ -35,6 +35,7 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	}
 
 	command->view_angles.normalize( );
+
 	g_movement.move_fix( command, old_angle );
 
 	verified->cmd = *command;

@@ -21,6 +21,7 @@
 #include "structs/c_tf_player.hpp"
 #include "structs/c_tf_sniper_rifle.hpp"
 #include "structs/c_user_cmd.hpp"
+#include "structs/player_info.hpp"
 
 #include "structs/color.hpp"
 #include "structs/matrix.hpp"

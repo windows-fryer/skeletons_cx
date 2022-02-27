@@ -1,6 +1,7 @@
 #ifndef SKELETONS_CX_C_BASE_PLAYER_HPP
 #define SKELETONS_CX_C_BASE_PLAYER_HPP
 
+#include "../enums/life_state.hpp"
 #include "c_base_combat_character.hpp"
 
 namespace sdk
@@ -55,7 +56,7 @@ namespace sdk
 		NETVAR( vehicle, c_base_handle, "CBasePlayer", "m_hVehicle" );
 		NETVAR( use_entity, c_base_handle, "CBasePlayer", "m_hUseEntity" );
 		NETVAR( health, int, "CBasePlayer", "m_iHealth" );
-		NETVAR( life_state, std::byte, "CBasePlayer", "m_lifeState" );
+		NETVAR( life_state, sdk::life_state, "CBasePlayer", "m_lifeState" );
 		NETVAR( bonus_progress, int, "CBasePlayer", "m_iBonusProgress" );
 		NETVAR( bonus_challenge, int, "CBasePlayer", "m_iBonusChallenge" );
 		NETVAR( maxspeed, float, "CBasePlayer", "m_flMaxspeed" );
@@ -69,6 +70,11 @@ namespace sdk
 		NETVAR( buttons, int, "CBasePlayer", "m_nButtons" );
 		NETVAR( f_button_pressed, int, "CBasePlayer", "m_afButtonPressed" );
 		NETVAR( f_button_released, int, "CBasePlayer", "m_afButtonReleased" );
+
+		bool is_alive( )
+		{
+			return health( ) > 0;
+		}
 	};
 } // namespace sdk
 

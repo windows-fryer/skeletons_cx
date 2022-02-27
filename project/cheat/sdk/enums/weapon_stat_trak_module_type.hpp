@@ -4,9 +4,9 @@
 namespace sdk
 {
 	enum weapon_stat_trak_module_type {
-		MODULE_UNKNOWN = -1,
-		MODULE_NONE    = 0,
-		MODULE_FOUND   = 1,
+		module_unknown = -1,
+		module_none    = 0,
+		module_found   = 1,
 	};
 } // namespace sdk
 

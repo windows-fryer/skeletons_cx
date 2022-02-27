@@ -5,11 +5,11 @@ namespace sdk
 {
 
 	enum life_state {
-		LIFE_ALIVE = 0,
-		LIFE_DYING,
-		LIFE_DEAD,
-		LIFE_RESPAWNABLE,
-		LIFE_DISCARDBODY
+		life_alive = 0,
+		life_dying,
+		life_dead,
+		life_respawnable,
+		life_discardbody
 	};
 
 } // namespace sdk

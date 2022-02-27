@@ -13,6 +13,8 @@ namespace entity_list
 	struct player {
 	public:
 		int index;
+
+		std::string name;
 	};
 
 	struct building {
@@ -28,5 +30,7 @@ namespace entity_list
 		void update( );
 	};
 } // namespace entity_list
+
+inline entity_list::impl g_entity_list;
 
 #endif // SKELETONS_CX_ENTITY_LIST_HPP

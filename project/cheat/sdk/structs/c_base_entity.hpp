@@ -66,6 +66,11 @@ namespace sdk
 
 			return reinterpret_cast< is_player_type >( is_player_address )( this );
 		}
+
+		bool is_enemy( c_base_entity* entity )
+		{
+			return entity->team_num( ) != team_num( );
+		}
 	};
 } // namespace sdk
 
