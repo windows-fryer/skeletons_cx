@@ -12,18 +12,19 @@ namespace sdk
 
 		vector( ) = default;
 		vector( float x, float y, float z ) : x( x ), y( y ), z( z ){ };
-		vector(float* v)
+
+		vector( float* v )
 		{
-			x = v[0];
-			y = v[1];
-			z = v[2];
+			x = v[ 0 ];
+			y = v[ 1 ];
+			z = v[ 2 ];
 		}
 
-		vector(const float* v)
+		vector( const float* v )
 		{
-			x = v[0];
-			y = v[1];
-			z = v[2];
+			x = v[ 0 ];
+			y = v[ 1 ];
+			z = v[ 2 ];
 		}
 		bool is_equal( const vector& vector_2 ) const
 		{
@@ -210,14 +211,14 @@ namespace sdk
 			return vector( this->x / div, this->y / div, this->z / div );
 		}
 
-		float& operator[](int i)
+		float& operator[]( int i )
 		{
-			return ((float*)this)[i];
+			return ( ( float* )this )[ i ];
 		}
 
-		float operator[](int i) const
+		float operator[]( int i ) const
 		{
-			return ((float*)this)[i];
+			return ( ( float* )this )[ i ];
 		}
 	};
 } // namespace sdk

@@ -32,7 +32,7 @@ namespace hooks
 		template< typename... ARGS >
 		R call_original( ARGS&&... arguments )
 		{
-			return reinterpret_cast< R >( reinterpret_cast< T* >( original )( arguments... ) );
+			return ( R )( reinterpret_cast< T* >( original )( arguments... ) );
 		}
 	};
 

@@ -9,6 +9,7 @@
 #include "../../helpers/signatures/signatures.hpp"
 
 #include "i_client_entity.hpp"
+#include "var_mapping.hpp"
 #include "vector.hpp"
 
 namespace sdk
@@ -70,6 +71,11 @@ namespace sdk
 		bool is_enemy( c_base_entity* entity )
 		{
 			return entity->team_num( ) != team_num( );
+		}
+
+		var_mapping* get_var_mapping( )
+		{
+			return reinterpret_cast< var_mapping* >( reinterpret_cast< std::uintptr_t >( this ) + 0x14 );
 		}
 	};
 } // namespace sdk

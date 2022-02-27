@@ -2,6 +2,7 @@
 #define SKELETONS_CX_INTERFACES_HPP
 
 #include <Windows.h>
+#include <d3dx9.h>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -36,6 +37,7 @@ namespace interfaces
 		sdk::i_input* input;
 		sdk::i_con_var* cvar;
 		sdk::i_model_info* model_info;
+		IDirect3DDevice9* device;
 
 		void init( );
 		void shutdown( );

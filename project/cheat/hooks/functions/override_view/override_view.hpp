@@ -1,5 +1,6 @@
 #ifndef SKELETONS_CX_OVERRIDE_VIEW_HPP
 #define SKELETONS_CX_OVERRIDE_VIEW_HPP
+
 #include "../../../globals/globals.hpp"
 #include "../../../sdk/structs/c_view_setup.hpp"
 #include "../../hooks.hpp"

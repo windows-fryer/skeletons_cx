@@ -10,6 +10,8 @@ namespace console
 	void init( );
 	void shutdown( );
 
+	inline FILE *con_out, *con_in;
+
 	template< typename... ARGS >
 	void log( std::string_view message, ARGS&&... arguments )
 	{

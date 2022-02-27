@@ -13,6 +13,8 @@
 
 namespace cheat
 {
+	inline HINSTANCE module_handle;
+
 	void init( );
 	void shutdown( );
 } // namespace cheat

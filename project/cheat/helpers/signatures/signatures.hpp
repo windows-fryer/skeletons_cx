@@ -23,6 +23,7 @@ namespace signatures
 			{ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75", g_client_dll },
 			{ "B0 ? C3 CC CC CC CC CC CC CC CC CC CC CC CC CC 55 8B EC 56", g_client_dll },
 			{ "8B 0D ? ? ? ? 8B 02 D9 05", g_client_dll },
+			{ "A1 ? ? ? ? 50 8B 08 FF 51 0C", g_shaderapidx9_dll },
 		};
 
 	public:
