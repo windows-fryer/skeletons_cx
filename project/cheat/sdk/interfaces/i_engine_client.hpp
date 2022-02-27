@@ -11,6 +11,7 @@
 #include "../structs/matrix.hpp"
 #include "../structs/qangle.hpp"
 #include "../structs/vector.hpp"
+#include "i_net_channel.hpp"
 
 namespace sdk
 {
@@ -20,7 +21,6 @@ namespace sdk
 	struct key_values;
 
 	struct i_material_system;
-	struct i_net_channel_info;
 
 	struct i_engine_client {
 	public:

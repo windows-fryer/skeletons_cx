@@ -3,7 +3,7 @@
 
 namespace sdk
 {
-	enum buttons : int {
+	enum cmd_buttons : int {
 		in_attack    = ( 1 << 0 ),
 		in_jump      = ( 1 << 1 ),
 		in_duck      = ( 1 << 2 ),

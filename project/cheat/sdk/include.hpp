@@ -16,8 +16,10 @@
 #include "interfaces/i_global_vars_base.hpp"
 #include "interfaces/i_input.hpp"
 #include "interfaces/i_model_info.hpp"
+#include "interfaces/i_net_channel.hpp"
 #include "interfaces/i_render_view.hpp"
 
+#include "enums/buttons.hpp"
 #include "structs/c_tf_knife.hpp"
 #include "structs/c_tf_medigun.hpp"
 #include "structs/c_tf_minigun.hpp"
@@ -33,5 +35,4 @@
 #include "structs/matrix.hpp"
 #include "structs/qangle.hpp"
 #include "structs/vector.hpp"
-
 #endif // SKELETONS_CX_INCLUDE_HPP

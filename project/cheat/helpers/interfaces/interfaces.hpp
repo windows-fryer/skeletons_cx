@@ -37,6 +37,8 @@ namespace interfaces
 		sdk::i_input* input;
 		sdk::i_con_var* cvar;
 		sdk::i_model_info* model_info;
+		sdk::i_net_channel* net_channel;
+		
 		IDirect3DDevice9* device;
 		sdk::i_global_vars_base* globals;
 		sdk::i_render_view* render_view;

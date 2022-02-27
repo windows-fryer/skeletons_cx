@@ -4,7 +4,7 @@ void hooks::override_view::override_view_detour( void* ecx, void* edx, sdk::c_vi
 {
 	[[unlikely]] if ( !view_setup ) return;
 
-	view_setup->fov = 100;
+	//	view_setup->fov = 100;
 
 	override_view_hook.call_original( ecx, edx, view_setup );
 }

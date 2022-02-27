@@ -14,13 +14,21 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	__asm mov _ebp, ebp;
 	bool& send_packet = *reinterpret_cast< bool* >( *_ebp - 0x1 );
 
+	// todo: sig this interface
+	{
+		auto net_chan            = ( sdk::i_net_channel* )g_interfaces.engine_client->get_net_channel_info( );
+		g_interfaces.net_channel = net_chan;
+	}
+
+	g_antiaim.fakelag( command, send_packet );
+
 	g_globals.command           = command;
 	const sdk::qangle old_angle = command->view_angles;
 
 	for ( int index = 0; index < 65; index++ ) {
 		auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( index );
 
-		if ( !entity || !entity->is_player( ) )
+		if ( !entity || !entity->is_player( ) || entity->entindex( ) == g_interfaces.engine_client->get_local_player( ) )
 			continue;
 
 		auto weapon_handle = entity->active_weapon( );
@@ -32,6 +40,8 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 
 		if ( !weapon )
 			continue;
+
+		// std::cout << entity->life_state( ) << '\n';
 	}
 
 	command->view_angles.normalize( );
