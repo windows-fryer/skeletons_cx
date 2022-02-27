@@ -12,7 +12,19 @@ namespace sdk
 
 		vector( ) = default;
 		vector( float x, float y, float z ) : x( x ), y( y ), z( z ){ };
+		vector(float* v)
+		{
+			x = v[0];
+			y = v[1];
+			z = v[2];
+		}
 
+		vector(const float* v)
+		{
+			x = v[0];
+			y = v[1];
+			z = v[2];
+		}
 		bool is_equal( const vector& vector_2 ) const
 		{
 			return vector_2.x == this->x && vector_2.y == this->y && vector_2.z == this->z;
@@ -51,6 +63,11 @@ namespace sdk
 		float dist_to_sqr( const vector& end ) const
 		{
 			return ( *this - end ).length_sqr( );
+		}
+
+		float dot( const vector other ) const noexcept
+		{
+			return ( x * other.x + y * other.y + z * other.z );
 		}
 
 		float normalize_in_place( )
@@ -191,6 +208,16 @@ namespace sdk
 		vector operator/( const float div ) const
 		{
 			return vector( this->x / div, this->y / div, this->z / div );
+		}
+
+		float& operator[](int i)
+		{
+			return ((float*)this)[i];
+		}
+
+		float operator[](int i) const
+		{
+			return ((float*)this)[i];
 		}
 	};
 } // namespace sdk

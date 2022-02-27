@@ -35,6 +35,7 @@ namespace interfaces
 		sdk::i_debug_overlay* debug_overlay;
 		sdk::i_input* input;
 		sdk::i_con_var* cvar;
+		sdk::i_model_info* model_info;
 
 		void init( );
 		void shutdown( );

@@ -65,3 +65,13 @@ sdk::qangle math::vector_to_angle( const sdk::vector& forward )
 
 	return { pitch, yaw, 0 };
 }
+
+sdk::vector math::vector_transform( const sdk::vector& vector1, const sdk::matrix_3x4& matrix )
+{
+	sdk::vector output{ };
+
+	for ( int i = 0; i < 3; i++ )
+		output[ i ] = vector1.dot( matrix.data[ i ] ) + matrix.data[ i ][ 3 ];
+
+	return output;
+}

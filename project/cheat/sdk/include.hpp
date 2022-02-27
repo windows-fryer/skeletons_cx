@@ -13,6 +13,7 @@
 #include "interfaces/i_debug_overlay.hpp"
 #include "interfaces/i_engine_client.hpp"
 #include "interfaces/i_input.hpp"
+#include "interfaces/i_model_info.hpp"
 
 #include "structs/c_tf_knife.hpp"
 #include "structs/c_tf_medigun.hpp"
