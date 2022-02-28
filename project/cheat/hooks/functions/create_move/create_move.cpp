@@ -43,10 +43,12 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 			sdk::vector hitbox_position = entity->get_hitbox_position( 0 );
 			sdk::qangle angle_to_entity = math::vector_to_angle( hitbox_position - ( local_player->origin( ) + local_player->view_offset( ) ) );
 
+			// std::cout << entity->simulation_time( ) << " | " << entity->previous_sim_time( ) << '\n';
+
 			// if ( math::get_fov( old_angle, angle_to_entity ) > 20 )
 			//	continue;
 
-			command->view_angles = angle_to_entity;
+			// command->view_angles = angle_to_entity;
 		}
 	}
 	g_prediction.finish( command, local_player );

@@ -110,6 +110,22 @@ namespace sdk
 		void set_abs_origin( sdk::vector& position );
 
 		void invalidate_bone_cache( );
+
+		float get_old_simulation_time( )
+		{
+			// im doing this from memory so excuse errors also, code is long for readability sake. itll be optimized by compiler
+
+			/* get sim time address */
+			const std::uint32_t simulation_time_address = ( std::uint32_t )&simulation_time( );
+
+			/* old sim time is offset + 4, most cheats get the netvar offset but that is gay. */
+			float* old_sim_time = ( float* )( simulation_time_address + 0x4 );
+
+			[[unlikely]] if ( !old_sim_time ) return -1.f;
+
+			/* return actual sim time */
+			return *old_sim_time;
+		}
 	};
 } // namespace sdk
 

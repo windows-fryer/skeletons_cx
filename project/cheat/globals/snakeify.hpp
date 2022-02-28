@@ -3,7 +3,7 @@
 
 #include "../../dependencies/fnv/fnv.hpp"
 
-typedef HINSTANCE hinstance;
+#define hinstance HINSTANCE
 
 #define dll_main                         DllMain
 #define create_thread( function )        CreateThread( 0, 0, ( LPTHREAD_START_ROUTINE )function, 0, 0, 0 )
