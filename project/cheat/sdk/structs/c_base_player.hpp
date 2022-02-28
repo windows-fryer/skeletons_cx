@@ -85,6 +85,11 @@ namespace sdk
 		{
 			return *reinterpret_cast< sdk::c_user_cmd** >( reinterpret_cast< std::uintptr_t >( this ) + 0x107C );
 		}
+
+		vector eye_position( )
+		{
+			return origin( ) + view_offset( );
+		}
 	};
 } // namespace sdk
 

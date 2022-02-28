@@ -75,3 +75,12 @@ sdk::vector math::vector_transform( const sdk::vector& vector1, const sdk::matri
 
 	return output;
 }
+
+float math::get_fov( sdk::qangle view_angles, sdk::vector start, sdk::vector end )
+{
+	sdk::vector forward, direction = ( end - start ).normalized( );
+
+	forward = angle_to_vector( view_angles );
+
+	return std::max( RAD2DEG( std::acos( forward.dot_product( direction ) ) ), 0.f );
+}

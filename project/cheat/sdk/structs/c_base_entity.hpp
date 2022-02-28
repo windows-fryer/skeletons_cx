@@ -74,6 +74,17 @@ namespace sdk
 			return { };
 		};
 
+		sdk::vector get_bone_position( std::uint32_t bone_index, matrix_3x4* matrix )
+		{
+			auto bone_matrix = matrix[ bone_index ];
+
+			return {
+				bone_matrix[ 0 ][ 3 ],
+				bone_matrix[ 1 ][ 3 ],
+				bone_matrix[ 2 ][ 3 ],
+			};
+		};
+
 		bool is_player( )
 		{
 			static auto is_player_address = g_signatures[ "B0 ? C3 CC CC CC CC CC CC CC CC CC CC CC CC CC 55 8B EC 56" ].as< std::uintptr_t >( );

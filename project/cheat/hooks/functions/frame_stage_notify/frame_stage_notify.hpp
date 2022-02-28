@@ -1,6 +1,7 @@
 #ifndef SKELETONS_CX_FRAME_STAGE_NOTIFY_HPP
 #define SKELETONS_CX_FRAME_STAGE_NOTIFY_HPP
 
+#include "../../../features/lagcomp/lagcomp.hpp"
 #include "../../../globals/globals.hpp"
 #include "../../../helpers/entity_list/entity_list.hpp"
 #include "../../../sdk/enums/client_frame_stage.hpp"

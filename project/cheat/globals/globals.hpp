@@ -1,8 +1,10 @@
 #ifndef SKELETONS_CX_GLOBALS_HPP
 #define SKELETONS_CX_GLOBALS_HPP
 
+#include <Windows.h>
 #include <iostream>
-#include <windows.h>
+
+#include "global_vars.hpp"
 
 #include "snakeify.hpp"
 
@@ -14,21 +16,5 @@
 #include "../helpers/signatures/signatures.hpp"
 
 #include "../sdk/include.hpp"
-
-namespace globals
-{
-	struct impl {
-	public:
-		sdk::c_user_cmd* command;
-
-		sdk::c_tf_player* local;
-		sdk::c_tf_weapon_base* local_weapon;
-
-		sdk::vector screen_size;
-		sdk::view_matrix view_matrix;
-	};
-} // namespace globals
-
-inline globals::impl g_globals;
 
 #endif // SKELETONS_CX_GLOBALS_HPP
