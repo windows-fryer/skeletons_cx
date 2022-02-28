@@ -8,6 +8,7 @@
 #include <Windows.h>
 #include <iostream>
 
+#include "features/menu/menu.hpp"
 #include "globals/globals.hpp"
 #include "hooks/hooks.hpp"
 

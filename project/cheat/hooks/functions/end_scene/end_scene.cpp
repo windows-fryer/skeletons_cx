@@ -1,4 +1,5 @@
 #include "end_scene.hpp"
+#include "../../../features/menu/menu.hpp"
 #include "../../../features/visuals/visuals.hpp"
 #include "../../../sdk/structs/c_view_setup.hpp"
 
@@ -56,6 +57,7 @@ long hooks::end_scene::end_scene_detour( IDirect3DDevice9* device )
 	g_render.setup_state( );
 
 	g_visuals.render( );
+	g_menu.draw( );
 
 	g_render.finish_state( );
 

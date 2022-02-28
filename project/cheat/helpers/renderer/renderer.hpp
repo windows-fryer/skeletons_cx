@@ -123,7 +123,7 @@ namespace render
 			render_circle( pos.x, pos.y, size.x, size.y, color );
 		}
 
-		template< auto gradient_type >
+		template< auto gradient_type = gradient_type_t::HORIZONTAL >
 		void render_gradient( int x, int y, int width, int height, sdk::color from, sdk::color to )
 		{
 			if ( !render::device )
@@ -145,7 +145,7 @@ namespace render
 			device->DrawPrimitiveUP( D3DPT_TRIANGLESTRIP, 2, &verts, 20 );
 		}
 
-		template< auto gradient_type >
+		template< auto gradient_type = gradient_type_t::HORIZONTAL >
 		void render_gradient( const sdk::vector& pos, const sdk::vector& size, sdk::color from, sdk::color to )
 		{
 			render_gradient< gradient_type >( pos.x, pos.y, size.x, size.y, from, to );

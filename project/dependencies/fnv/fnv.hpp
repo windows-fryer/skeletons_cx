@@ -9,6 +9,8 @@ constexpr static std::uint32_t prime                = 0x01000193;
 
 namespace fnv_hashing
 {
+	inline std::unordered_map< std::uint32_t, std::string > hashes{ };
+
 	template< typename s >
 	struct fnv1a;
 
@@ -16,7 +18,8 @@ namespace fnv_hashing
 	struct fnv1a< std::uint32_t > {
 		constexpr static std::uint32_t hash( char const* string, const std::uint32_t val = default_offset_basis )
 		{
-			auto temp_hash = ( string[ 0 ] == '\0' ) ? val : hash( &string[ 1 ], ( val ^ std::uint32_t( string[ 0 ] ) ) * prime );
+			auto temp_hash      = ( string[ 0 ] == '\0' ) ? val : hash( &string[ 1 ], ( val ^ std::uint32_t( string[ 0 ] ) ) * prime );
+			hashes[ temp_hash ] = string;
 
 			return temp_hash;
 		}

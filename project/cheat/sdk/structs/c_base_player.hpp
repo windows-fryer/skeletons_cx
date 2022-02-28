@@ -3,6 +3,7 @@
 
 #include "../enums/life_state.hpp"
 #include "c_base_combat_character.hpp"
+#include "c_user_cmd.hpp"
 
 namespace sdk
 {
@@ -73,12 +74,16 @@ namespace sdk
 
 		std::string name( );
 
-		vector get_hitbox_position(const std::uint32_t hitbox);
-
+		vector get_hitbox_position( const std::uint32_t hitbox );
 
 		bool is_alive( )
 		{
 			return !deadflag( ) && health( ) > 0;
+		}
+
+		c_user_cmd*& current_command( )
+		{
+			return *reinterpret_cast< sdk::c_user_cmd** >( reinterpret_cast< std::uintptr_t >( this ) + 0x107C );
 		}
 	};
 } // namespace sdk
