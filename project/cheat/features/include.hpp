@@ -1,6 +1,7 @@
 
 #ifndef SKELETONS_CX_FEATURES_INCLUDE_HPP
 #define SKELETONS_CX_FEATURES_INCLUDE_HPP
+#include "aimbot/aimbot.hpp"
 #include "antiaim/antiaim.hpp"
 #include "movement/movement.hpp"
 #include "prediction/prediction.hpp"

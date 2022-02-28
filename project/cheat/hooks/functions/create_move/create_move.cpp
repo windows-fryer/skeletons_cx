@@ -27,29 +27,11 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	const sdk::qangle old_angle = command->view_angles;
 	g_globals.command           = command;
 
-	// g_antiaim.fakelag( command, send_packet );
+	g_antiaim.fakelag( command, send_packet );
 
 	g_prediction.start( command, local_player );
 	{
-		for ( auto& player_info : g_entity_list.players ) {
-			if ( !player_info.valid )
-				continue;
-
-			auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( player_info.index );
-
-			if ( !entity )
-				continue;
-
-			sdk::vector hitbox_position = entity->get_hitbox_position( 0 );
-			sdk::qangle angle_to_entity = math::vector_to_angle( hitbox_position - ( local_player->origin( ) + local_player->view_offset( ) ) );
-
-			// std::cout << entity->simulation_time( ) << " | " << entity->previous_sim_time( ) << '\n';
-
-			// if ( math::get_fov( old_angle, angle_to_entity ) > 20 )
-			//	continue;
-
-			// command->view_angles = angle_to_entity;
-		}
+		g_aimbot.think( );
 	}
 	g_prediction.finish( command, local_player );
 
