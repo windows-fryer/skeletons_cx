@@ -3,8 +3,9 @@
 
 #include "../../dependencies/fnv/fnv.hpp"
 
+typedef HINSTANCE hinstance;
+
 #define dll_main                         DllMain
-#define win_api                          WINAPI
 #define create_thread( function )        CreateThread( 0, 0, ( LPTHREAD_START_ROUTINE )function, 0, 0, 0 )
 #define fnv( string )                    fnv::hash( string )
 #define get_proc_address( module, name ) GetProcAddress( module, name )
@@ -16,6 +17,7 @@
 #define close_handle                     CloseHandle
 #define free_console                     FreeConsole
 #define disable_thread_library_calls     DisableThreadLibraryCalls
+#define win_api                          WINAPI
 
 #define time_to_ticks( time )  static_cast< std::int32_t >( 0.5f + time / g_interfaces.globals->interval_per_tick )
 #define ticks_to_time( ticks ) static_cast< float >( ticks ) * g_interfaces.globals->interval_per_tick

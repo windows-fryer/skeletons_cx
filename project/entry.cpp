@@ -5,6 +5,7 @@ void entry::init( )
 	/* initialize console here since we wanna output to it whilst initializing */
 	console::init( );
 	// console::log( "console initialized, creating thread\n" );
+
 	/* setup thread */
 	{
 		auto thread_handle = create_thread( cheat::init );
@@ -16,11 +17,11 @@ void entry::init( )
 
 void entry::shutdown( ) { }
 
-bool win_api dll_main( HINSTANCE module_handle, std::uintptr_t reason, void* reserved )
+bool win_api dll_main( hinstance module_handle, std::uintptr_t call_reason, void* reserved )
 {
 	disable_thread_library_calls( module_handle );
 
-	switch ( reason ) {
+	switch ( call_reason ) {
 	case DLL_PROCESS_ATTACH: {
 		cheat::module_handle = module_handle;
 		entry::init( );
