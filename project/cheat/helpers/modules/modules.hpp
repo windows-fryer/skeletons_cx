@@ -15,8 +15,11 @@ namespace modules
 
 		module( std::string_view module_name )
 		{
-			module_handle     = get_module_handle( module_name.data( ) );
 			this->module_name = module_name;
+			
+			do {
+				module_handle = get_module_handle( module_name.data( ) );
+			} while ( !module_handle );
 
 			// todo: add assertion
 			// ASSERT( module_handle )

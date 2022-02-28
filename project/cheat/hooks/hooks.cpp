@@ -25,12 +25,9 @@ void hooks::impl::init( )
 
 void hooks::impl::shutdown( )
 {
-	create_move::shutdown( );
-	override_view::shutdown( );
-	frame_stage_notify::shutdown( );
+	// only do this if the hook requires specific shutdown shit!
 	wndproc::shutdown( );
-	end_scene::shutdown( );
-	paint_traverse::shutdown( );
 
+	MH_RemoveHook( MH_ALL_HOOKS );
 	MH_Uninitialize( );
 }

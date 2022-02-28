@@ -2,22 +2,39 @@
 
 void entry::init( )
 {
-	if ( auto handle = create_thread( cheat::init ) )
-		close_handle( handle );
+	/* initialize console here since we wanna output to it whilst initializing */
+	console::init( );
+	// console::log( "console initialized, creating thread\n" );
+	/* setup thread */
+	{
+		auto thread_handle = create_thread( cheat::init );
+
+		if ( thread_handle ) // todo: assertion
+			close_handle( thread_handle );
+	}
 }
 
 void entry::shutdown( ) { }
 
 bool win_api dll_main( HINSTANCE module_handle, std::uintptr_t reason, void* reserved )
 {
+	disable_thread_library_calls( module_handle );
+
 	switch ( reason ) {
-	case DLL_PROCESS_ATTACH:
-
+	case DLL_PROCESS_ATTACH: {
 		cheat::module_handle = module_handle;
-
 		entry::init( );
+	} break;
 
-		break;
+	case DLL_PROCESS_DETACH: {
+		console::log( "unloading\n" );
+		modules::shutdown( );
+		console::shutdown( );
+
+		g_signatures.shutdown( );
+		g_interfaces.shutdown( );
+		g_hooks.shutdown( );
+	} break;
 	}
 
 	return true;
