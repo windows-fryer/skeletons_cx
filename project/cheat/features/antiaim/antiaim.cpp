@@ -1,6 +1,6 @@
 #include "antiaim.hpp"
 
-//#define fuck_mode
+#define fuck_mode
 
 void antiaim::impl::fakelag( sdk::c_user_cmd* cmd, bool& send_packet )
 {

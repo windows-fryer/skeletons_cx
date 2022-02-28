@@ -7,13 +7,13 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* ecx,
 		g_entity_list.update( );
 
 		for ( auto& entity : g_entity_list.players ) {
-			if ( auto player = g_interfaces.entity_list->get< sdk::c_tf_player >( entity.index ) ) {
-				if ( auto var_map = player->get_var_mapping( ) ) {
-					for ( int iterator = 0; iterator < var_map->interpolated_entries; iterator++ ) {
-						var_map->entries[ iterator ].needs_to_interpolate = false;
-					}
-				}
-			}
+			// if ( auto player = g_interfaces.entity_list->get< sdk::c_tf_player >( entity.index ) ) {
+			//	if ( auto var_map = player->get_var_mapping( ) ) {
+			//		for ( int iterator = 0; iterator < var_map->interpolated_entries; iterator++ ) {
+			//	var_map->entries[ iterator ].needs_to_interpolate = false;
+			//		}
+			//	}
+			//}
 		}
 	} break;
 	}

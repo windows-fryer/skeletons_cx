@@ -55,6 +55,7 @@ void prediction::impl::finish( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )
 
 	g_interfaces.game_movement->finish_track_prediction_errors( entity );
 
+	g_interfaces.move_helper->set_host(nullptr);
 	set_prediction_player( nullptr );
 	set_prediction_random_seed( nullptr );
 
