@@ -71,7 +71,7 @@ void visuals::impl::update_object( esp_object& object )
 	object.box.outline[ 0 ] = true;
 	object.box.outline[ 1 ] = true;
 	object.box.draw         = false;
-	object.box.skeleton     = true;
+	object.box.skeleton     = false;
 	object.box.backtrack    = true;
 
 	object.box.color = sdk::color( 255, 255, 255, 255 * dormant_alpha_modulation );
@@ -230,6 +230,25 @@ void visuals::esp_box::render( sdk::c_tf_player* owner )
 			int last_valid_heap_record   = 0;
 			float lowest_simulation_time = FLT_MAX;
 
+			int first_valid_heap_record   = 0;
+			float highest_simulation_time = 0;
+
+			for ( int current_heap_iterator = 0; current_heap_iterator < sv_maxunlag_ticks; current_heap_iterator++ ) {
+				lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entindex( ) ][ current_heap_iterator ];
+
+				if ( !current_record )
+					continue;
+
+				if ( current_record->simulation_time < highest_simulation_time )
+					continue;
+
+				if ( !current_record->valid )
+					continue;
+
+				first_valid_heap_record = current_heap_iterator;
+				highest_simulation_time = current_record->simulation_time;
+			}
+
 			for ( int current_heap_iterator = 0; current_heap_iterator < sv_maxunlag_ticks; current_heap_iterator++ ) {
 				lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entindex( ) ][ current_heap_iterator ];
 
@@ -247,6 +266,7 @@ void visuals::esp_box::render( sdk::c_tf_player* owner )
 			}
 
 			lagcomp::record current_record = g_lagcomp.heap_records[ owner->entindex( ) ][ last_valid_heap_record ];
+			lagcomp::record last_record    = g_lagcomp.heap_records[ owner->entindex( ) ][ first_valid_heap_record ];
 
 			if ( current_record.player ) {
 				if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
@@ -262,6 +282,25 @@ void visuals::esp_box::render( sdk::c_tf_player* owner )
 
 						parent_bone_screen = utilities::world_to_screen( owner->get_bone_position( parent_bone_index, current_record.bone_matrix ) );
 						bone_screen        = utilities::world_to_screen( owner->get_bone_position( bone_index, current_record.bone_matrix ) );
+
+						g_render.render_line( parent_bone_screen.x, parent_bone_screen.y, bone_screen.x, bone_screen.y, { 255, 255, 255, 150 } );
+					}
+				}
+			}
+			if ( last_record.player ) {
+				if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
+					for ( int bone_index = 0; bone_index < studio->num_bones; bone_index++ ) {
+						auto bone = studio->get_bone( bone_index );
+
+						if ( !bone || !( bone->flags & 0x100 ) || bone->parent == -1 )
+							continue;
+
+						auto parent_bone_index = bone->parent;
+
+						sdk::vector parent_bone_screen{ }, bone_screen{ };
+
+						parent_bone_screen = utilities::world_to_screen( owner->get_bone_position( parent_bone_index, last_record.bone_matrix ) );
+						bone_screen        = utilities::world_to_screen( owner->get_bone_position( bone_index, last_record.bone_matrix ) );
 
 						g_render.render_line( parent_bone_screen.x, parent_bone_screen.y, bone_screen.x, bone_screen.y, { 255, 255, 255, 150 } );
 					}
