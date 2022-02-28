@@ -41,7 +41,7 @@ namespace interfaces
 		sdk::c_prediction* prediction;
 		sdk::i_game_movement* game_movement;
 		sdk::i_move_helper* move_helper;
-
+		sdk::i_panel* panel;
 		IDirect3DDevice9* device;
 		sdk::i_global_vars_base* globals;
 		sdk::i_render_view* render_view;

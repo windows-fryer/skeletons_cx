@@ -1,13 +1,10 @@
-//
-// Created by Liga on 2/23/2022.
-//
-
 #ifndef SKELETONS_CX_INCLUDE_HPP
 #define SKELETONS_CX_INCLUDE_HPP
 
 #include "../helpers/math/math.hpp"
 
 #include "enums/buttons.hpp"
+
 #include "interfaces/game_movement.hpp"
 #include "interfaces/i_base_client_dll.hpp"
 #include "interfaces/i_client_entity_list.hpp"
@@ -19,6 +16,7 @@
 #include "interfaces/i_input.hpp"
 #include "interfaces/i_model_info.hpp"
 #include "interfaces/i_net_channel.hpp"
+#include "interfaces/i_panel.hpp"
 #include "interfaces/i_prediction.hpp"
 #include "interfaces/i_render_view.hpp"
 
@@ -37,4 +35,7 @@
 #include "structs/matrix.hpp"
 #include "structs/qangle.hpp"
 #include "structs/vector.hpp"
+
+#include "enums/hitboxes.hpp"
+
 #endif // SKELETONS_CX_INCLUDE_HPP
