@@ -23,7 +23,10 @@ namespace math
 
 	sdk::vector vector_transform( const sdk::vector& vector1, const sdk::matrix_3x4& matrix );
 
-	float get_fov( sdk::qangle view_angles, sdk::vector start, sdk::vector end );
+	float get_fov( const sdk::qangle& view_angles, const sdk::vector& start, const sdk::vector& end );
+
+	float calculate_angle_fov( const sdk::qangle& ang1, const sdk::qangle& ang2 );
+
 } // namespace math
 
 #endif // SKELETONS_CX_MATH_HPP

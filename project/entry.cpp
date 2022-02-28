@@ -12,6 +12,7 @@ bool win_api dll_main( HINSTANCE module_handle, std::uintptr_t reason, void* res
 {
 	switch ( reason ) {
 	case DLL_PROCESS_ATTACH:
+
 		cheat::module_handle = module_handle;
 
 		entry::init( );
