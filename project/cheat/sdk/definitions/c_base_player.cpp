@@ -34,3 +34,22 @@ sdk::vector sdk::c_base_player::get_hitbox_position( const std::uint32_t hitbox_
 
 	return math::vector_transform( ( hitbox->bb_min + hitbox->bb_max ) * 0.5f, matrix[ hitbox->bone ] );
 }
+
+sdk::vector sdk::c_base_player::get_hitbox_position( const std::uint32_t hitbox_index, sdk::matrix_3x4* matrix )
+{
+	auto hdr = g_interfaces.model_info->get_studio_model( get_model( ) );
+
+	if ( !hdr )
+		return { };
+
+	auto set = hdr->get_hitbox_set( hitbox_set( ) );
+
+	[[unlikely]] if ( !set ) return { };
+
+	auto hitbox = set->get_hitbox( hitbox_index );
+
+	if ( !hitbox )
+		return { };
+
+	return math::vector_transform( ( hitbox->bb_min + hitbox->bb_max ) * 0.5f, matrix[ hitbox->bone ] );
+}

@@ -1,6 +1,7 @@
 #include "aimbot.hpp"
 #include "../../globals/globals.hpp"
 #include "../../helpers/entity_list/entity_list.hpp"
+#include "../lagcomp/lagcomp.hpp"
 #include <algorithm>
 
 aimbot::aimbot_target get_best_entity( )
@@ -60,9 +61,13 @@ void aimbot::impl::think( )
 
 	[[unlikely]] if ( !entity ) return;
 
+	g_lagcomp.backtrack_player( entity );
+
+	[[unlikely]] if ( !g_globals.lagcomp_record ) return;
+
 	// todo: hitbox selection
-	sdk::vector hitbox_position = entity->get_hitbox_position( 0 ); // head only. whatever
-	sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - ( g_globals.local->origin( ) + g_globals.local->view_offset( ) ) );
+	sdk::vector hitbox_position = entity->get_hitbox_position( 0, g_globals.lagcomp_record->bone_matrix ); // head only. whatever - shut up nigger
+	sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - ( g_globals.local->eye_position( ) ) );
 	angle_to_hitbox.normalize( );
 
 	g_globals.command->view_angles = angle_to_hitbox;

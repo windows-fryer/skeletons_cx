@@ -74,7 +74,9 @@ namespace sdk
 
 		std::string name( );
 
-		vector get_hitbox_position( const std::uint32_t hitbox );
+		vector get_hitbox_position( const std::uint32_t hitbox_index );
+
+		vector get_hitbox_position( const std::uint32_t hitbox_index, matrix_3x4* matrix );
 
 		bool is_alive( )
 		{

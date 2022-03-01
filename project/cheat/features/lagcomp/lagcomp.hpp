@@ -20,20 +20,19 @@
 
 namespace lagcomp
 {
-	class record
-	{
+	struct record {
 	public:
 		record( ) = default;
 
-		bool valid            = false;
-		float simulation_time = -1.f;
+		bool valid;
+		float simulation_time;
 
-		sdk::vector abs_origin   = { };
-		sdk::vector eye_position = { };
+		sdk::vector abs_origin;
+		sdk::vector eye_position;
 
-		sdk::c_tf_player* player = { };
+		sdk::c_tf_player* player;
 
-		sdk::matrix_3x4 bone_matrix[ 128 ] = { };
+		sdk::matrix_3x4 bone_matrix[ 128 ];
 	};
 
 	struct impl {
