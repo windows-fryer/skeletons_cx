@@ -4,6 +4,8 @@
 
 #ifndef SKELETONS_CX_MATRIX_HPP
 #define SKELETONS_CX_MATRIX_HPP
+#include "qangle.hpp"
+#include "vector.hpp"
 #include <iostream>
 
 namespace sdk
@@ -61,6 +63,58 @@ namespace sdk
 			out[ 2 ][ 1 ] = in1[ 2 ][ 0 ] * in2[ 0 ][ 1 ] + in1[ 2 ][ 1 ] * in2[ 1 ][ 1 ] + in1[ 2 ][ 2 ] * in2[ 2 ][ 1 ];
 			out[ 2 ][ 2 ] = in1[ 2 ][ 0 ] * in2[ 0 ][ 2 ] + in1[ 2 ][ 1 ] * in2[ 1 ][ 2 ] + in1[ 2 ][ 2 ] * in2[ 2 ][ 2 ];
 			out[ 2 ][ 3 ] = in1[ 2 ][ 0 ] * in2[ 0 ][ 3 ] + in1[ 2 ][ 1 ] * in2[ 1 ][ 3 ] + in1[ 2 ][ 2 ] * in2[ 2 ][ 3 ] + in1[ 2 ][ 3 ];
+		}
+
+		qangle to_angle( )
+		{
+			qangle angles;
+
+			float forward[ 3 ];
+			float left[ 3 ];
+			float up[ 3 ];
+
+			forward[ 0 ] = data[ 0 ][ 0 ];
+			forward[ 1 ] = data[ 1 ][ 0 ];
+			forward[ 2 ] = data[ 2 ][ 0 ];
+			left[ 0 ]    = data[ 0 ][ 1 ];
+			left[ 1 ]    = data[ 1 ][ 1 ];
+			left[ 2 ]    = data[ 2 ][ 1 ];
+			up[ 2 ]      = data[ 2 ][ 2 ];
+
+			float xyDist = sqrtf( forward[ 0 ] * forward[ 0 ] + forward[ 1 ] * forward[ 1 ] );
+
+			// enough here to get angles?
+			if ( xyDist > 0.001f ) {
+				// (yaw)	y = ATAN( forward.y, forward.x );		-- in our space, forward is the X axis
+				angles.yaw = ( ( float )( ( atan2f( forward[ 1 ], forward[ 0 ] ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );
+
+				// (pitch)	x = ATAN( -forward.z, sqrt(forward.x*forward.x+forward.y*forward.y) );
+				angles.pitch = ( ( float )( ( atan2f( -forward[ 2 ], xyDist ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );//RAD2DEG( atan2f( -forward[ 2 ], xyDist ) );
+
+				// (roll)	z = ATAN( left.z, up.z );
+				angles.roll = ( ( float )( ( atan2f( left[ 2 ], up[ 2 ] ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );
+					//RAD2DEG( atan2f( left[ 2 ], up[ 2 ] ) );
+			} else // forward is mostly Z, gimbal lock-
+			{
+				// (yaw)	y = ATAN( -left.x, left.y );			-- forward is mostly z, so use right for yaw
+				angles.yaw = ( ( float )( ( atan2f( -left[ 0 ], left[ 1 ] ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );
+
+				//RAD2DEG( atan2f( -left[ 0 ], left[ 1 ] ) );
+
+				// (pitch)	x = ATAN( -forward.z, sqrt(forward.x*forward.x+forward.y*forward.y) );
+				angles.pitch = ( ( float )( ( atan2f( -forward[ 2 ], xyDist ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );
+				//RAD2DEG( atan2f( -forward[ 2 ], xyDist ) );
+
+				// Assume no roll in this case as one degree of freedom has been lost (i.e. yaw == roll)
+				angles.roll = 0;
+			}
+
+			return angles;
+		}
+
+		vector to_vector( int i )
+		{
+			return { data[ 0 ][ i ], data[ 1 ][ i ], data[ 2 ][ i ] };
 		}
 	};
 

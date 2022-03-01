@@ -31,7 +31,7 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 
 	g_prediction.start( command, local_player );
 	{
-		g_aimbot.think( );
+		// g_aimbot.think( );
 	}
 	g_prediction.finish( command, local_player );
 

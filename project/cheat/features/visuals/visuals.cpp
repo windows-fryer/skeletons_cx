@@ -171,6 +171,7 @@ void visuals::impl::render( )
 
 		esp_object& object = esp_objects[ player->entindex( ) ];
 
+		player->draw_client_hitbox( g_interfaces.globals->frame_time * 2 );
 		object.box.render( player );
 	}
 }

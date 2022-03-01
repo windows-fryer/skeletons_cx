@@ -35,39 +35,37 @@ aimbot::aimbot_target get_best_entity( )
 	return best_target;
 }
 
+// def so we dont have to spam this homosexually
+#define AIMBOT_RETURN                                                                                                                                \
+	{                                                                                                                                                \
+		g_globals.lagcomp_record = nullptr;                                                                                                          \
+		return;                                                                                                                                      \
+	}
+
 // very basic for now.
 void aimbot::impl::think( )
 {
-	if ( !g_globals.command ) // literally impossible
-		return;
+	// literally impossible
+	[[unlikely]] if ( !g_globals.command ) return;
+
+	if ( !g_globals.local || !g_globals.local_weapon )
+		AIMBOT_RETURN;
 
 	if ( !( g_globals.command->buttons & sdk::in_attack ) )
 		return;
 
-	if ( !g_globals.local )
-		return;
-
-	// todo: check for ladder nigga -_-
-
-	if ( !g_globals.local_weapon )
-		return;
-
-	// this function is sorta slow but well optimize it later
 	auto best_entity = get_best_entity( );
 
-	if ( best_entity.entity_index == -1 ) // no entity found
+	// no entity found
+	if ( best_entity.entity_index == -1 )
 		return;
 
 	sdk::c_tf_player* entity = g_interfaces.entity_list->get< sdk::c_tf_player >( best_entity.entity_index );
 
+	// unlikely because entity will be neg 1 if none is found & we already check for that above
 	[[unlikely]] if ( !entity ) return;
 
-	if ( !g_globals.local_weapon ) {
-		g_globals.lagcomp_record = nullptr;
-
-		return;
-	}
-
+	/* weapon is non-projectile */
 	if ( !weapon_is_projectile( g_globals.local_weapon ) ) {
 		g_lagcomp.backtrack_player( entity );
 
@@ -76,9 +74,10 @@ void aimbot::impl::think( )
 		// todo: hitbox selection
 		sdk::vector hitbox_position = entity->get_hitbox_position( 0, g_globals.lagcomp_record->bone_matrix ); // head only. whatever - shut up nigger
 		sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - g_globals.local->eye_position( ) );
-		angle_to_hitbox.normalize( );
+		// angle_to_hitbox.normalize( );
 
 		g_globals.command->view_angles = angle_to_hitbox;
+
 	} else {
 		auto weapon_info = get_weapon_info( g_globals.local_weapon );
 
