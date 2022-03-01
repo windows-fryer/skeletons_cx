@@ -20,10 +20,11 @@ namespace aimbot
 
 	struct impl {
 	private:
-		bool weapon_is_projectile( sdk::c_tf_weapon_base* weapon );
 		weapon_info get_weapon_info( sdk::c_tf_weapon_base* weapon );
 
 	public:
+		bool weapon_is_projectile( sdk::c_tf_weapon_base* weapon );
+		
 		void think( );
 	};
 

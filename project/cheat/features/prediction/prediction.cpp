@@ -97,7 +97,9 @@ void prediction::impl::projectile_backup( sdk::c_tf_player* entity )
 	pred_proj_backup.model_scale    = entity->model_scale( );
 	pred_proj_backup.velocity       = entity->velocity( );
 
-	pred_backup.frame_time = g_interfaces.globals->frame_time;
+	pred_backup.is_in_prediction   = g_interfaces.prediction->is_in_prediction;
+	pred_backup.first_time_running = g_interfaces.prediction->first_time_predicted;
+	pred_backup.frame_time         = g_interfaces.globals->frame_time;
 
 	if ( entity->flags( ) & sdk::ducking ) {
 		entity->flags( ) &= ~sdk::ducking;
@@ -124,10 +126,10 @@ void prediction::impl::projectile_backup( sdk::c_tf_player* entity )
 	fake_move_data.first_run_of_functions = false;
 	fake_move_data.game_code_moved_player = false;
 	fake_move_data.player_handle          = entity->get_ref_e_handle( );
-	fake_move_data.velocity               = entity->velocity( );
-	fake_move_data.abs_origin             = entity->origin( );
+	fake_move_data.velocity               = entity->estimate_abs_velocity( );
+	fake_move_data.abs_origin             = entity->get_abs_origin( );
 
-	fake_move_data.view_angles = { 0.f, velocity_to_angles( entity->velocity( ) ).yaw, 0.f };
+	fake_move_data.view_angles = { 0.f, velocity_to_angles( entity->estimate_abs_velocity( ) ).yaw, 0.f };
 
 	sdk::vector forward, right, up;
 
@@ -165,7 +167,9 @@ void prediction::impl::projectile_restore( sdk::c_tf_player* entity )
 	entity->model_scale( )    = pred_proj_backup.model_scale;
 	entity->velocity( )       = pred_proj_backup.velocity;
 
-	g_interfaces.globals->frame_time = pred_backup.frame_time;
+	g_interfaces.prediction->is_in_prediction     = pred_backup.is_in_prediction;
+	g_interfaces.prediction->first_time_predicted = pred_backup.first_time_running;
+	g_interfaces.globals->frame_time              = pred_backup.frame_time;
 
 	memset( &fake_move_data, 0, sizeof( sdk::move_data_t ) );
 	memset( &pred_proj_backup, 0, sizeof( prediction_projectile_backup ) );

@@ -10,6 +10,9 @@ namespace prediction
 
 	struct prediction_backup {
 	public:
+		bool is_in_prediction{ };
+		bool first_time_running{ };
+
 		float cur_time{ };
 		float frame_time{ };
 		int tick_count{ };

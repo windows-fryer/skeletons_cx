@@ -1,4 +1,5 @@
 #include "frame_stage_notify.hpp"
+#include "../../../features/aimbot/aimbot.hpp"
 #include <algorithm>
 
 void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* ecx, void* edx, sdk::client_frame_stage stage )
@@ -8,11 +9,15 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* ecx,
 		g_entity_list.update( );
 		g_lagcomp.update( );
 
-		for ( auto& player_info : g_entity_list.players ) {
-			if ( auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( player_info.index ) ) {
-				if ( auto var_map = entity->get_var_mapping( ) ) {
-					for ( int iterator = 0; iterator < var_map->interpolated_entries; iterator++ ) {
-						var_map->entries[ iterator ].needs_to_interpolate = false;
+		if ( g_globals.local_weapon ) {
+			if ( !g_aimbot.weapon_is_projectile( g_globals.local_weapon ) ) {
+				for ( auto& player_info : g_entity_list.players ) {
+					if ( auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( player_info.index ) ) {
+						if ( auto var_map = entity->get_var_mapping( ) ) {
+							for ( int iterator = 0; iterator < var_map->interpolated_entries; iterator++ ) {
+								var_map->entries[ iterator ].needs_to_interpolate = false;
+							}
+						}
 					}
 				}
 			}
