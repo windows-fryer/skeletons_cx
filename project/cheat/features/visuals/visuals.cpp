@@ -1,5 +1,6 @@
 #include "visuals.hpp"
 #include "../lagcomp/lagcomp.hpp"
+#include "../movement/movement.hpp"
 
 #include <algorithm>
 
@@ -143,6 +144,21 @@ void visuals::impl::update_object( esp_object& object )
 
 void visuals::impl::update( )
 {
+	if ( g_globals.local ) {
+		sdk::vector last_position = g_globals.local->origin( );
+
+		for ( int tick = 0; tick < time_to_ticks( .95f ); tick++ ) {
+			auto& position = g_movement.predicted_positions[ tick ];
+
+			auto last_position_screen = utilities::world_to_screen( last_position );
+			auto position_screen      = utilities::world_to_screen( position );
+
+			g_render.render_line( last_position_screen.x, last_position_screen.y, position_screen.x, position_screen.y, { 255, 255, 255 } );
+
+			last_position = position;
+		}
+	}
+
 	for ( auto& player_info : g_entity_list.players ) {
 		auto player = g_interfaces.entity_list->get< sdk::c_tf_player >( player_info.index );
 

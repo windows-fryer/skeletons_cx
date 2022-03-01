@@ -12,7 +12,7 @@ namespace sdk
 	public:
 		bool first_run_of_functions : 1;
 		bool game_code_moved_player : 1;
-		std::uint32_t player_handle;
+		c_base_handle player_handle;
 		int impulse_command;
 		qangle view_angles;
 		qangle abs_view_angles;

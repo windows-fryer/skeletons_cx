@@ -52,3 +52,14 @@ void movement::impl::move_fix( sdk::c_user_cmd* cmd, const sdk::qangle& old_angl
 	// not really needed
 	cmd->view_angles.normalize( );
 }
+
+void movement::impl::run_prediction( sdk::c_tf_player* player )
+{
+	g_prediction.projectile_backup( player );
+
+	for ( int tick = 0; tick < time_to_ticks( .95f ); tick++ ) {
+		predicted_positions[ tick ] = g_prediction.projectile_run( player );
+	}
+
+	g_prediction.projectile_restore( player );
+}

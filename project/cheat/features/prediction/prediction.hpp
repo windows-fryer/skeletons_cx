@@ -3,6 +3,7 @@
 #define SKELETONS_CX_PREDICTION_HPP
 
 #include "../../helpers/interfaces/interfaces.hpp"
+#include "../movement/movement.hpp"
 
 namespace prediction
 {
@@ -15,9 +16,31 @@ namespace prediction
 		int tick_base{ };
 	};
 
+	struct prediction_projectile_backup {
+	public:
+		sdk::vector origin{ };
+		sdk::vector velocity{ };
+		sdk::vector base_velocity{ };
+		sdk::c_base_handle ground_entity{ };
+		int flags{ };
+		float duck_time{ };
+		float duck_jump_time{ };
+		bool ducked{ };
+		bool ducking{ };
+		bool in_duck_jump{ };
+		float model_scale{ }; // useless
+	};
+
 	struct impl {
+	private:
+		sdk::qangle velocity_to_angles( sdk::vector direction );
+
 	public:
 		prediction_backup pred_backup{ };
+		prediction_projectile_backup pred_proj_backup{ };
+
+		sdk::c_user_cmd fake_cmd{ };
+		sdk::move_data_t fake_move_data{ };
 
 		void set_prediction_random_seed( sdk::c_user_cmd* cmd );
 		void set_prediction_player( sdk::c_tf_player* entity );
@@ -26,7 +49,11 @@ namespace prediction
 
 		void finish( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity );
 
-		void reset();
+		void reset( );
+
+		void projectile_backup( sdk::c_tf_player* entity );
+		sdk::vector projectile_run( sdk::c_tf_player* entity );
+		void projectile_restore( sdk::c_tf_player* entity );
 	};
 
 } // namespace prediction

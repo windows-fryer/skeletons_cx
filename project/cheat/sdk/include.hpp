@@ -36,6 +36,7 @@
 #include "structs/qangle.hpp"
 #include "structs/vector.hpp"
 
+#include "enums/flags.hpp"
 #include "enums/hitboxes.hpp"
 
 #endif // SKELETONS_CX_INCLUDE_HPP

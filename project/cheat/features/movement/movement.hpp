@@ -2,13 +2,18 @@
 #define SKELETONS_CX_MOVEMENT_HPP
 
 #include "../../helpers/interfaces/interfaces.hpp"
+#include "../prediction/prediction.hpp"
+#include <array>
 
 namespace movement
 {
 
 	struct impl {
 	public:
+		std::array< sdk::vector, 65 > predicted_positions;
+
 		void move_fix( sdk::c_user_cmd* cmd, const sdk::qangle& old_angle );
+		void run_prediction( sdk::c_tf_player* player );
 
 	private:
 	};
