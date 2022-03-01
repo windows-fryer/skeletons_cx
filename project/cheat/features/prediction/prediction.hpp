@@ -32,6 +32,7 @@ namespace prediction
 		bool ducking{ };
 		bool in_duck_jump{ };
 		float model_scale{ }; // useless
+		float simulation_time{ };
 	};
 
 	struct impl {
