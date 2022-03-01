@@ -126,6 +126,18 @@ namespace sdk
 			/* return actual sim time */
 			return *old_sim_time;
 		}
+
+		sdk::vector estimate_abs_velocity( )
+		{
+			sdk::vector buffer;
+
+			static auto estimate_abs_velocity_address = g_signatures[ "55 8B EC 83 EC ? 56 8B F1 E8 ? ? ? ? 3B F0" ].as< std::uintptr_t >( );
+			using estimate_abs_velocity_type          = void( __thiscall* )( void*, sdk::vector* );
+
+			reinterpret_cast< estimate_abs_velocity_type >( estimate_abs_velocity_address )( this, &buffer );
+
+			return buffer;
+		}
 	};
 } // namespace sdk
 

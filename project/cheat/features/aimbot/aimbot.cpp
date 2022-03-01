@@ -2,6 +2,7 @@
 #include "../../globals/globals.hpp"
 #include "../../helpers/entity_list/entity_list.hpp"
 #include "../lagcomp/lagcomp.hpp"
+#include "../prediction/prediction.hpp"
 #include <algorithm>
 
 aimbot::aimbot_target get_best_entity( )
@@ -61,14 +62,71 @@ void aimbot::impl::think( )
 
 	[[unlikely]] if ( !entity ) return;
 
-	g_lagcomp.backtrack_player( entity );
+	if ( !g_globals.local_weapon ) {
+		g_globals.lagcomp_record = nullptr;
 
-	[[unlikely]] if ( !g_globals.lagcomp_record ) return;
+		return;
+	}
 
-	// todo: hitbox selection
-	sdk::vector hitbox_position = entity->get_hitbox_position( 0, g_globals.lagcomp_record->bone_matrix ); // head only. whatever - shut up nigger
-	sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - ( g_globals.local->eye_position( ) ) );
-	angle_to_hitbox.normalize( );
+	if ( !weapon_is_projectile( g_globals.local_weapon ) ) {
+		g_lagcomp.backtrack_player( entity );
 
-	g_globals.command->view_angles = angle_to_hitbox;
+		[[unlikely]] if ( !g_globals.lagcomp_record ) return;
+
+		// todo: hitbox selection
+		sdk::vector hitbox_position = entity->get_hitbox_position( 0, g_globals.lagcomp_record->bone_matrix ); // head only. whatever - shut up nigger
+		sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - g_globals.local->eye_position( ) );
+		angle_to_hitbox.normalize( );
+
+		g_globals.command->view_angles = angle_to_hitbox;
+	} else {
+		auto weapon_info = get_weapon_info( g_globals.local_weapon );
+
+		static auto gravity_cvar = g_interfaces.cvar->find_var( "sv_gravity" );
+
+		float time_to_hit    = g_globals.local->eye_position( ).dist_to( entity->get_abs_origin( ) ) / weapon_info.speed;
+		sdk::vector position = entity->get_abs_origin( ) + ( entity->estimate_abs_velocity( ) * time_to_hit );
+
+		if ( !entity->ground_entity( ).index )
+			position.z -= ( gravity_cvar->get_float( ) * 0.5f ) * powf( time_to_hit, 2.f );
+
+		time_to_hit = g_globals.local->eye_position( ).dist_to( position ) / weapon_info.speed;
+
+		sdk::vector final_position;
+
+		g_prediction.projectile_backup( entity );
+
+		for ( int tick = 0; tick < time_to_ticks( time_to_hit - .5f ); tick++ ) {
+			final_position = g_prediction.projectile_run( entity );
+		}
+
+		final_position.x -= 4.f;
+		final_position.y -= 4.f;
+		final_position.z += 10.f;
+
+		g_prediction.projectile_restore( entity );
+
+		sdk::qangle angle_to_hitbox = math::vector_to_angle( final_position - g_globals.local->eye_position( ) );
+		angle_to_hitbox.normalize( );
+
+		g_globals.command->view_angles = angle_to_hitbox;
+	}
+}
+bool aimbot::impl::weapon_is_projectile( sdk::c_tf_weapon_base* weapon )
+{
+	switch ( weapon->get_client_class( )->class_id ) {
+	case sdk::e_class_ids::ctfrocketlauncher_directhit:
+		return true;
+	default:
+		return false;
+	}
+}
+aimbot::weapon_info aimbot::impl::get_weapon_info( sdk::c_tf_weapon_base* weapon )
+{
+	switch ( weapon->get_client_class( )->class_id ) {
+	case sdk::e_class_ids::ctfrocketlauncher_directhit:
+		return { 0.f, 1980.f, false };
+	default:
+		return { };
+	}
 }

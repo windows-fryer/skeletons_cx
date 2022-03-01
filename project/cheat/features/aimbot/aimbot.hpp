@@ -11,7 +11,18 @@ namespace aimbot
 		float fov{ };
 	};
 
+	struct weapon_info {
+	public:
+		float gravity{ };
+		float speed{ };
+		bool curves{ };
+	};
+
 	struct impl {
+	private:
+		bool weapon_is_projectile( sdk::c_tf_weapon_base* weapon );
+		weapon_info get_weapon_info( sdk::c_tf_weapon_base* weapon );
+
 	public:
 		void think( );
 	};
