@@ -4,7 +4,11 @@ void hooks::override_view::override_view_detour( void* ecx, void* edx, sdk::c_vi
 {
 	[[unlikely]] if ( !view_setup ) return;
 
-	auto view_entity = ( sdk::c_base_entity* )g_interfaces.entity_list->get_client_entity_from_handle( g_globals.local->view_model( ) );
+	// Keep this here so we can forever remember how much of a fucking idiot blanket it
+	if ( !g_globals.local )
+		return override_view_hook.call_original( ecx, edx, view_setup );
+
+	auto view_entity = g_interfaces.entity_list->get< sdk::c_base_entity >( g_globals.local->view_model( ) );
 
 	if ( !view_entity )
 		return override_view_hook.call_original( ecx, edx, view_setup );

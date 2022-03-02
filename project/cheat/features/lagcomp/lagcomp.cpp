@@ -27,7 +27,7 @@ bool lagcomp::impl::is_valid( record heap_record )
 
 float lagcomp::impl::lerp_time( )
 {
-	static sdk::con_var *cl_updaterate   = g_interfaces.cvar->find_var( "cl_updaterate" ),
+	static sdk::con_var *cl_updaterate   = g_interfaces.cvar->find_var( "sv_maxupdaterate" ),
 						*cl_interp_ratio = g_interfaces.cvar->find_var( "cl_interp_ratio" ), *cl_interp = g_interfaces.cvar->find_var( "cl_interp" ),
 						*sv_client_min_interp_ratio = g_interfaces.cvar->find_var( "sv_client_min_interp_ratio" ),
 						*sv_client_max_interp_ratio = g_interfaces.cvar->find_var( "sv_client_max_interp_ratio" );

@@ -73,7 +73,7 @@ void visuals::impl::update_object( esp_object& object )
 	object.box.outline[ 1 ] = true;
 	object.box.draw         = false;
 	object.box.skeleton     = false;
-	object.box.backtrack    = true;
+	object.box.backtrack    = false; // very crashy right now.
 
 	object.box.color = sdk::color( 255, 255, 255, 255 * dormant_alpha_modulation );
 
@@ -171,7 +171,7 @@ void visuals::impl::render( )
 
 		esp_object& object = esp_objects[ player->entindex( ) ];
 
-		player->draw_client_hitbox( g_interfaces.globals->frame_time * 2 );
+		//		player->draw_client_hitbox( g_interfaces.globals->frame_time * 2 );
 		object.box.render( player );
 	}
 }

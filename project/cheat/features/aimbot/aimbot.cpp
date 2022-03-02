@@ -121,6 +121,8 @@ bool aimbot::impl::weapon_is_projectile( sdk::c_tf_weapon_base* weapon )
 	switch ( weapon->get_client_class( )->class_id ) {
 	case sdk::e_class_ids::ctfrocketlauncher_directhit:
 		return true;
+	case sdk::e_class_ids::ctfrocketlauncher:
+		return true;
 	default:
 		return false;
 	}
@@ -130,6 +132,8 @@ aimbot::weapon_info aimbot::impl::get_weapon_info( sdk::c_tf_weapon_base* weapon
 	switch ( weapon->get_client_class( )->class_id ) {
 	case sdk::e_class_ids::ctfrocketlauncher_directhit:
 		return { 0.f, 1980.f, false };
+	case sdk::e_class_ids::ctfrocketlauncher:
+		return { 0.f, 1100.f, false };
 	default:
 		return { };
 	}
