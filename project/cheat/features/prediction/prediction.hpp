@@ -35,11 +35,18 @@ namespace prediction
 		float simulation_time{ };
 	};
 
+	struct local_data {
+	public:
+		int flags;
+	};
+
 	struct impl {
 	private:
 		sdk::qangle velocity_to_angles( sdk::vector direction );
 
 	public:
+		local_data predicted_local_data{ };
+		local_data unpredicted_local_data{ };
 		prediction_backup pred_backup{ };
 		prediction_projectile_backup pred_proj_backup{ };
 

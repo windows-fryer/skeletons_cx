@@ -10,6 +10,7 @@ namespace movement
 
 	struct impl {
 	public:
+		void bunny_hop( );
 		void move_fix( sdk::c_user_cmd* cmd, const sdk::qangle& old_angle );
 		void run_prediction( sdk::c_tf_player* player );
 
