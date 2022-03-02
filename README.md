@@ -3,9 +3,7 @@ skeletons.cx | the best team fortress 2 hack for hitting the p's
 
 ## todo
 ```
-write the sdk -_-
-function hooking
-finish code style section of readme
+add the epic stuff
 femboy
 
 ```
