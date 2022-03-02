@@ -3,8 +3,8 @@
 void entry::init( )
 {
 	/* initialize console here since we wanna output to it whilst initializing */
-	console::init( );
-	// console::log( "console initialized, creating thread\n" );
+	// console::init( );
+	//  console::log( "console initialized, creating thread\n" );
 
 	/* setup thread */
 	{

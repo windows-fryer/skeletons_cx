@@ -140,3 +140,13 @@ void lagcomp::impl::backtrack_player( sdk::c_tf_player* player )
 
 	g_globals.command->tick_count = time_to_ticks( ( closest_record->simulation_time + lerp_time( ) ) );
 }
+
+void lagcomp::impl::cleanup( )
+{
+	// doing this on the heap really makes like 0 sense. when you consider we could just do 1 allocation and make it faster and safer
+	// now we have to clean this shit because heap allocations.......
+
+	for ( auto record : heap_records )
+		if ( record )
+			delete[] record;
+}

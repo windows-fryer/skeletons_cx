@@ -2,6 +2,7 @@
 
 void cheat::init( )
 {
+	console::init( );
 	modules::init( );
 
 	g_signatures.init( );

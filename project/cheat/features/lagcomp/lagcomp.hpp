@@ -47,6 +47,7 @@ namespace lagcomp
 		std::array< record*, 65 > heap_records;
 
 		void update( );
+		void cleanup( );
 
 		void backtrack_player( record* heap_record );
 		void backtrack_player( sdk::c_tf_player* player );
