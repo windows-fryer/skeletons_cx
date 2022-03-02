@@ -83,11 +83,16 @@ void aimbot::impl::think( )
 
 		static auto gravity_cvar = g_interfaces.cvar->find_var( "sv_gravity" );
 
-		float time_to_hit    = g_globals.local->eye_position( ).dist_to( entity->get_abs_origin( ) ) / weapon_info.speed;
-		sdk::vector position = entity->get_abs_origin( ) + ( entity->estimate_abs_velocity( ) * time_to_hit );
+		float time_to_hit = g_globals.local->eye_position( ).dist_to( entity->get_abs_origin( ) ) / weapon_info.speed;
+		sdk::vector position;
 
-		if ( !entity->ground_entity( ).index )
-			position.z -= ( gravity_cvar->get_float( ) * 0.5f ) * powf( time_to_hit, 2.f );
+		g_prediction.projectile_backup( entity );
+
+		for ( int tick = 0; tick < time_to_ticks( time_to_hit ); tick++ ) {
+			position = g_prediction.projectile_run( entity );
+		}
+
+		g_prediction.projectile_restore( entity );
 
 		time_to_hit = g_globals.local->eye_position( ).dist_to( position ) / weapon_info.speed;
 
