@@ -56,11 +56,11 @@ void hooks::paint_traverse::paint_traverse_detour( void* ecx, void* edx, sdk::vp
 				player->set_abs_origin( old_origin );
 				player->invalidate_bone_cache( );
 			}
+		}
 
-			if ( g_menu.menu_open ) {
-				g_interfaces.panel->set_key_board_input_enabled( focus_overlay_panel, true );
-				g_interfaces.panel->set_mouse_input_enabled( focus_overlay_panel, true );
-			}
+		if ( g_menu.menu_open ) {
+			g_interfaces.panel->set_key_board_input_enabled( focus_overlay_panel, true );
+			g_interfaces.panel->set_mouse_input_enabled( focus_overlay_panel, true );
 		}
 	}
 }

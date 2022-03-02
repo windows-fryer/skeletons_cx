@@ -175,7 +175,8 @@ namespace sdk
 		NETVAR( campaign_medals, int, "CTFPlayer", "m_iCampaignMedals" );
 		NETVAR( player_skin_override, int, "CTFPlayer", "m_iPlayerSkinOverride" );
 		NETVAR( viewing_cyoapda, bool, "CTFPlayer", "m_bViewingCYOAPDA" );
-		
+
+		c_base_animating* get_server_base_animating( ); // im sad to say credit for this goes to fedorahack
 		void draw_client_hitbox( const float& duration = 0.f );
 
 		void post_think( );

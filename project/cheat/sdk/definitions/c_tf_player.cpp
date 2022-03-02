@@ -41,3 +41,8 @@ void sdk::c_tf_player::draw_client_hitbox( const float& duration )
 		g_interfaces.debug_overlay->add_box_overlay( position, box->bb_min, box->bb_max, angle, 255, 50, 0, 0, duration );
 	}
 }
+
+sdk::c_base_animating* sdk::c_tf_player::get_server_base_animating(){
+	static auto server_base_animating = g_signatures["55 8B EC 8B 55 ? 85 D2 7E ? A1"].as<void*(__cdecl)(int)>();
+	return server_base_animating(this->entindex());
+}
