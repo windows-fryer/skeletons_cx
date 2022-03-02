@@ -43,6 +43,7 @@ void sdk::c_tf_player::draw_client_hitbox( const float& duration )
 }
 
 sdk::c_base_animating* sdk::c_tf_player::get_server_base_animating(){
-	static auto server_base_animating = g_signatures["55 8B EC 8B 55 ? 85 D2 7E ? A1"].as<void*(__cdecl)(int)>();
-	return server_base_animating(this->entindex());
+	static auto server_base_animating = g_signatures["55 8B EC 8B 55 ? 85 D2 7E ? A1"].as<void*>(); // amazing fucking function wont let me do jack shit -_-
+
+	return (sdk::c_base_animating*)((void*(__cdecl*)(int))server_base_animating)(entindex());
 }
