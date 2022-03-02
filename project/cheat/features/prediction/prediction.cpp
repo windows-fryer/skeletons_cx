@@ -95,7 +95,7 @@ void prediction::impl::projectile_backup( sdk::c_tf_player* entity )
 	pred_proj_backup.ground_entity   = entity->ground_entity( );
 	pred_proj_backup.in_duck_jump    = entity->in_duck_jump( );
 	pred_proj_backup.model_scale     = entity->model_scale( );
-	pred_proj_backup.velocity        = entity->velocity( );
+	pred_proj_backup.velocity        = entity->estimate_abs_velocity( );
 	pred_proj_backup.simulation_time = entity->simulation_time( );
 
 	pred_backup.is_in_prediction   = g_interfaces.prediction->is_in_prediction;

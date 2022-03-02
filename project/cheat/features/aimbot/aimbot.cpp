@@ -19,9 +19,9 @@ aimbot::aimbot_target get_best_entity( )
 				continue;
 
 			const float entity_health       = entity->health( );
-			const sdk::vector entity_origin = entity->origin( ); // origin is gay, whatever.
+			const sdk::vector entity_origin = entity->get_abs_origin( ); // origin is gay, whatever.
 			const sdk::qangle angle_to_entity =
-				math::vector_to_angle( entity_origin - ( g_globals.local->origin( ) + g_globals.local->view_offset( ) ) );
+				math::vector_to_angle( entity_origin - ( g_globals.local->get_abs_origin( ) + g_globals.local->view_offset( ) ) );
 			const float fov_to_origin = math::calculate_angle_fov( g_globals.command->view_angles, angle_to_entity );
 
 			// for dynamic selection use health multiplier to fov so aimbot priority is for low hp but aimbot also wants low fov
@@ -95,7 +95,7 @@ void aimbot::impl::think( )
 
 		g_prediction.projectile_backup( entity );
 
-		for ( int tick = 0; tick < time_to_ticks( time_to_hit - .5f ); tick++ ) {
+		for ( int tick = 0; tick < time_to_ticks( time_to_hit ); tick++ ) {
 			final_position = g_prediction.projectile_run( entity );
 		}
 
