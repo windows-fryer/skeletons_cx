@@ -77,7 +77,6 @@ void aimbot::impl::think( )
 		// angle_to_hitbox.normalize( );
 
 		g_globals.command->view_angles = angle_to_hitbox;
-
 	} else {
 		auto weapon_info = get_weapon_info( g_globals.local_weapon );
 
