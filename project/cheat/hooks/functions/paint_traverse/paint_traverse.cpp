@@ -61,6 +61,9 @@ void hooks::paint_traverse::paint_traverse_detour( void* ecx, void* edx, sdk::vp
 		if ( g_menu.menu_open ) {
 			g_interfaces.panel->set_key_board_input_enabled( focus_overlay_panel, true );
 			g_interfaces.panel->set_mouse_input_enabled( focus_overlay_panel, true );
+		} else {
+			g_interfaces.panel->set_key_board_input_enabled( focus_overlay_panel, false );
+			g_interfaces.panel->set_mouse_input_enabled( focus_overlay_panel, false );
 		}
 	}
 }

@@ -16,6 +16,7 @@ namespace aimbot
 		float gravity{ };
 		float speed{ };
 		bool curves{ };
+		sdk::vector offset{ };
 	};
 
 	struct impl {
@@ -24,7 +25,7 @@ namespace aimbot
 
 	public:
 		bool weapon_is_projectile( sdk::c_tf_weapon_base* weapon );
-		
+
 		void think( );
 	};
 

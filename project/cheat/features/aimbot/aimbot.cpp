@@ -103,10 +103,6 @@ void aimbot::impl::think( )
 			final_position = g_prediction.projectile_run( entity );
 		}
 
-		final_position.x -= 4.f;
-		final_position.y -= 4.f;
-		final_position.z += 10.f;
-
 		g_prediction.projectile_restore( entity );
 
 		sdk::qangle angle_to_hitbox = math::vector_to_angle( final_position - g_globals.local->eye_position( ) );
