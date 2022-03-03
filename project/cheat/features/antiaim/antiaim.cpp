@@ -37,6 +37,9 @@ void antiaim::impl::do_180_sway( bool& send_packet )
 {
 	// todo: random
 
+	if ( g_globals.command->buttons & sdk::in_attack ) {
+		return;
+	}
 	//  bool sway_fake = true
 
 	// ammount to add to yaw
@@ -48,10 +51,10 @@ void antiaim::impl::do_180_sway( bool& send_packet )
 		/* again, readable code > fast code | since the compiler will just speed this thang up */
 
 		/* fake in opposite direction */
-		g_globals.command->view_angles.yaw += 90.f; // 180.f;
+		g_globals.command->view_angles.yaw += 100.f; // 180.f;
 
 		/* sway yaw 60 degrees */
-		if ( yaw_additive >= 60.f )
+		if ( yaw_additive >= 70.f )
 			yaw_additive = 0.f;
 
 		/* increment by however much */
