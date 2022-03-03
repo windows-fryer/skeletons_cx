@@ -21,8 +21,11 @@ void entity_list::impl::update( )
 		}
 	}
 
-	if ( !local_player_entity )
+	if ( !local_player_entity ) {
+		clear( );
+
 		return;
+	}
 
 	for ( int iterator = 0; iterator < 65; iterator++ ) {
 		auto player = g_interfaces.entity_list->get< sdk::c_tf_player >( iterator );
