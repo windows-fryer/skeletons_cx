@@ -4,6 +4,7 @@ void hooks::override_view::override_view_detour( void* ecx, void* edx, sdk::c_vi
 {
 	[[unlikely]] if ( !view_setup ) return;
 
+	// Wow! a liga comment? unexpected. liga never comments due to the fact he cant code and doesnt know what hes actually doing
 	// Keep this here so we can forever remember how much of a fucking idiot blanket it
 	if ( !g_globals.local )
 		return override_view_hook.call_original( ecx, edx, view_setup );
@@ -12,6 +13,16 @@ void hooks::override_view::override_view_detour( void* ecx, void* edx, sdk::c_vi
 
 	if ( !view_entity )
 		return override_view_hook.call_original( ecx, edx, view_setup );
+
+	/* third person here for now */
+	{
+		// sdk::qangle view_angles;
+		// sdk::vector forward{ }, right{ }, up{ };
+
+		// g_interfaces.engine_client->get_view_angles( view_angles );
+		// math::angle_to_vector( view_angles, &forward, &right, &up );
+		// view_setup->origin -= forward * 200;
+	}
 
 	// then you can set angles of it and shit
 
