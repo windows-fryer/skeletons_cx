@@ -15,6 +15,9 @@ void hooks::paint_traverse::paint_traverse_detour( void* ecx, void* edx, sdk::vp
 	}
 
 	if ( focus_overlay_panel == panel ) {
+		if ( !g_interfaces.engine_client->is_connected( ) )
+			g_entity_list.clear( ); // temporary fix for entity list being wrong and causing you to have funnies lol.
+
 		if ( sdk::c_view_setup view_setup; g_interfaces.base_client->get_player_view( view_setup ) ) {
 			sdk::view_matrix world_to_view, view_to_projection, world_to_pixels;
 

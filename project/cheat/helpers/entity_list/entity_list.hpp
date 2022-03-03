@@ -59,6 +59,7 @@ namespace entity_list
 		std::array< building, 65 > buildings;
 
 		void update( );
+		void clear( );
 	};
 } // namespace entity_list
 

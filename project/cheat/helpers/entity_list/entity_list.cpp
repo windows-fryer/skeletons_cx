@@ -62,3 +62,11 @@ void entity_list::impl::update( )
 		}
 	}
 }
+void entity_list::impl::clear( )
+{
+	for ( int iterator = 0; iterator < 65; iterator++ ) {
+		auto& player_info = players[ iterator ];
+
+		player_info = player{ };
+	}
+}
