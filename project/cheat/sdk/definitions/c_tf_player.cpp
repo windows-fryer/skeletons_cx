@@ -14,16 +14,17 @@ void sdk::c_tf_player::post_think( )
 }
 
 
-bool sdk::c_tf_player::traced_ray_intersects_world_or_prop( sdk::vector pos )
+bool sdk::c_tf_player::can_hit( const vector pos )
 {
 	sdk::c_game_trace trace;
 	sdk::c_trace_filter_world_and_props_only filter;
 	sdk::ray_t ray;
-	ray.init((this->get_abs_origin( ) + this->view_offset( )), pos);
+	ray.init(this->eye_position(), pos);
+
 	/* no def for mask_shot yet, too lazy */
 	g_interfaces.engine_trace->trace_ray(ray, (0x1 | 0x4000 | 0x2000000 | 0x2 | 0x4000000 | 0x40000000), &filter, &trace);
 
-	return (trace.fraction > 1.f);
+	return trace.fraction == 1.f;
 }
 
 void sdk::c_tf_player::draw_client_hitbox( const float& duration )

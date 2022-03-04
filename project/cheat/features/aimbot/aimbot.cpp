@@ -74,9 +74,17 @@ void aimbot::impl::think( )
 		// todo: hitbox selection
 		sdk::vector hitbox_position = entity->get_hitbox_position( 0, g_globals.lagcomp_record->bone_matrix ); // head only. whatever - shut up nigger
 		sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - g_globals.local->eye_position( ) );
-		// angle_to_hitbox.normalize( );
 
-		g_globals.command->view_angles = angle_to_hitbox;
+		// sdk::c_game_trace trace;
+		// sdk::c_trace_filter_world_and_props_only filter;
+		// sdk::ray_t ray;
+		// ray.init( g_globals.local->eye_position( ), hitbox_position );
+		// g_interfaces.engine_trace->trace_ray( ray, MASK_SHOT, &filter, &trace );
+
+		// std::cout << trace.fraction << '\n';
+		if ( g_globals.local->can_hit( hitbox_position ) )
+			g_globals.command->view_angles = angle_to_hitbox;
+
 	} else {
 		auto weapon_info = get_weapon_info( g_globals.local_weapon );
 

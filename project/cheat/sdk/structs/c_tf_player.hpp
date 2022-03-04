@@ -179,7 +179,7 @@ namespace sdk
 		c_base_animating* get_server_base_animating( ); // im sad to say credit for this goes to fedorahack
 		void draw_client_hitbox( const float& duration = 0.f );
 
-		bool traced_ray_intersects_world_or_prop( vector pos );
+		bool can_hit( const vector pos );
 		void post_think( );
 		void pre_think( );
 	};
