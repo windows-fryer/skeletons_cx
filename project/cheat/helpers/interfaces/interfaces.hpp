@@ -45,6 +45,8 @@ namespace interfaces
 		IDirect3DDevice9* device;
 		sdk::i_global_vars_base* globals;
 		sdk::i_render_view* render_view;
+		sdk::i_engine_trace* engine_trace;
+
 
 		void init( );
 		void shutdown( );

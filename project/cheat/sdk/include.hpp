@@ -12,6 +12,7 @@
 #include "interfaces/i_cvar.hpp"
 #include "interfaces/i_debug_overlay.hpp"
 #include "interfaces/i_engine_client.hpp"
+#include "interfaces/i_engine_trace.hpp"
 #include "interfaces/i_global_vars_base.hpp"
 #include "interfaces/i_input.hpp"
 #include "interfaces/i_model_info.hpp"

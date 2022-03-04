@@ -4,9 +4,28 @@ project(skeletons_cx)
 
 set(CMAKE_CXX_STANDARD 23)
 
+# we probably dont need this many, only 1 should be fine. this looks funni
 file(GLOB_RECURSE SRC
+        "project/**/*.h" ,
+        "project/**/*.hpp" ,
         "project/**/*.c" ,
-        "project/**/*.cpp"
+        "project/**/*.cpp" ,
+        "project/**/**/*.h" ,
+        "project/**/**/*.hpp" ,
+        "project/**/**/*.c" ,
+        "project/**/**/*.cpp" ,
+        "project/**/**/**/*.h" ,
+        "project/**/**/**/*.hpp" ,
+        "project/**/**/**/*.c" ,
+        "project/**/**/**/*.cpp" ,
+        "project/**/**/**/**/*.h" ,
+        "project/**/**/**/**/*.hpp" ,
+        "project/**/**/**/**/*.c" ,
+        "project/**/**/**/**/*.cpp" ,
+        "project/**/**/**/**/**/*.h" ,
+        "project/**/**/**/**/**/*.hpp" ,
+        "project/**/**/**/**/**/*.c" ,
+        "project/**/**/**/**/**/*.cpp"
         )
 
 

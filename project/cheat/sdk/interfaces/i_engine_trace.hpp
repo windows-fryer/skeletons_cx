@@ -1,9 +1,10 @@
 #ifndef SKELETONS_CX_I_ENGINE_TRACE_HPP
 #define SKELETONS_CX_I_ENGINE_TRACE_HPP
 #include "../enums/dispsurf_flag.hpp"
+#include "../enums/trace_type.hpp"
 #include "../structs/c_base_player.hpp"
 #include "../structs/qangle.hpp"
-#include "../structs/vector.hpp"
+#include "../structs/vector_aligned.hpp"
 
 // @blanket: my cmake is so fucked, im not making new files for each of these!! it'd take years.
 namespace sdk
@@ -19,43 +20,6 @@ namespace sdk
 		const char* name;
 		short surface_props;
 		unsigned short flags;
-	};
-	enum trace_type {
-		TRACE_EVERYTHING = 0,
-		TRACE_WORLD_ONLY,
-		TRACE_ENTITIES_ONLY,
-		TRACE_EVERYTHING_FILTER_PROPS,
-	};
-
-	class __declspec( align( 16 ) ) vector_aligned : public vector
-	{
-	public:
-		vector_aligned( void ){ };
-
-		vector_aligned( float x, float y, float z )
-		{
-			this->x = x;
-			this->y = y;
-			this->z = z;
-		}
-
-		explicit vector_aligned( const vector& othr )
-		{
-			this->x = othr.x;
-			this->y = othr.y;
-			this->z = othr.z;
-		}
-
-		vector_aligned& operator=( const vector& othr )
-		{
-			this->x = othr.x;
-			this->y = othr.y;
-			this->z = othr.z;
-
-			return *this;
-		}
-
-		float w;
 	};
 
 	struct ray_t {
@@ -105,8 +69,7 @@ namespace sdk
 	private:
 	};
 
-	class c_base_trace
-	{
+	struct c_base_trace {
 	public:
 		bool is_disp_surface( void )
 		{
@@ -140,8 +103,7 @@ namespace sdk
 		bool start_solid;          // if true, the initial point was in a solid area
 	};
 
-	class c_game_trace : public c_base_trace
-	{
+	struct c_game_trace : public c_base_trace {
 	public:
 		float fraction_left_solid; // time we left a solid, only valid if we started in solid
 		csurface surface;          // surface hit (impact surface)
@@ -159,15 +121,13 @@ namespace sdk
 		}
 	};
 
-	class c_trace_filter
-	{
+	struct c_trace_filter {
 	public:
 		virtual bool should_hit_entity( i_handle_entity* server_entity, int contents_mask ) = 0;
 		virtual trace_type get_trace_type( ) const                                          = 0;
 	};
 
-	class c_trace_filter_entities_only : public c_trace_filter
-	{
+	struct c_trace_filter_entities_only : public c_trace_filter {
 	public:
 		bool should_hit_entity( i_handle_entity* server_entity, int contents_mask ) override
 		{
@@ -180,8 +140,7 @@ namespace sdk
 		}
 	};
 
-	class c_trace_filter_world_only : public c_trace_filter
-	{
+	struct c_trace_filter_world_only : public c_trace_filter {
 	public:
 		bool should_hit_entity( i_handle_entity* server_entity, int contents_mask ) override
 		{
@@ -194,8 +153,7 @@ namespace sdk
 		}
 	};
 
-	class c_trace_filter_world_and_props_only : public c_trace_filter
-	{
+	struct c_trace_filter_world_and_props_only : public c_trace_filter {
 	public:
 		bool should_hit_entity( i_handle_entity* server_entity, int contents_mask ) override
 		{
@@ -208,8 +166,7 @@ namespace sdk
 		}
 	};
 
-	class c_trace_filter_hit_all : public c_trace_filter
-	{
+	struct c_trace_filter_hit_all : public c_trace_filter {
 	public:
 		bool should_hit_entity( i_handle_entity* p_server_entity, int contents_mask ) override
 		{
@@ -224,16 +181,14 @@ namespace sdk
 		void* skip;
 	};
 
-	class i_entity_enumerator
-	{
+	struct i_entity_enumerator {
 	public:
 		virtual bool enum_entity( void* entity_handle ) = 0;
 	};
 
-	class c_trace_list_data;
+	struct c_trace_list_data;
 
-	class i_engine_trace
-	{
+	struct i_engine_trace {
 	public:
 		virtual int get_point_contents( const vector& vec_abs_position, i_handle_entity** pp_entity = nullptr )                            = 0;
 		virtual int get_point_contents_collideable( i_collideable* p_collide, const vector& vec_abs_position )                             = 0;
