@@ -2,7 +2,6 @@
 skeletons.cx | the best team fortress 2 hack for hitting the p's
 
 ## TODO
-```
 - Add interfaces
 - Add basic movement features
 - Improve on aimbot
@@ -11,7 +10,6 @@ skeletons.cx | the best team fortress 2 hack for hitting the p's
 - Add menu drop downs
 - Add menu buttons
 - Add menu text boxes
-```
 
 
 ## Code Style
