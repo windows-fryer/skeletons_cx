@@ -5,11 +5,10 @@ skeletons.cx | the best team fortress 2 hack for hitting the p's
 - Add interfaces
 - Add basic movement features
 - Improve on aimbot
-
-(FOR LIGA)
-- Add menu drop downs
-- Add menu buttons
-- Add menu text boxes
+  - Liga
+  - Add menu drop downs
+  - Add menu buttons
+  - Add menu text boxes
 
 
 ## Code Style
