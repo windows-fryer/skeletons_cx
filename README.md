@@ -7,6 +7,10 @@ skeletons.cx | the best team fortress 2 hack for hitting the p's
 - Improve on aimbot
 
 ### Liga
+- Learn to code
+- Get some pussy
+- Buy blanket a pair of panties
+- Quit yappin' so much
 - Add menu drop downs
 - Add menu buttons
 - Add menu text boxes
