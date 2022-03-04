@@ -6,6 +6,13 @@ skeletons.cx | the best team fortress 2 hack for hitting the p's
 - Add basic movement features
 - Improve on aimbot
 
+### Blanket
+- 
+- 
+- 
+- 
+
+
 ### Liga
 - Learn to code
 - Get some pussy
