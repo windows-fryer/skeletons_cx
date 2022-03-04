@@ -34,8 +34,11 @@ void entity_list::impl::update( )
 
 		player_info.valid = false;
 
-		if ( !player || player == g_globals.local )
+		if ( !player || player == g_globals.local ) {
+			player_info = entity_list::player{ };
+
 			continue;
+		}
 
 		if ( player->is_player( ) ) {
 			player_info.dormant_info.valid = false;
