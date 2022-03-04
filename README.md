@@ -7,9 +7,9 @@ skeletons.cx | the best team fortress 2 hack for hitting the p's
 - Improve on aimbot
 
 ### Blanket
-- 
-- 
-- 
+- Code locus
+- Find femboy companion
+- DWord
 - 
 
 
