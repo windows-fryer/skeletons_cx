@@ -6,6 +6,7 @@
 #include "functions/net_to/net_send_to.hpp"
 #include "functions/override_view/override_view.hpp"
 #include "functions/paint_traverse/paint_traverse.hpp"
+#include "functions/setup_bones/setup_bones.hpp"
 #include "functions/testing_hooks/testing_hooks.hpp"
 #include "functions/update_clientside_anims/update_clientside_anims.hpp"
 #include "functions/wndproc/wndproc.hpp"
@@ -22,7 +23,7 @@ void hooks::impl::init( )
 	net_send_to::init( );
 	paint_traverse::init( );
 	update_clientside_anims::init( );
-	testing_hooks::init( );
+	setup_bones::init( );
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 

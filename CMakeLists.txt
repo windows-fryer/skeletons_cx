@@ -29,7 +29,11 @@ file(GLOB_RECURSE SRC
         "project/**/**/**/**/**/*.h" ,
         "project/**/**/**/**/**/*.hpp" ,
         "project/**/**/**/**/**/*.c" ,
-        "project/**/**/**/**/**/*.cpp"
+        "project/**/**/**/**/**/*.cpp" ,
+        "project/**/**/**/**/**/**/*.h" ,
+        "project/**/**/**/**/**/**/*.hpp" ,
+        "project/**/**/**/**/**/**/*.c" ,
+        "project/**/**/**/**/**/**/*.cpp"
         )
 
 

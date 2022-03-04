@@ -36,7 +36,11 @@ namespace signatures
 			                              { "55 8B EC 83 EC ? 53 56 8B 35 ? ? ? ? 33 DB 57 33 FF 89 5D ? 89 7D ? 8B 46", g_engine_dll },
 			                              { "55 8B EC 83 EC ? 56 8B F1 E8 ? ? ? ? 3B F0", g_client_dll },
 			                              { "55 8B EC 81 EC ? ? ? ? 53 57 8B F9 8B 9F", g_client_dll },
-			                              { "55 8B EC 8B 55 ? 85 D2 7E ? A1", g_server_dll } };
+			                              { "55 8B EC 8B 55 ? 85 D2 7E ? A1", g_server_dll },
+			                              { "55 8B EC 81 EC ? ? ? ? 53 56 8B 35 ? ? ? ? 8B D9 33 C9 33 D2 89 4D EC 89 55 F0 8B 46 08", g_client_dll },
+			                              { "55 8B EC 81 EC ? ? ? ? 53 56 57 6A 01 68 ? ? ? ? 8B F9 68 ? ? ? ? 68 ? ? ? ? 8D 87 ? ? ? ? 50 8D 45 A0 "
+			                                "50 E8 ? ? ? ? 8B 0D ? ? ? ? 33 D2 33 F6 89 55 DC 89 75 E0 83 C4 18 89 55 E4",
+			                                g_server_dll } };
 
 	public:
 		std::unordered_map< std::uint32_t, patternscan::address > database{ };
