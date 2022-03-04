@@ -103,7 +103,7 @@ void visuals::impl::update_object( esp_object& object )
 	health_bar.color_to   = sdk::color( 255, 0, 0, 255 * dormant_alpha_modulation );
 	health_bar.min        = 0;
 	health_bar.max        = object.owner->max_health( );
-	health_bar.cur        = object.owner->health( );
+	health_bar.cur        = std::clamp( object.owner->health( ), 0, static_cast< int >( health_bar.max ) );
 
 	object.box.bars.push_back( health_bar );
 
@@ -150,7 +150,7 @@ void visuals::impl::update( )
 		if ( ( !player_info.valid && !player_info.dormant_info.valid ) || !player )
 			continue;
 
-		esp_object& buffer_object = esp_objects[ player->entindex( ) ];
+		esp_object& buffer_object = esp_objects[ player_info.index ];
 
 		buffer_object.owner = player;
 
@@ -169,7 +169,7 @@ void visuals::impl::render( )
 		if ( ( !player_info.valid && !player_info.dormant_info.valid ) || !player )
 			continue;
 
-		esp_object& object = esp_objects[ player->entindex( ) ];
+		esp_object& object = esp_objects[ player_info.index ];
 
 		//		player->draw_client_hitbox( g_interfaces.globals->frame_time * 2 );
 		object.box.render( player );
