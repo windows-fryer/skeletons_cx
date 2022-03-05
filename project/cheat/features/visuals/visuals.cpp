@@ -57,6 +57,9 @@ sdk::box visuals::esp_box::calculate_box( sdk::c_tf_player* player, bool& on_scr
 
 void visuals::impl::update_object( esp_object& object )
 {
+	if ( !object.owner || !object.owner->entindex( ) )
+		return;
+
 	if ( !object.owner->name( ).data( ) )
 		return;
 

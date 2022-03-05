@@ -153,7 +153,7 @@ void aimbot::impl::think( )
 			angle_to_hitbox.normalize( );
 		}
 
-		if ( !( g_globals.local->can_hit( position ) && attack_next_tick( g_globals.local_weapon ) ) || should_be_aiming ) {
+		if ( g_globals.local->can_hit( position ) && ( attack_next_tick( g_globals.local_weapon ) ? should_be_aiming : true ) ) {
 			g_globals.command->view_angles = angle_to_hitbox;
 			attacked                       = true;
 		}
