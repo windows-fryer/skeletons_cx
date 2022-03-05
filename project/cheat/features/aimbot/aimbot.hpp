@@ -16,12 +16,24 @@ namespace aimbot
 		float gravity{ };
 		float speed{ };
 		bool curves{ };
-		sdk::vector offset{ };
+		int hitbox{ };
+	};
+
+	struct proj_solution {
+	public:
+		float pitch{ };
+		float yaw{ };
+		float time{ };
 	};
 
 	struct impl {
 	private:
+		bool should_be_aiming{ };
+		bool attacked{ };
+
+		bool attack_next_tick( sdk::c_tf_weapon_base* weapon );
 		weapon_info get_weapon_info( sdk::c_tf_weapon_base* weapon );
+		proj_solution calculate_arch( sdk::vector origin, sdk::vector point, sdk::qangle view_angles, weapon_info info );
 
 	public:
 		bool weapon_is_projectile( sdk::c_tf_weapon_base* weapon );

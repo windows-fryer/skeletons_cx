@@ -23,7 +23,7 @@ void hooks::impl::init( )
 	net_send_to::init( );
 	paint_traverse::init( );
 	update_clientside_anims::init( );
-	setup_bones::init( );
+	//	setup_bones::init( );
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 
