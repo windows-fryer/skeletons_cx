@@ -103,7 +103,8 @@ void visuals::impl::update_object( esp_object& object )
 	health_bar.color_to   = sdk::color( 255, 0, 0, 255 * dormant_alpha_modulation );
 	health_bar.min        = 0;
 	health_bar.max        = object.owner->max_health( );
-	health_bar.cur        = std::clamp( object.owner->health( ), 0, static_cast< int >( health_bar.max ) );
+	health_bar.cur =
+		health_bar.max > 0 ? std::clamp( object.owner->health( ), 0, static_cast< int >( health_bar.max ) ) : object.owner->max_health( );
 
 	object.box.bars.push_back( health_bar );
 
