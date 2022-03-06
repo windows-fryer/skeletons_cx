@@ -46,3 +46,4 @@ link_directories("$ENV{DXSDK_DIR}/Lib/x86")
 include_directories("$ENV{DXSDK_DIR}/Include")
 
 add_definitions(/MP)
+add_compile_options(/DEBUG FULL)
