@@ -7,6 +7,7 @@
 #include "c_base_combat_weapon.hpp"
 #include "c_econ_entity.hpp"
 #include "c_game_event_listener.hpp"
+#include "c_tf_player.hpp"
 #include "c_tf_weapon_info.hpp"
 #include "i_has_owner.hpp"
 
@@ -68,6 +69,9 @@ namespace sdk
 		{
 			return reinterpret_cast< char*( __thiscall* )( void* ) >( g_vfunc.get_virtual_function_index( this, 331 ) )( this );
 		}
+
+		bool can_attack_primary( sdk::c_tf_player* owner );
+		bool can_attack_secondary( sdk::c_tf_player* owner );
 	};
 } // namespace sdk
 

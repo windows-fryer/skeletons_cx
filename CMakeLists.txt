@@ -37,7 +37,7 @@ file(GLOB_RECURSE SRC
         )
 
 
-add_library(${PROJECT_NAME} SHARED ${SRC})
+add_library(${PROJECT_NAME} SHARED ${SRC} project/cheat/sdk/definitions/c_tf_weapon_base.cpp)
 
 find_library(D3D9_LIBRARY d3d9.lib PATHS "$ENV{DXSDK_DIR}/Lib/x86")
 find_library(D3DX9_LIBRARY d3dx9.lib PATHS "$ENV{DXSDK_DIR}/Lib/x86")

@@ -60,6 +60,9 @@ void aimbot::impl::think( )
 			AIMBOT_RETURN
 	}
 
+	if ( !g_globals.local_weapon->can_attack_primary( g_globals.local ) && ( !attack_next_tick( g_globals.local_weapon ) || should_be_aiming ) )
+		AIMBOT_RETURN;
+
 	attacked = false;
 
 	auto best_entity = get_best_entity( );
@@ -153,7 +156,7 @@ void aimbot::impl::think( )
 			angle_to_hitbox.normalize( );
 		}
 
-		if ( g_globals.local->can_hit( position ) && ( attack_next_tick( g_globals.local_weapon ) ? should_be_aiming : true ) ) {
+		if ( g_globals.local->can_hit( position ) && ( !attack_next_tick( g_globals.local_weapon ) || should_be_aiming ) ) {
 			g_globals.command->view_angles = angle_to_hitbox;
 			attacked                       = true;
 		}
