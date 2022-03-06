@@ -11,6 +11,9 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* ecx,
 		g_entity_list.update( );
 		g_lagcomp.update( );
 
+		if ( g_globals.local && g_globals.local->is_alive( ) )
+			g_globals.local->force_taunt_cam( ) = g_config.find< bool >( fnv( "third_person" ) );
+
 		for ( auto& player_info : g_entity_list.players ) {
 			if ( player_info.valid ) {
 				if ( auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( player_info.index ) ) {
@@ -24,9 +27,6 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* ecx,
 		}
 	} break;
 	case sdk::client_frame_stage::frame_render_start: {
-		if ( g_globals.local && g_globals.local->is_alive( ) )
-			g_globals.local->force_taunt_cam( ) = true;
-
 		/* re-extrapolate ents */
 		{
 			// for ( auto& player_info : g_entity_list.players ) {
