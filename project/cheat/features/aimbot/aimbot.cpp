@@ -60,7 +60,7 @@ void aimbot::impl::think( )
 			AIMBOT_RETURN
 	}
 
-	if ( !g_globals.local_weapon->can_attack_primary( g_globals.local ) && ( !attack_next_tick( g_globals.local_weapon ) || should_be_aiming ) )
+	if ( !g_globals.can_primary_attack && ( !attack_next_tick( g_globals.local_weapon ) || should_be_aiming ) )
 		AIMBOT_RETURN;
 
 	attacked = false;

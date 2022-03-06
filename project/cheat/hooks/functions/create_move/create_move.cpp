@@ -19,22 +19,25 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	auto net_chan            = reinterpret_cast< sdk::i_net_channel* >( g_interfaces.engine_client->get_net_channel_info( ) );
 	g_interfaces.net_channel = net_chan;
 
-	auto local_player = g_interfaces.entity_list->get< sdk::c_tf_player >( g_interfaces.engine_client->get_local_player( ) );
-
-	if ( !local_player )
+	if ( !g_globals.local )
 		return;
+
+	if ( g_globals.local_weapon ) {
+		g_globals.can_primary_attack   = g_globals.local_weapon->can_attack_primary( g_globals.local );
+		g_globals.can_secondary_attack = g_globals.local_weapon->can_attack_secondary( g_globals.local );
+	}
 
 	const sdk::qangle old_angle = command->view_angles;
 	g_globals.command           = command;
 
 	g_antiaim.fakelag( command, send_packet );
 
-	g_prediction.start( command, local_player );
+	g_prediction.start( command, g_globals.local );
 	{
 		g_aimbot.think( );
 		//		g_antiaim.do_180_sway( send_packet );
 	}
-	g_prediction.finish( command, local_player );
+	g_prediction.finish( command, g_globals.local );
 
 	g_movement.bunny_hop( );
 

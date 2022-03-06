@@ -30,6 +30,9 @@ namespace globals
 		sdk::view_matrix view_matrix;
 
 		lagcomp::record* lagcomp_record;
+
+		bool can_primary_attack;
+		bool can_secondary_attack;
 	};
 } // namespace globals
 
