@@ -3,6 +3,7 @@
 #include "functions/create_move/create_move.hpp"
 #include "functions/end_scene/end_scene.hpp"
 #include "functions/frame_stage_notify/frame_stage_notify.hpp"
+#include "functions/is_playing_back/is_playing_back.hpp"
 #include "functions/net_to/net_send_to.hpp"
 #include "functions/override_view/override_view.hpp"
 #include "functions/paint_traverse/paint_traverse.hpp"
@@ -24,6 +25,7 @@ void hooks::impl::init( )
 	paint_traverse::init( );
 	update_clientside_anims::init( );
 	//	setup_bones::init( );
+	is_playing_back::init( );
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 
