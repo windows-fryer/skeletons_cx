@@ -191,7 +191,7 @@ aimbot::weapon_info aimbot::impl::get_weapon_info( sdk::c_tf_weapon_base* weapon
 	case sdk::e_class_ids::ctfrocketlauncher:
 		return { 0.f, 1100.f, false, -1 };
 	case sdk::e_class_ids::ctfgrenadelauncher:
-		return { 0.4f, 1216.6f, true, sdk::hitbox_chest };
+		return { 0.4f, 1200.6f, true, -1 };
 	case sdk::e_class_ids::ctfcompoundbow: {
 		auto casted_weapon = reinterpret_cast< sdk::c_tf_pipebomb_launcher* >( weapon );
 		auto charge        = g_interfaces.globals->cur_time - casted_weapon->charge_begin_time( );

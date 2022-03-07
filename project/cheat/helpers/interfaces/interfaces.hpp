@@ -46,7 +46,9 @@ namespace interfaces
 		sdk::i_global_vars_base* globals;
 		sdk::i_render_view* render_view;
 		sdk::i_engine_trace* engine_trace;
-
+		sdk::i_client_leaf_system* leaf_system;
+		sdk::i_model_render* model_render;
+		sdk::i_material_system* material_system;
 
 		void init( );
 		void shutdown( );

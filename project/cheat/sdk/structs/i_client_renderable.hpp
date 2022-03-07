@@ -7,13 +7,14 @@
 
 namespace sdk
 {
+	using client_render_handle_t  = unsigned int;
+	using model_instance_handle_t = unsigned int;
+
 	enum shadow_type_t;
 
 	struct i_client_unknown;
 	struct client_shadow_handle_t;
-	struct client_render_handle_t;
 	struct model_t;
-	struct model_instance_handle_t;
 	struct ipvs_notify;
 
 	struct i_client_renderable {

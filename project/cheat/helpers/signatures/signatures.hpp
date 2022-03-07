@@ -44,6 +44,7 @@ namespace signatures
 			  g_server_dll },
 			{ "8A 81 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC 80 B9", g_engine_dll },
 			{ "84 C0 75 ? 38 05 ? ? ? ? 75 ? A1", g_engine_dll },
+			{ "53 8B DC 83 EC ? 83 E4 ? 83 C4 ? 55 8B 6B ? 89 6C 24 ? 8B EC 83 EC ? 83 3D", g_engine_dll },
 		};
 
 	public:

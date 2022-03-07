@@ -4,17 +4,20 @@ void interfaces::impl::init( )
 {
 	find_interfaces( );
 
-	engine_client = reinterpret_cast< sdk::i_engine_client* >( interfaces[ fnv( "VEngineClient013" ) ] );
-	base_client   = reinterpret_cast< sdk::i_base_client_dll* >( interfaces[ fnv( "VClient017" ) ] );
-	entity_list   = reinterpret_cast< sdk::i_client_entity_list* >( interfaces[ fnv( "VClientEntityList003" ) ] );
-	debug_overlay = reinterpret_cast< sdk::i_debug_overlay* >( interfaces[ fnv( "VDebugOverlay003" ) ] );
-	cvar          = reinterpret_cast< sdk::i_con_var* >( interfaces[ fnv( "VEngineCvar004" ) ] );
-	model_info    = reinterpret_cast< sdk::i_model_info* >( interfaces[ fnv( "VModelInfoClient006" ) ] );
-	render_view   = reinterpret_cast< sdk::i_render_view* >( interfaces[ fnv( "VEngineRenderView014" ) ] );
-	prediction    = reinterpret_cast< sdk::c_prediction* >( interfaces[ fnv( "VClientPrediction001" ) ] );
-	game_movement = reinterpret_cast< sdk::i_game_movement* >( interfaces[ fnv( "GameMovement001" ) ] );
-	panel         = reinterpret_cast< sdk::i_panel* >( interfaces[ fnv( "VGUI_Panel009" ) ] );
-	engine_trace  = reinterpret_cast< sdk::i_engine_trace* >( interfaces[ fnv( "EngineTraceClient003" ) ] );
+	engine_client   = reinterpret_cast< sdk::i_engine_client* >( interfaces[ fnv( "VEngineClient013" ) ] );
+	base_client     = reinterpret_cast< sdk::i_base_client_dll* >( interfaces[ fnv( "VClient017" ) ] );
+	entity_list     = reinterpret_cast< sdk::i_client_entity_list* >( interfaces[ fnv( "VClientEntityList003" ) ] );
+	debug_overlay   = reinterpret_cast< sdk::i_debug_overlay* >( interfaces[ fnv( "VDebugOverlay003" ) ] );
+	cvar            = reinterpret_cast< sdk::i_con_var* >( interfaces[ fnv( "VEngineCvar004" ) ] );
+	model_info      = reinterpret_cast< sdk::i_model_info* >( interfaces[ fnv( "VModelInfoClient006" ) ] );
+	render_view     = reinterpret_cast< sdk::i_render_view* >( interfaces[ fnv( "VEngineRenderView014" ) ] );
+	prediction      = reinterpret_cast< sdk::c_prediction* >( interfaces[ fnv( "VClientPrediction001" ) ] );
+	game_movement   = reinterpret_cast< sdk::i_game_movement* >( interfaces[ fnv( "GameMovement001" ) ] );
+	panel           = reinterpret_cast< sdk::i_panel* >( interfaces[ fnv( "VGUI_Panel009" ) ] );
+	engine_trace    = reinterpret_cast< sdk::i_engine_trace* >( interfaces[ fnv( "EngineTraceClient003" ) ] );
+	leaf_system     = reinterpret_cast< sdk::i_client_leaf_system* >( interfaces[ fnv( "ClientLeafSystem002" ) ] );
+	model_render    = reinterpret_cast< sdk::i_model_render* >( interfaces[ fnv( "VEngineModel016" ) ] );
+	material_system = reinterpret_cast< sdk::i_material_system* >( interfaces[ fnv( "VMaterialSystem081" ) ] );
 
 	input       = g_signatures[ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75" ].add( 0x2 ).get( 2 ).as< sdk::i_input* >( );
 	move_helper = g_signatures[ "8B 0D ? ? ? ? 8B 46 08 68 ? ? ? ? 05 ? ? ? ? 8B 11 50" ].add( 0x2 ).get( 2 ).as< sdk::i_move_helper* >( );

@@ -1,7 +1,9 @@
 #include "hooks.hpp"
 
 #include "functions/create_move/create_move.hpp"
+#include "functions/draw_model_execute/draw_model_execute.hpp"
 #include "functions/end_scene/end_scene.hpp"
+#include "functions/enumerate_leaves_in_box/enumerate_leaves_in_box.hpp"
 #include "functions/frame_stage_notify/frame_stage_notify.hpp"
 #include "functions/is_playing_back/is_playing_back.hpp"
 #include "functions/net_to/net_send_to.hpp"
@@ -26,6 +28,8 @@ void hooks::impl::init( )
 	update_clientside_anims::init( );
 	//	setup_bones::init( );
 	is_playing_back::init( );
+	enumerate_leaves_in_box::init( );
+	draw_model_execute::init( );
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 

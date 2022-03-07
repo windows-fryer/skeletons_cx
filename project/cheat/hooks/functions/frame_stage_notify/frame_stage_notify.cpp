@@ -11,8 +11,8 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* ecx,
 		g_entity_list.update( );
 		g_lagcomp.update( );
 
-		if ( g_globals.local && g_globals.local->is_alive( ) )
-			g_globals.local->force_taunt_cam( ) = g_config.find< bool >( fnv( "third_person" ) );
+		//		if ( g_globals.local && g_globals.local->is_alive( ) )
+		//			g_globals.local->force_taunt_cam( ) = g_config.find< bool >( fnv( "third_person" ) );
 
 		for ( auto& player_info : g_entity_list.players ) {
 			if ( player_info.valid ) {
