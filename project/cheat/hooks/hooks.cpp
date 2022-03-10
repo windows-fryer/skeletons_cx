@@ -1,5 +1,6 @@
 #include "hooks.hpp"
 
+#include "functions/cl_move/cl_move.hpp"
 #include "functions/create_move/create_move.hpp"
 #include "functions/draw_model_execute/draw_model_execute.hpp"
 #include "functions/end_scene/end_scene.hpp"
@@ -9,6 +10,7 @@
 #include "functions/net_to/net_send_to.hpp"
 #include "functions/override_view/override_view.hpp"
 #include "functions/paint_traverse/paint_traverse.hpp"
+#include "functions/send_net_msg/send_net_msg.hpp"
 #include "functions/setup_bones/setup_bones.hpp"
 #include "functions/testing_hooks/testing_hooks.hpp"
 #include "functions/update_clientside_anims/update_clientside_anims.hpp"
@@ -30,6 +32,8 @@ void hooks::impl::init( )
 	is_playing_back::init( );
 	enumerate_leaves_in_box::init( );
 	draw_model_execute::init( );
+	cl_move::init( );
+	send_net_msg::init( );
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 

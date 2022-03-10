@@ -43,6 +43,9 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 
 	g_antiaim.update_fake( send_packet );
 
+	if ( g_globals.shifting )
+		send_packet = g_globals.choke;
+
 	verified->cmd = *command;
 	verified->crc = command->get_checksum( );
 }

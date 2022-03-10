@@ -45,6 +45,10 @@ namespace signatures
 			{ "8A 81 ? ? ? ? C3 CC CC CC CC CC CC CC CC CC 80 B9", g_engine_dll },
 			{ "84 C0 75 ? 38 05 ? ? ? ? 75 ? A1", g_engine_dll },
 			{ "53 8B DC 83 EC ? 83 E4 ? 83 C4 ? 55 8B 6B ? 89 6C 24 ? 8B EC 83 EC ? 83 3D", g_engine_dll },
+			{ "55 8B EC 83 EC 38 83 3D ? ? ? ? ?", g_engine_dll },
+			{ "55 8B EC 56 8B F1 8D 8E ? ? ? ? E8 ? ? ? ? 85 C0 75", g_engine_dll },
+			{ "8B 45 ? C7 45 ? ? ? ? ? 5F 5E 85 C0 74 ? 6A ? 50 E8 ? ? ? ? 83 C4 ? 8B E5 5D C3", g_engine_dll },
+			{ "C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? DD 1D", g_engine_dll },
 		};
 
 	public:

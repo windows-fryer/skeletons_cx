@@ -33,6 +33,14 @@ namespace globals
 
 		bool can_primary_attack;
 		bool can_secondary_attack;
+
+		// tbh, I feel there should be a better place for this, but it do not matta!!
+
+		bool shifting;
+		bool choke;
+		int stored_ticks;
+		bool force_charge;
+		bool force_shift;
 	};
 } // namespace globals
 

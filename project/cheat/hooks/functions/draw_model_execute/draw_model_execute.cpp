@@ -16,20 +16,21 @@ void hooks::draw_model_execute::draw_model_execute_detour( void* ecx, void* edx,
 
 	draw_model_execute_hook.call_original( ecx, edx, state, info, custom_bone_to_world );
 
-	auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( info.entity_index );
-
-	if ( !entity )
-		return;
-
-	if ( entity->get_client_class( )->class_id != sdk::e_class_ids::ctfplayer )
-		return;
-
-	material_flat->set_material_var_flag( 1 << 15, true );
-	material_flat->color_modulate( 99 / 255.f, 0 / 255.f, 114 / 255.f );
-
-	g_interfaces.model_render->forced_material_override( material_flat );
-
-	draw_model_execute_hook.call_original( ecx, edx, state, info, custom_bone_to_world );
-
-	g_interfaces.model_render->forced_material_override( nullptr );
+	// will implement somewhere else
+	//	auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( info.entity_index );
+	//
+	//	if ( !entity )
+	//		return;
+	//
+	//	if ( entity->get_client_class( )->class_id != sdk::e_class_ids::ctfplayer )
+	//		return;
+	//
+	//	material_flat->set_material_var_flag( 1 << 15, true );
+	//	material_flat->color_modulate( 99 / 255.f, 0 / 255.f, 114 / 255.f );
+	//
+	//	g_interfaces.model_render->forced_material_override( material_flat );
+	//
+	//	draw_model_execute_hook.call_original( ecx, edx, state, info, custom_bone_to_world );
+	//
+	//	g_interfaces.model_render->forced_material_override( nullptr );
 }
