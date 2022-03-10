@@ -46,7 +46,7 @@ void hooks::cl_move::shift_ticks( float accumulated_extra_samples, bool final_ti
 		return;
 
 	// Source engine supa powerfow
-	auto shiftable_ticks = g_globals.stored_ticks - ( g_globals.stored_ticks > 16 ? net_channel->get_choked_packets( ) : 0 );
+	auto shiftable_ticks = g_globals.stored_ticks - net_channel->get_choked_packets( ) - time_to_ticks( net_channel->get_latency( 0 ) );
 
 	if ( shiftable_ticks < 1 )
 		return;
