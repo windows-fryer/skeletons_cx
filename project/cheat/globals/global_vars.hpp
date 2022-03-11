@@ -34,13 +34,22 @@ namespace globals
 		bool can_primary_attack;
 		bool can_secondary_attack;
 
-		// tbh, I feel there should be a better place for this, but it do not matta!!
+		/* Double Tap Stuff */
 
 		bool shifting;
+		bool charging;
+
 		bool choke;
+
 		int stored_ticks;
+
 		bool force_charge;
 		bool force_shift;
+
+		int shifted_ticks;
+		int charged_ticks;
+
+		int last_tick;
 	};
 } // namespace globals
 

@@ -3,6 +3,7 @@
 
 #include "../enums/life_state.hpp"
 #include "c_base_combat_character.hpp"
+#include "c_command_context.hpp"
 #include "c_user_cmd.hpp"
 
 namespace sdk
@@ -91,6 +92,11 @@ namespace sdk
 		vector eye_position( )
 		{
 			return origin( ) + view_offset( );
+		}
+
+		c_command_context* get_command_context( )
+		{
+			return *reinterpret_cast< c_command_context** >( reinterpret_cast< std::uintptr_t >( this ) + 0x1228 );
 		}
 	};
 } // namespace sdk

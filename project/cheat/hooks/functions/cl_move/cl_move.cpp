@@ -14,8 +14,11 @@ void hooks::cl_move::cl_move_detour( float accumulated_extra_samples, bool final
 	if ( !g_globals.command )
 		return clear_ticks( accumulated_extra_samples, final_tick );
 
-	if ( g_globals.stored_ticks < 24 && !( g_globals.command->buttons & sdk::in_attack ) )
+	if ( g_globals.stored_ticks < 24 && !( g_globals.command->buttons & sdk::in_attack ) &&
+	     g_interfaces.globals->tick_count - g_globals.last_tick >= 12 )
 		return store_tick( );
+
+	g_globals.charging = false;
 
 	cl_move_hook.call_original( accumulated_extra_samples, final_tick );
 
@@ -26,16 +29,22 @@ void hooks::cl_move::cl_move_detour( float accumulated_extra_samples, bool final
 
 void hooks::cl_move::clear_ticks( float accumulated_extra_samples, bool final_tick )
 {
-	g_globals.stored_ticks = 0;
-	g_globals.shifting     = false;
-	g_globals.choke        = false;
+	g_globals.shifted_ticks = 0;
+	g_globals.charged_ticks = 0;
+	g_globals.stored_ticks  = 0;
+	g_globals.shifting      = false;
+	g_globals.choke         = false;
+	g_globals.last_tick     = 0;
 
 	cl_move_hook.call_original( accumulated_extra_samples, final_tick );
 }
 
 void hooks::cl_move::store_tick( )
 {
+	g_globals.charging = true;
 	g_globals.stored_ticks++;
+	g_globals.charged_ticks; // WHY???
+	g_globals.last_tick = g_interfaces.globals->tick_count;
 }
 
 void hooks::cl_move::shift_ticks( float accumulated_extra_samples, bool final_tick )
@@ -60,6 +69,7 @@ void hooks::cl_move::shift_ticks( float accumulated_extra_samples, bool final_ti
 			g_globals.choke = false;
 
 		g_globals.stored_ticks--;
+		g_globals.shifted_ticks++;
 
 		cl_move_hook.call_original( accumulated_extra_samples, final_tick );
 	}

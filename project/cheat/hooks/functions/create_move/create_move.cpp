@@ -22,16 +22,20 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	if ( !g_globals.local || !g_globals.local_weapon )
 		return;
 
-	g_globals.can_primary_attack   = g_globals.local_weapon->can_attack_primary( g_globals.local );
-	g_globals.can_secondary_attack = g_globals.local_weapon->can_attack_secondary( g_globals.local );
-
 	const sdk::qangle old_angle = command->view_angles;
 	g_globals.command           = command;
 
 	//	g_antiaim.fakelag( command, send_packet );
 
+	if ( g_globals.shifting && !( command->buttons & sdk::in_attack ) ) {
+		command->buttons |= sdk::in_attack;
+	}
+
 	g_prediction.start( command, g_globals.local );
 	{
+		g_globals.can_primary_attack   = g_globals.local_weapon->can_attack_primary( g_globals.local );
+		g_globals.can_secondary_attack = g_globals.local_weapon->can_attack_secondary( g_globals.local );
+
 		g_aimbot.think( );
 		//		g_antiaim.do_180_sway( send_packet );
 	}
