@@ -4,7 +4,7 @@
 void prediction::impl::start( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )
 {
 	/* update local data */
-	unpredicted_local_data.flags = entity->flags();
+	unpredicted_local_data.flags = entity->flags( );
 
 	pred_backup.cur_time   = g_interfaces.globals->cur_time;
 	pred_backup.frame_time = g_interfaces.globals->frame_time;
@@ -31,26 +31,32 @@ void prediction::impl::start( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )
 
 	static sdk::move_data_t move_data;
 
-	g_interfaces.move_helper->set_host( entity );
-
 	g_interfaces.game_movement->start_track_prediction_errors( entity );
 
 	g_interfaces.prediction->set_local_view_angles( cmd->view_angles ); // not always wanted
 
 	entity->pre_think( );
 
+	g_interfaces.move_helper->set_host( entity );
+
 	g_interfaces.prediction->setup_move( entity, cmd, g_interfaces.move_helper, &move_data );
 	g_interfaces.game_movement->process_movement( entity, &move_data );
 	g_interfaces.prediction->finish_move( entity, cmd, &move_data );
 
+	g_interfaces.move_helper->process_impacts( );
+
+	g_globals.running_post_think = true;
+
 	entity->post_think( );
+
+	g_globals.running_post_think = false;
 
 	entity->tick_base( )                          = pred_backup.tick_base;
 	g_interfaces.prediction->first_time_predicted = backup_is_first_time_predicted;
 	g_interfaces.prediction->is_in_prediction     = backup_is_in_prediction;
 
 	/* update local data */
-	predicted_local_data.flags = entity->flags();
+	predicted_local_data.flags = entity->flags( );
 }
 
 void prediction::impl::finish( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )

@@ -7,6 +7,7 @@
 #include "functions/enumerate_leaves_in_box/enumerate_leaves_in_box.hpp"
 #include "functions/frame_stage_notify/frame_stage_notify.hpp"
 #include "functions/is_playing_back/is_playing_back.hpp"
+#include "functions/item_post_frame/item_post_frame.hpp"
 #include "functions/net_to/net_send_to.hpp"
 #include "functions/override_view/override_view.hpp"
 #include "functions/paint_traverse/paint_traverse.hpp"
@@ -36,6 +37,7 @@ void hooks::impl::init( )
 	cl_move::init( );
 	send_net_msg::init( );
 	run_command::init( );
+	item_post_frame::init( );
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 

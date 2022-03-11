@@ -47,6 +47,8 @@ namespace globals
 		bool force_shift;
 
 		int last_tick;
+
+		bool running_post_think;
 	};
 } // namespace globals
 
