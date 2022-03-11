@@ -1,8 +1,24 @@
 #include "prediction.hpp"
 #include "../../globals/global_vars.hpp"
+#include <algorithm>
 
 void prediction::impl::start( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )
 {
+	static auto clock_correction = g_interfaces.cvar->find_var( "sv_clockcorrection_msecs" );
+	float correction_ticks       = time_to_ticks( std::clamp( clock_correction->get_float( ) / 1000.f, 0.f, 1.f ) );
+
+	int ideal_final_tick     = g_interfaces.globals->tick_count + correction_ticks;
+	int estimated_final_tick = entity->tick_base( );
+
+	int too_fast_limit = ideal_final_tick + correction_ticks;
+	int too_slow_limit = ideal_final_tick - correction_ticks;
+
+	if ( estimated_final_tick > too_fast_limit || estimated_final_tick < too_slow_limit ) {
+		int corrected_tick = ideal_final_tick - g_interfaces.globals->sim_ticks_this_frame;
+
+		entity->tick_base( ) = corrected_tick;
+	}
+
 	/* update local data */
 	unpredicted_local_data.flags = entity->flags( );
 

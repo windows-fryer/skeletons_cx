@@ -6,6 +6,7 @@
 #include "functions/end_scene/end_scene.hpp"
 #include "functions/enumerate_leaves_in_box/enumerate_leaves_in_box.hpp"
 #include "functions/frame_stage_notify/frame_stage_notify.hpp"
+#include "functions/get_time/get_time.hpp"
 #include "functions/is_playing_back/is_playing_back.hpp"
 #include "functions/item_post_frame/item_post_frame.hpp"
 #include "functions/net_to/net_send_to.hpp"
@@ -38,6 +39,7 @@ void hooks::impl::init( )
 	send_net_msg::init( );
 	run_command::init( );
 	item_post_frame::init( );
+	get_time::init( );
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 

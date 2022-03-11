@@ -52,6 +52,8 @@ namespace signatures
 			{ "55 8B EC 51 53 56 8B F1 57 89 75 ? E8 ? ? ? ? 8B 7D", g_client_dll },
 			{ "55 8B EC 83 EC ? 56 57 8B F9 8B 37", g_client_dll },
 			{ "F6 87 ? ? ? ? ? 74 ? C7 87 ? ? ? ? ? ? ? ? 83 BF", g_client_dll },
+			{ "55 8B EC 51 80 B9 14 4B 00 00", g_engine_dll },
+			{ "D9 43 ? DF F1", g_engine_dll },
 		};
 
 	public:

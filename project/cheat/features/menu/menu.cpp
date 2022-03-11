@@ -20,6 +20,9 @@ bool menu::impl::init( )
 	g_config.insert( "third_person", config::option( false ) );
 	g_config.insert( "third_person_bind", config::option( 'V', 0, 0 ) );
 
+	g_config.insert( "double_tap", config::option( false ) );
+	g_config.insert( "double_tap_bind", config::option( 'J', 0, 0 ) );
+
 	static auto misc_tab = new menu::tab{ main_window, std::string( "miscellaneous" ) };
 
 	static auto misc_main_group = new menu::group{ misc_tab, "main", static_cast< int >( menu::group_position::GROUP_LEFT ), true };
@@ -29,6 +32,10 @@ bool menu::impl::init( )
 	static auto bunnyhop_misc_main_checkbox = new menu::check_box{ misc_main_group, fnv( "bunny_hop" ), "bunny hop" };
 	bunnyhop_misc_main_checkbox->add_color_picker( fnv( "menu_color" ) );
 
+	static auto double_tap_misc_main_checkbox = new menu::check_box{ misc_main_group, fnv( "double_tap" ), "double tap" };
+	double_tap_misc_main_checkbox->add_keybind( fnv( "double_tap_bind" ) );
+
+	misc_main_group->objects.push_back( double_tap_misc_main_checkbox );
 	misc_main_group->objects.push_back( bunnyhop_misc_main_checkbox );
 	misc_main_group->objects.push_back( thirdperson_misc_main_checkbox );
 	misc_tab->groups.push_back( misc_main_group );
