@@ -46,9 +46,6 @@ namespace globals
 		bool force_charge;
 		bool force_shift;
 
-		int shifted_ticks;
-		int charged_ticks;
-
 		int last_tick;
 	};
 } // namespace globals
