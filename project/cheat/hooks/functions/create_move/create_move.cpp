@@ -30,11 +30,11 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 
 	//	g_antiaim.fakelag( command, send_packet );
 
+	g_globals.can_primary_attack   = g_globals.local_weapon->can_attack_primary( g_globals.local );
+	g_globals.can_secondary_attack = g_globals.local_weapon->can_attack_secondary( g_globals.local );
+
 	g_prediction.start( command, g_globals.local );
 	{
-		g_globals.can_primary_attack   = g_globals.local_weapon->can_attack_primary( g_globals.local );
-		g_globals.can_secondary_attack = g_globals.local_weapon->can_attack_secondary( g_globals.local );
-
 		g_aimbot.think( );
 		//		g_antiaim.do_180_sway( send_packet );
 	}
