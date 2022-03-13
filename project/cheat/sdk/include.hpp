@@ -32,6 +32,7 @@
 #include "structs/c_tf_sniper_rifle.hpp"
 #include "structs/c_user_cmd.hpp"
 #include "structs/i_collideable.hpp"
+#include "structs/key_values.hpp"
 #include "structs/player_info.hpp"
 
 #include "structs/box.hpp"

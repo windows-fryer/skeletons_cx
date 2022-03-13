@@ -5,14 +5,17 @@
 #include "functions/draw_model_execute/draw_model_execute.hpp"
 #include "functions/end_scene/end_scene.hpp"
 #include "functions/enumerate_leaves_in_box/enumerate_leaves_in_box.hpp"
+#include "functions/fire_event_intern/fire_event_intern.hpp"
 #include "functions/frame_stage_notify/frame_stage_notify.hpp"
 #include "functions/get_time/get_time.hpp"
 #include "functions/is_playing_back/is_playing_back.hpp"
 #include "functions/item_post_frame/item_post_frame.hpp"
+#include "functions/net_to/net_send_long.hpp"
 #include "functions/net_to/net_send_to.hpp"
 #include "functions/override_view/override_view.hpp"
 #include "functions/paint_traverse/paint_traverse.hpp"
 #include "functions/run_command/run_command.hpp"
+#include "functions/scene_end/scene_end.hpp"
 #include "functions/send_net_msg/send_net_msg.hpp"
 #include "functions/setup_bones/setup_bones.hpp"
 #include "functions/testing_hooks/testing_hooks.hpp"
@@ -40,6 +43,10 @@ void hooks::impl::init( )
 	run_command::init( );
 	item_post_frame::init( );
 	get_time::init( );
+	scene_end::init( );
+	net_send_long::init( );
+	fire_event_intern::init( );
+
 	MH_EnableHook( MH_ALL_HOOKS );
 }
 

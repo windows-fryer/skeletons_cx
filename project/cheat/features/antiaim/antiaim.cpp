@@ -16,7 +16,7 @@ void antiaim::impl::fakelag( sdk::c_user_cmd* cmd, bool& send_packet )
 #ifdef fuck_mode
 	// fluctuate
 	static int fakelag_goal = 0;
-	const int fakelag_max   = 6;
+	const int fakelag_max   = 22;
 	if ( num_choked_ticks == fakelag_goal ) {
 		if ( fakelag_goal == fakelag_max )
 			fakelag_goal = 0;

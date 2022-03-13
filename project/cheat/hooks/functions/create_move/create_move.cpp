@@ -22,6 +22,19 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	if ( !g_globals.local || !g_globals.local_weapon )
 		return;
 
+	if ( !g_globals.shifting ) // add toggle later
+	{
+		auto cat_identify = new sdk::key_values( "AchievementEarned" );
+
+		cat_identify->set_int( "achievementID", 0xCA7 );
+		g_interfaces.engine_client->server_cmd_key_values( cat_identify );
+
+		auto cat_response = new sdk::key_values( "AchievementEarned" );
+
+		cat_response->set_int( "achievementID", 0xCA8 );
+		g_interfaces.engine_client->server_cmd_key_values( cat_response );
+	}
+
 	const sdk::qangle old_angle = command->view_angles;
 	g_globals.command           = command;
 

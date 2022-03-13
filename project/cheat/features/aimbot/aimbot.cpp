@@ -5,27 +5,38 @@
 #include "../prediction/prediction.hpp"
 #include <algorithm>
 
+int get_closest_hitbox( sdk::c_tf_player* entity )
+{
+	int best_hitbox;
+	float fov = FLT_MAX;
+
+	for ( int index = sdk::hitbox_head; index < sdk::hitbox_left_forearm; index++ ) {
+		sdk::vector hitbox_position = entity->get_hitbox_position( index ); // origin is gay, whatever.
+		sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - g_globals.local->eye_position( ) );
+		float fov_to_hibox          = math::calculate_angle_fov( g_globals.command->view_angles, angle_to_hitbox );
+
+		if ( fov_to_hibox < fov ) {
+			fov         = fov_to_hibox;
+			best_hitbox = index;
+		}
+	}
+
+	return best_hitbox;
+}
+
 aimbot::aimbot_target get_best_entity( )
 {
-	// lil unoptimized, whatever
 	aimbot::aimbot_target best_target;
 	best_target.fov          = FLT_MAX;
 	best_target.entity_index = -1;
 
-	/* @blanket: i fucking hate sorting like this but we have to */
 	for ( auto& player_info : g_entity_list.players ) {
 		if ( player_info.valid ) {
 			if ( auto entity = g_interfaces.entity_list->get< sdk::c_tf_player >( player_info.index ) ) {
-				if ( !entity )
-					continue;
+				sdk::vector entity_origin   = entity->get_abs_origin( );
+				sdk::qangle angle_to_entity = math::vector_to_angle( entity_origin - g_globals.local->eye_position( ) );
+				float fov_to_origin         = math::calculate_angle_fov( g_globals.command->view_angles, angle_to_entity );
 
-				const float entity_health       = entity->health( );
-				const sdk::vector entity_origin = entity->get_abs_origin( ); // origin is gay, whatever.
-				const sdk::qangle angle_to_entity =
-					math::vector_to_angle( entity_origin - ( g_globals.local->get_abs_origin( ) + g_globals.local->view_offset( ) ) );
-				const float fov_to_origin = math::calculate_angle_fov( g_globals.command->view_angles, angle_to_entity );
-
-				// for dynamic selection use health multiplier to fov so aimbot priority is for low hp but aimbot also wants low fov
 				if ( fov_to_origin < best_target.fov ) {
 					best_target.fov          = fov_to_origin;
 					best_target.entity_index = player_info.index;
@@ -83,7 +94,8 @@ void aimbot::impl::think( )
 		[[unlikely]] if ( !g_globals.lagcomp_record ) return;
 
 		// todo: hitbox selection
-		sdk::vector hitbox_position = entity->get_hitbox_position( 0, g_globals.lagcomp_record->bone_matrix ); // head only. whatever - shut up nigger
+		sdk::vector hitbox_position = entity->get_hitbox_position( get_closest_hitbox( entity ),
+		                                                           g_globals.lagcomp_record->bone_matrix ); // head only. whatever - shut up nigger
 		sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - g_globals.local->eye_position( ) );
 
 		// sdk::c_game_trace trace;

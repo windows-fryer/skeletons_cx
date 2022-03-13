@@ -46,6 +46,8 @@ namespace entity_list
 		bool valid{ };
 
 		dormant_info dormant_info{ };
+
+		bool bot{ };
 	};
 
 	struct building {

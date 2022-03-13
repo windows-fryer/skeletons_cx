@@ -8,36 +8,16 @@ set(CMAKE_CXX_STANDARD 23)
 file(GLOB_RECURSE SRC
         "project/*.h" ,
         "project/*.hpp" ,
-        "project/*.cpp" ,
         "project/*.c" ,
+        "project/*.cpp" ,
         "project/**/*.h" ,
         "project/**/*.hpp" ,
         "project/**/*.c" ,
         "project/**/*.cpp" ,
-        #        "project/**/**/*.h" ,
-        #        "project/**/**/*.hpp" ,
-        #        "project/**/**/*.c" ,
-        #        "project/**/**/*.cpp" ,
-        #        "project/**/**/**/*.h" ,
-        #        "project/**/**/**/*.hpp" ,
-        #        "project/**/**/**/*.c" ,
-        #        "project/**/**/**/*.cpp" ,
-        #        "project/**/**/**/**/*.h" ,
-        #        "project/**/**/**/**/*.hpp" ,
-        #        "project/**/**/**/**/*.c" ,
-        #        "project/**/**/**/**/*.cpp" ,
-        #        "project/**/**/**/**/**/*.h" ,
-        #        "project/**/**/**/**/**/*.hpp" ,
-        #        "project/**/**/**/**/**/*.c" ,
-        #        "project/**/**/**/**/**/*.cpp" ,
-        #        "project/**/**/**/**/**/**/*.h" ,
-        #        "project/**/**/**/**/**/**/*.hpp" ,
-        #        "project/**/**/**/**/**/**/*.c" ,
-        #        "project/**/**/**/**/**/**/*.cpp"
         )
 
 
-add_library(${PROJECT_NAME} SHARED ${SRC} project/cheat/hooks/functions/run_command/run_command.cpp project/cheat/hooks/functions/run_command/run_command.hpp project/cheat/sdk/structs/c_command_context.hpp project/cheat/hooks/functions/item_post_frame/item_post_frame.cpp project/cheat/hooks/functions/item_post_frame/item_post_frame.hpp project/cheat/hooks/functions/get_time/get_time.cpp project/cheat/hooks/functions/get_time/get_time.hpp)
+add_library(${PROJECT_NAME} SHARED ${SRC} project/cheat/hooks/functions/net_to/net_send_long.cpp project/cheat/hooks/functions/net_to/net_send_long.hpp project/cheat/hooks/functions/fire_event_intern/fire_event_intern.cpp project/cheat/hooks/functions/fire_event_intern/fire_event_intern.hpp project/cheat/sdk/structs/key_values.hpp project/cheat/sdk/definitions/key_values.cpp)
 
 find_library(D3D9_LIBRARY d3d9.lib PATHS "$ENV{DXSDK_DIR}/Lib/x86")
 find_library(D3DX9_LIBRARY d3dx9.lib PATHS "$ENV{DXSDK_DIR}/Lib/x86")

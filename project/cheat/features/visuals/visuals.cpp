@@ -119,6 +119,18 @@ void visuals::impl::update_object( esp_object& object )
 
 	object.box.texts.push_back( health_text );
 
+	if ( g_entity_list.players[ object.owner->entindex( ) ].bot ) {
+		auto bot_text = esp_text( );
+
+		bot_text.location = esp_location::LOCATION_RIGHT;
+		bot_text.text     = "BOT";
+		bot_text.color    = sdk::color( 255, 255, 255, 255 * dormant_alpha_modulation );
+		bot_text.font     = g_fonts[ fnv( "esp_indicator_font" ) ];
+		bot_text.flags    = font_flags::FLAG_OUTLINE;
+
+		object.box.texts.push_back( bot_text );
+	}
+
 	//
 	//	auto player_weapon = g_interfaces.entity_list->get< sdk::c_tf_weapon_base* >( object.owner->active_weapon( ) );
 	//
