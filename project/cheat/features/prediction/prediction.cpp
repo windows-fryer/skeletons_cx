@@ -161,7 +161,7 @@ void prediction::impl::projectile_backup( sdk::c_tf_player* entity )
 	fake_move_data.velocity               = entity->estimate_abs_velocity( );
 	fake_move_data.abs_origin             = entity->get_abs_origin( );
 
-	fake_move_data.view_angles = { 0.f, velocity_to_angles( entity->velocity( ) ).yaw, 0.f };
+	fake_move_data.view_angles = { 0.f, velocity_to_angles( fake_move_data.velocity ).yaw, 0.f };
 
 	sdk::vector forward, right, up;
 
