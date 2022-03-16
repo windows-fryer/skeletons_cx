@@ -52,6 +52,7 @@ void render::impl::setup_state( )
 	device->SetRenderState( D3DRS_COLORWRITEENABLE,
 	                        D3DCOLORWRITEENABLE_RED | D3DCOLORWRITEENABLE_GREEN | D3DCOLORWRITEENABLE_BLUE | D3DCOLORWRITEENABLE_ALPHA );
 
+	device->GetTexture( 0, &texture );
 	device->SetTexture( 0, nullptr );
 
 	device->SetTextureStageState( 0, D3DTSS_COLOROP, D3DTOP_MODULATE );
@@ -72,6 +73,7 @@ void render::impl::finish_state( )
 
 	device->SetVertexDeclaration( vertex_declaration );
 	device->SetVertexShader( vertex_shader );
+	device->SetTexture( 0, texture );
 }
 
 void render::impl::create_font( std::size_t size, std::size_t weight, bool anti_aliased, const char* name, LPD3DXFONT& font )

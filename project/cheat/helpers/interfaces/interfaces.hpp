@@ -49,6 +49,7 @@ namespace interfaces
 		sdk::i_client_leaf_system* leaf_system;
 		sdk::i_model_render* model_render;
 		sdk::i_material_system* material_system;
+		sdk::i_localize* localize;
 
 		void init( );
 		void shutdown( );

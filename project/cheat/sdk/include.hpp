@@ -16,6 +16,7 @@
 #include "interfaces/i_engine_trace.hpp"
 #include "interfaces/i_global_vars_base.hpp"
 #include "interfaces/i_input.hpp"
+#include "interfaces/i_localize.hpp"
 #include "interfaces/i_material_system.hpp"
 #include "interfaces/i_model_info.hpp"
 #include "interfaces/i_model_render.hpp"
@@ -43,5 +44,6 @@
 
 #include "enums/flags.hpp"
 #include "enums/hitboxes.hpp"
+#include "enums/tf_cond.hpp"
 
 #endif // SKELETONS_CX_INCLUDE_HPP

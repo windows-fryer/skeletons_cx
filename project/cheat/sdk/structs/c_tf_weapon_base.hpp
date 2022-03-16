@@ -35,25 +35,18 @@ namespace sdk
 		NETVAR( inspect_stage, int, "CTFWeaponBase", "m_nInspectStage" );
 		NETVAR( consecutive_shots, int, "CTFWeaponBase", "m_iConsecutiveShots" );
 
-		int weapon_mode;
-		c_tf_weapon_info* weapon_info;
-		bool in_attack;
-		bool in_attack2;
-		bool current_attack_is_crit;
-		bool current_crit_is_random;
-		bool current_attack_is_during_demo_charge;
+		c_tf_weapon_info& get_weapon_info( )
+		{
+			auto get_tf_weapon_data_address = g_signatures[ "0F B7 81 ? ? ? ? 50 E8 ? ? ? ? 83 C4 ? C3" ];
+			using get_tf_weapon_data_type   = c_tf_weapon_info&( __thiscall* )( void* );
 
-		weapon_strange_type strange_type;
-		weapon_stat_trak_module_type stat_trak_module_type;
+			return get_tf_weapon_data_address.as< get_tf_weapon_data_type >( )( this );
+		}
 
-		int alt_fire_hint;
-
-		int reload_start_clip_amount;
-
-		float crit_time;
-		int last_crit_check_frame;
-		int current_seed;
-		float last_rapid_fire_crit_check_time;
+		weapon_data get_weapon_data( )
+		{
+			return get_weapon_info( ).weapon_data[ 0 ];
+		}
 
 		int get_slot( )
 		{

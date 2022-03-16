@@ -3,15 +3,21 @@
 
 void hooks::scene_end::scene_end_detour( void* ecx, void* edx )
 {
-	static sdk::i_material* material_regular;
+	static sdk::i_material* material_texture;
 	static sdk::i_material* material_flat;
 
-	if ( !material_flat || !material_regular ) {
-		material_regular = g_interfaces.material_system->find_material( "gloss" );
-		material_flat    = g_interfaces.material_system->find_material( "flat" );
+	if ( !material_texture || !material_flat ) {
+		auto material_texture_kv = new sdk::key_values( "VertexLitGeneric" );
+		material_texture_kv->set_string( "$selfillum", "1" );
+		material_texture_kv->set_string( "$selfillumfresnel", "1" );
+		material_texture_kv->set_string( "$bumpmap", "vgui/white_additive" );
+		material_texture_kv->set_string( "$basetexture", "vgui/white_additive" );
+		material_texture_kv->set_string( "$selfillumfresnelminmaxexp", "[0.1 1 2]" );
+		material_texture = g_interfaces.material_system->create_material( "material_texture", material_texture_kv );
 
-		material_regular->increment_reference_count( );
-		material_flat->increment_reference_count( );
+		auto material_flat_kv = new sdk::key_values( "UnlitGeneric" );
+		material_flat_kv->set_string( "$basetexture", "vgui/white_additive" );
+		material_flat = g_interfaces.material_system->create_material( "material_flat", material_flat_kv );
 	}
 
 	for ( auto& player_info : g_entity_list.players ) {

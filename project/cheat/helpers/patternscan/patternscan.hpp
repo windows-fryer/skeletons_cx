@@ -6,7 +6,7 @@
 namespace patternscan
 {
 	struct address {
-	protected:
+	public:
 		std::uintptr_t m_address{ };
 
 	public:

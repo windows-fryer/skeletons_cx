@@ -4,9 +4,29 @@
 #include <format>
 #include <iostream>
 #include <string>
+#include <windows.h>
 
 namespace console
 {
+	namespace color
+	{
+		void blue( );
+
+		void red( );
+
+		void green( );
+
+		void yellow( );
+
+		void white( );
+
+		void cyan( );
+
+		void purple( );
+
+		void grey( );
+	} // namespace color
+
 	void init( );
 	void shutdown( );
 

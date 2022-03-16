@@ -18,6 +18,7 @@ void interfaces::impl::init( )
 	leaf_system     = reinterpret_cast< sdk::i_client_leaf_system* >( interfaces[ fnv( "ClientLeafSystem002" ) ] );
 	model_render    = reinterpret_cast< sdk::i_model_render* >( interfaces[ fnv( "VEngineModel016" ) ] );
 	material_system = reinterpret_cast< sdk::i_material_system* >( interfaces[ fnv( "VMaterialSystem081" ) ] );
+	localize        = reinterpret_cast< sdk::i_localize* >( interfaces[ fnv( "VGUI_Localize005" ) ] );
 
 	input       = g_signatures[ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75" ].add( 0x2 ).get( 2 ).as< sdk::i_input* >( );
 	move_helper = g_signatures[ "8B 0D ? ? ? ? 8B 46 08 68 ? ? ? ? 05 ? ? ? ? 8B 11 50" ].add( 0x2 ).get( 2 ).as< sdk::i_move_helper* >( );

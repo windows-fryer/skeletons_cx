@@ -17,7 +17,7 @@ file(GLOB_RECURSE SRC
         )
 
 
-add_library(${PROJECT_NAME} SHARED ${SRC} project/cheat/hooks/functions/net_to/net_send_long.cpp project/cheat/hooks/functions/net_to/net_send_long.hpp project/cheat/hooks/functions/fire_event_intern/fire_event_intern.cpp project/cheat/hooks/functions/fire_event_intern/fire_event_intern.hpp project/cheat/sdk/structs/key_values.hpp project/cheat/sdk/definitions/key_values.cpp)
+add_library(${PROJECT_NAME} SHARED ${SRC} project/cheat/hooks/functions/net_to/net_send_long.cpp project/cheat/hooks/functions/net_to/net_send_long.hpp project/cheat/hooks/functions/fire_event_intern/fire_event_intern.cpp project/cheat/hooks/functions/fire_event_intern/fire_event_intern.hpp project/cheat/sdk/structs/key_values.hpp project/cheat/sdk/definitions/key_values.cpp project/cheat/sdk/enums/tf_cond.hpp project/cheat/sdk/interfaces/i_localize.hpp)
 
 find_library(D3D9_LIBRARY d3d9.lib PATHS "$ENV{DXSDK_DIR}/Lib/x86")
 find_library(D3DX9_LIBRARY d3dx9.lib PATHS "$ENV{DXSDK_DIR}/Lib/x86")

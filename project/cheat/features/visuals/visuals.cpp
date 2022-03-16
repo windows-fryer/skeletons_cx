@@ -3,6 +3,8 @@
 #include "../movement/movement.hpp"
 
 #include <algorithm>
+#include <codecvt>
+#include <locale>
 
 sdk::box visuals::esp_box::calculate_box( sdk::c_tf_player* player, bool& on_screen )
 {
@@ -131,31 +133,86 @@ void visuals::impl::update_object( esp_object& object )
 		object.box.texts.push_back( bot_text );
 	}
 
-	//
-	//	auto player_weapon = g_interfaces.entity_list->get< sdk::c_tf_weapon_base* >( object.owner->active_weapon( ) );
-	//
-	//	if ( player_weapon && player_weapon->item_definition_index( ) ) {
-	//		weapon_ammo_bar.location   = esp_location::LOCATION_BOTTOM;
-	//		weapon_ammo_bar.width      = 2;
-	//		weapon_ammo_bar.color_from = color( 173, 216, 230, 255 * dormant_alpha_modulation );
-	//		weapon_ammo_bar.color_to   = color( 173, 216, 230, 255 * dormant_alpha_modulation );
-	//		weapon_ammo_bar.min        = 0;
-	//		weapon_ammo_bar.max        = weapon_info->max_clip1;
-	//		weapon_ammo_bar.cur        = player_weapon->clip_mag( );
-	//
-	//		object.box.bars.push_back( weapon_ammo_bar );
-	//
-	//		std::wstring weapon_name_wide = g_interfaces.localize->find( weapon_info->hud_name );
-	//		auto weapon_name_string       = std::string( weapon_name_wide.begin( ), weapon_name_wide.end( ) );
-	//
-	//		weapon_name_text.location = esp_location::LOCATION_BOTTOM;
-	//		weapon_name_text.text     = weapon_name_string;
-	//		weapon_name_text.color    = color( 255, 255, 255, 255 * dormant_alpha_modulation );
-	//		weapon_name_text.font     = g_fonts[ HASH( "esp_indicator_font" ) ];
-	//		weapon_name_text.flags    = font_flags::FLAG_OUTLINE;
-	//
-	//		object.box.texts.push_back( weapon_name_text );
-	//	}
+	if ( object.owner->player_cond( ) & sdk::tf_cond_ubercharged ) {
+		auto uber_text = esp_text( );
+
+		uber_text.location = esp_location::LOCATION_RIGHT;
+		uber_text.text     = "UBER";
+		uber_text.color    = sdk::color( 173, 216, 230, 255 * dormant_alpha_modulation );
+		uber_text.font     = g_fonts[ fnv( "esp_indicator_font" ) ];
+		uber_text.flags    = font_flags::FLAG_OUTLINE;
+
+		object.box.texts.push_back( uber_text );
+	}
+
+	if ( object.owner->player_cond( ) & sdk::tf_cond_bleeding ) {
+		auto bleed_text = esp_text( );
+
+		bleed_text.location = esp_location::LOCATION_RIGHT;
+		bleed_text.text     = "BLEED";
+		bleed_text.color    = sdk::color( 255, 204, 203, 255 * dormant_alpha_modulation );
+		bleed_text.font     = g_fonts[ fnv( "esp_indicator_font" ) ];
+		bleed_text.flags    = font_flags::FLAG_OUTLINE;
+
+		object.box.texts.push_back( bleed_text );
+	}
+
+	if ( object.owner->player_cond( ) & sdk::tf_cond_bonked ) {
+		auto bonk_text = esp_text( );
+
+		bonk_text.location = esp_location::LOCATION_RIGHT;
+		bonk_text.text     = "BONK";
+		bonk_text.color    = sdk::color( 255, 235, 203, 255 * dormant_alpha_modulation );
+		bonk_text.font     = g_fonts[ fnv( "esp_indicator_font" ) ];
+		bonk_text.flags    = font_flags::FLAG_OUTLINE;
+
+		object.box.texts.push_back( bonk_text );
+	}
+
+	if ( object.owner->player_cond( ) & sdk::tf_cond_mini_crits ) {
+		auto mini_crits_text = esp_text( );
+
+		mini_crits_text.location = esp_location::LOCATION_RIGHT;
+		mini_crits_text.text     = "CRIT";
+		mini_crits_text.color    = sdk::color( 255, 235, 203, 255 * dormant_alpha_modulation );
+		mini_crits_text.font     = g_fonts[ fnv( "esp_indicator_font" ) ];
+		mini_crits_text.flags    = font_flags::FLAG_OUTLINE;
+
+		object.box.texts.push_back( mini_crits_text );
+	}
+	
+	auto player_weapon = g_interfaces.entity_list->get< sdk::c_tf_weapon_base >( object.owner->active_weapon( ) );
+
+	if ( player_weapon ) {
+		auto weapon_info = player_weapon->get_weapon_info( );
+
+		// TF2 Weapons are just too buggy to even touch. Unlike CS:GO, localization doesn't work.
+		//
+		//		weapon_ammo_bar.location   = esp_location::LOCATION_BOTTOM;
+		//		weapon_ammo_bar.width      = 2;
+		//		weapon_ammo_bar.color_from = sdk::color( 173, 216, 230, 255 * dormant_alpha_modulation );
+		//		weapon_ammo_bar.color_to   = sdk::color( 173, 216, 230, 255 * dormant_alpha_modulation );
+		//		weapon_ammo_bar.min        = 0;
+		//		weapon_ammo_bar.max        = weapon_info.max_clip1;
+		//		weapon_ammo_bar.cur        = player_weapon->clip1( );
+		//
+		//		object.box.bars.push_back( weapon_ammo_bar );
+
+		//		if ( auto weapon_name = g_interfaces.localize->find( weapon_info.class_name ) ) {
+		//			size_t localize_size{ };
+		//			char localize_name[ 2048 ]{ };
+		//
+		//			wcstombs_s( &localize_size, localize_name, weapon_name, sizeof( localize_name ) );
+
+		//		weapon_name_text.location = esp_location::LOCATION_BOTTOM;
+		//		weapon_name_text.text     = std::string( weapon_info.class_name );
+		//		weapon_name_text.color    = sdk::color( 255, 255, 255, 255 * dormant_alpha_modulation );
+		//		weapon_name_text.font     = g_fonts[ fnv( "esp_indicator_font" ) ];
+		//		weapon_name_text.flags    = font_flags::FLAG_OUTLINE;
+		//
+		//		object.box.texts.push_back( weapon_name_text );
+		//		}
+	}
 }
 
 void visuals::impl::update( )
@@ -190,6 +247,21 @@ void visuals::impl::render( )
 		//		player->draw_client_hitbox( g_interfaces.globals->frame_time * 2 );
 		object.box.render( player );
 	}
+
+	auto net_channel = reinterpret_cast< sdk::i_net_channel* >( g_interfaces.engine_client->get_net_channel_info( ) );
+
+	if ( !net_channel )
+		return;
+
+	auto shiftable_ticks = g_globals.stored_ticks - net_channel->get_choked_packets( ) - time_to_ticks( net_channel->get_latency( 0 ) );
+
+	auto indicator_font = g_fonts[ fnv( "indicator_verdana_font" ) ];
+	auto formatted_text = std::format( "DT: {}", shiftable_ticks );
+	auto distance       = 120.f * ( shiftable_ticks / 24.f );
+	auto lerped_color   = sdk::hsv( distance, 100.f, 70.f ).to_color( );
+
+	g_render.render_text( { 10, g_globals.screen_size.y / 2 }, font_alignment::AL_VERTICAL_CENTER, font_flags::FLAG_DROPSHADOW,
+	                      formatted_text.c_str( ), indicator_font, lerped_color );
 }
 
 void visuals::esp_box::render( sdk::c_tf_player* owner )

@@ -15,6 +15,8 @@ namespace sdk
 	struct hsv {
 		int h{ }, s{ }, v{ }, a{ };
 
+		hsv( int hu, int sa, int vi, int al = 255 ) : h{ hu }, s{ sa }, v{ vi }, a{ al } { };
+
 		color to_color( );
 	};
 

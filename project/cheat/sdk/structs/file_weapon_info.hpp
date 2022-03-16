@@ -7,6 +7,8 @@ namespace sdk
 	public:
 		file_weapon_info( );
 
+		virtual void parse( void* key_values_data, const char* weapon_name ){ };
+
 		bool parsed_script;
 		bool loaded_hud_elements;
 

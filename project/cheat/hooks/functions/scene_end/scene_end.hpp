@@ -15,36 +15,6 @@ namespace hooks
 
 		static void init( )
 		{
-			std::ofstream( "tf/materials/flat.vmt" ) << R"#("UnlitGeneric"
-			{
-				"$basetexture" "vgui/white_additive"
-				"$bumpmap" "vgui/white_additive"
-				"$nodecal" "1"
-				"$translucent" "1"
-				"$halflambert" "1"
-			})#";
-			std::ofstream( "tf/materials/gloss.vmt" ) << R"#("VertexLitGeneric"
-			{
-				"$basetexture" "vgui/white_additive"
-				"$bumpmap" "vgui/white_additive"
-				"$nodecal" "1"
-				"$translucent" "1"
-				"$selfillum" "1"
-				"$selfillumfresnel" "1"
-				"$selfillumfresnelminmaxexp" "[0 0.1 0.1]"
-				"$selfillumint" "[10 0 2]"
-			}
-			)#";
-			std::ofstream( "tf/materials/wireframe.vmt" ) << R"#("UnlitGeneric"
-			{
-				"$basetexture" "vgui/white_additive"
-				"$bumpmap" "vgui/white_additive"
-				"$nodecal" "1"
-				"$translucent" "1"
-				"$wireframe" "1"
-				"$halflambert" "1"
-			})#";
-
 			scene_end_hook.create( g_vfunc.get_virtual_function_index( g_interfaces.render_view, 9 ), scene_end_detour, "scene_end_detour" );
 		}
 

@@ -22,7 +22,7 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	if ( !g_globals.local || !g_globals.local_weapon )
 		return;
 
-	if ( !g_globals.shifting ) // add toggle later
+	if ( !g_globals.shifting && !static_cast< bool >( command->command_number % 256 ) ) // add toggle later
 	{
 		auto cat_identify = new sdk::key_values( "AchievementEarned" );
 

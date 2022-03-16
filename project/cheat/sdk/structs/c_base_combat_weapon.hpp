@@ -21,6 +21,11 @@ namespace sdk
 		NETVAR( world_model_index, int, "CBaseCombatWeapon", "m_iWorldModelIndex" );
 		NETVAR( state, int, "CBaseCombatWeapon", "m_iState" );
 		NETVAR( owner, c_base_handle, "CBaseCombatWeapon", "m_hOwner" );
+
+		int mag( )
+		{
+			return *reinterpret_cast< int* >( reinterpret_cast< std::uintptr_t >( this ) + 0x433 );
+		}
 	};
 } // namespace sdk
 

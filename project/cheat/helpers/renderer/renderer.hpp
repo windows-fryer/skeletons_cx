@@ -85,6 +85,7 @@ namespace render
 	inline IDirect3DVertexDeclaration9* vertex_declaration;
 	inline IDirect3DVertexShader9* vertex_shader;
 	inline DWORD color_write, srgb_write;
+	inline IDirect3DBaseTexture9* texture;
 
 	struct impl {
 		void init( IDirect3DDevice9* buffer_device );

@@ -11,6 +11,9 @@ int get_closest_hitbox( sdk::c_tf_player* entity )
 	float fov = FLT_MAX;
 
 	for ( int index = sdk::hitbox_head; index < sdk::hitbox_upper_chest; index++ ) {
+		if ( index == sdk::hitbox_neck )
+			continue;
+
 		sdk::vector hitbox_position = entity->get_hitbox_position( index ); // origin is gay, whatever.
 		sdk::qangle angle_to_hitbox = math::vector_to_angle( hitbox_position - g_globals.local->eye_position( ) );
 		float fov_to_hibox          = math::calculate_angle_fov( g_globals.command->view_angles, angle_to_hitbox );
