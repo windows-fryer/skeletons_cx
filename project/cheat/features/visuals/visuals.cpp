@@ -236,6 +236,9 @@ void visuals::impl::update( )
 
 void visuals::impl::render( )
 {
+	if ( !g_interfaces.engine_client->is_connected( ) )
+		return;
+
 	update( );
 
 	for ( auto& player_info : g_entity_list.players ) {
@@ -250,12 +253,12 @@ void visuals::impl::render( )
 		object.box.render( player );
 	}
 
-	auto net_channel = reinterpret_cast< sdk::i_net_channel* >( g_interfaces.engine_client->get_net_channel_info( ) );
+	auto net_channel = g_interfaces.net_channel;
 
 	if ( !net_channel )
 		return;
 
-	auto shiftable_ticks = g_globals.stored_ticks - net_channel->get_choked_packets( ) - time_to_ticks( net_channel->get_latency( 0 ) );
+	auto shiftable_ticks = g_globals.stored_ticks;
 
 	auto indicator_font = g_fonts[ fnv( "indicator_verdana_font" ) ];
 	auto formatted_text = std::format( "DT: {}", shiftable_ticks );

@@ -1,6 +1,8 @@
 #ifndef SKELETONS_CX_RUN_COMMAND_HPP
 #define SKELETONS_CX_RUN_COMMAND_HPP
 
+#define NOMINMAX
+
 #include "../../../globals/globals.hpp"
 #include "../../hooks.hpp"
 
