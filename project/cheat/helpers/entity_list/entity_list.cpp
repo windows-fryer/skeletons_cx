@@ -27,7 +27,7 @@ void entity_list::impl::update( )
 		return;
 	}
 
-	for ( int iterator = 0; iterator < 65; iterator++ ) {
+	for ( int iterator = 0; iterator < 48; iterator++ ) {
 		auto player = g_interfaces.entity_list->get< sdk::c_tf_player >( iterator );
 
 		auto& player_info = players[ iterator ];
@@ -39,6 +39,9 @@ void entity_list::impl::update( )
 
 			continue;
 		}
+
+		if ( !player->get_ref_e_handle( ).index || !player->get_think_handle( ) || !player->render_handle( ) )
+			continue;
 
 		if ( player->is_player( ) ) {
 			player_info.dormant_info.valid = false;
@@ -65,6 +68,10 @@ void entity_list::impl::update( )
 
 			player_info.dormant_info.vouchable_position = player->get_abs_origin( );
 			player_info.dormant_info.vouchable_tick     = g_interfaces.globals->tick_count;
+
+			player_info.condition     = player->player_cond( );
+			player_info.condition_ex  = player->player_cond_ex( );
+			player_info.condition_ex2 = player->player_cond_ex2( );
 		}
 	}
 }

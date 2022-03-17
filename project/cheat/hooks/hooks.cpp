@@ -34,7 +34,7 @@ void hooks::impl::init( )
 	net_send_to::init( );
 	paint_traverse::init( );
 	update_clientside_anims::init( );
-	//	setup_bones::init( );
+	//			setup_bones::init( );
 	is_playing_back::init( );
 	enumerate_leaves_in_box::init( );
 	draw_model_execute::init( );

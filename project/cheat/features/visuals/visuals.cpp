@@ -121,7 +121,9 @@ void visuals::impl::update_object( esp_object& object )
 
 	object.box.texts.push_back( health_text );
 
-	if ( g_entity_list.players[ object.owner->entindex( ) ].bot ) {
+	auto& player_info = g_entity_list.players[ object.owner->entindex( ) ];
+
+	if ( player_info.bot ) {
 		auto bot_text = esp_text( );
 
 		bot_text.location = esp_location::LOCATION_RIGHT;
@@ -133,7 +135,7 @@ void visuals::impl::update_object( esp_object& object )
 		object.box.texts.push_back( bot_text );
 	}
 
-	if ( object.owner->player_cond( ) & sdk::tf_cond_ubercharged ) {
+	if ( player_info.condition & sdk::tf_cond_ubercharged ) {
 		auto uber_text = esp_text( );
 
 		uber_text.location = esp_location::LOCATION_RIGHT;
@@ -145,7 +147,7 @@ void visuals::impl::update_object( esp_object& object )
 		object.box.texts.push_back( uber_text );
 	}
 
-	if ( object.owner->player_cond( ) & sdk::tf_cond_bleeding ) {
+	if ( player_info.condition & sdk::tf_cond_bleeding ) {
 		auto bleed_text = esp_text( );
 
 		bleed_text.location = esp_location::LOCATION_RIGHT;
@@ -157,7 +159,7 @@ void visuals::impl::update_object( esp_object& object )
 		object.box.texts.push_back( bleed_text );
 	}
 
-	if ( object.owner->player_cond( ) & sdk::tf_cond_bonked ) {
+	if ( player_info.condition & sdk::tf_cond_bonked ) {
 		auto bonk_text = esp_text( );
 
 		bonk_text.location = esp_location::LOCATION_RIGHT;
@@ -169,7 +171,7 @@ void visuals::impl::update_object( esp_object& object )
 		object.box.texts.push_back( bonk_text );
 	}
 
-	if ( object.owner->player_cond( ) & sdk::tf_cond_mini_crits ) {
+	if ( player_info.condition & sdk::tf_cond_mini_crits ) {
 		auto mini_crits_text = esp_text( );
 
 		mini_crits_text.location = esp_location::LOCATION_RIGHT;
@@ -180,7 +182,7 @@ void visuals::impl::update_object( esp_object& object )
 
 		object.box.texts.push_back( mini_crits_text );
 	}
-	
+
 	auto player_weapon = g_interfaces.entity_list->get< sdk::c_tf_weapon_base >( object.owner->active_weapon( ) );
 
 	if ( player_weapon ) {

@@ -48,6 +48,10 @@ namespace entity_list
 		dormant_info dormant_info{ };
 
 		bool bot{ };
+
+		int condition{ };
+		int condition_ex{ };
+		int condition_ex2{ };
 	};
 
 	struct building {
@@ -58,7 +62,7 @@ namespace entity_list
 	struct impl {
 	public:
 		std::array< player, 65 > players;
-		std::array< building, 65 > buildings;
+		std::array< building, 48 > buildings;
 
 		void update( );
 		void clear( );
