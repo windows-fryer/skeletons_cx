@@ -22,6 +22,8 @@ void menu::slider_float::draw( int& group_x, int& group_y, int& group_width, int
 	float option_max{ };
 
 	auto& option = g_config.find< float >( option_hash, option_min, option_max );
+	auto negative_adjustment =
+		( slider_border_width - slider_x ) * ( -( static_cast< float >( option_max ) / ( option_max - option_min ) ) + 1.f ) - 2;
 
 	g_render.render_text( slider_x + font_size.y / 2, slider_y + 4, AL_VERTICAL_CENTER, FLAG_NONE, option_name.c_str( ), menu_font,
 	                      sdk::color( 255, 255, 255 ) );
@@ -36,11 +38,19 @@ void menu::slider_float::draw( int& group_x, int& group_y, int& group_width, int
 
 	auto slider_width = slider_distance * slider_fraction;
 
-	g_render.render_filled_rectangle( slider_x + font_size.y / 2, slider_y + font_size.y / 2 + 2, slider_width, slider_border_height - slider_y,
-	                                  menu_color );
+	auto old_viewport = g_render.get_viewport( );
+
+	g_render.set_viewport(
+		{ slider_x + font_size.y / 2, slider_y + font_size.y / 2 + 2 },
+		{ static_cast< float >( slider_border_width - slider_x - 7 ) + 1.f, static_cast< float >( slider_border_height - slider_y ) + 1.f } );
+
+	g_render.render_filled_rectangle( slider_x + font_size.y / 2 + negative_adjustment, slider_y + font_size.y / 2 + 2, slider_width,
+	                                  slider_border_height - slider_y, menu_color );
 
 	g_render.render_rectangle( slider_x + font_size.y / 2, slider_y + font_size.y / 2 + 2, slider_border_width - slider_x - 7,
 	                           slider_border_height - slider_y, { 43, 43, 43 } );
+
+	g_render.set_viewport( old_viewport );
 
 	group_y += slider_border_height - slider_y + 20;
 
@@ -70,7 +80,8 @@ void menu::slider_float::input( int& group_x, int& group_y, int& group_width, in
 	float option_min{ };
 	float option_max{ };
 
-	auto& option = g_config.find< float >( option_hash, option_min, option_max );
+	auto& option             = g_config.find< float >( option_hash, option_min, option_max );
+	auto negative_adjustment = ( slider_border_width - slider_x ) * ( -( static_cast< float >( option_max ) / ( option_max - option_min ) ) + 1.f );
 
 	slider_y += 5;
 
@@ -86,8 +97,8 @@ void menu::slider_float::input( int& group_x, int& group_y, int& group_width, in
 	     ( parent_window->dragging && parent_window->dragged_object == option_hash ) ) {
 		parent_group->parent_tab->parent_window->allowed_to_drag = false;
 
-		auto slider_distance = ( slider_border_width ) - ( slider_x + font_size.y / 2 );
-		auto slider_fraction = ( mouse_x - ( slider_x + font_size.y / 2 ) );
+		auto slider_distance = ( slider_border_width ) - ( slider_x + font_size.y / 2 + negative_adjustment );
+		auto slider_fraction = ( mouse_x - ( slider_x + font_size.y / 2 + negative_adjustment ) );
 
 		float slider_width = slider_fraction / slider_distance;
 

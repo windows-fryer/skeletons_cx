@@ -236,7 +236,7 @@ void visuals::impl::update( )
 
 void visuals::impl::render( )
 {
-	if ( !g_interfaces.engine_client->is_connected( ) )
+	if ( !g_interfaces.engine_client->is_connected( ) || !g_globals.local )
 		return;
 
 	update( );

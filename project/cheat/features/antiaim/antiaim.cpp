@@ -10,7 +10,7 @@ void antiaim::impl::fakelag( sdk::c_user_cmd* cmd, bool& send_packet )
 		return;
 
 	int choked_packets = g_interfaces.net_channel->get_choked_packets( );
-	int fakelag_max    = 24;
+	int fakelag_max    = 12;
 
 	send_packet = choked_packets == fakelag_max;
 }

@@ -7,6 +7,7 @@
 
 #include "interfaces/game_movement.hpp"
 #include "interfaces/i_base_client_dll.hpp"
+#include "interfaces/i_base_client_state.hpp"
 #include "interfaces/i_client_entity_list.hpp"
 #include "interfaces/i_client_leaf_system.hpp"
 #include "interfaces/i_client_mode.hpp"

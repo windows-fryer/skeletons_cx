@@ -23,6 +23,8 @@ bool menu::impl::init( )
 	g_config.insert( "double_tap", config::option( false ) );
 	g_config.insert( "double_tap_bind", config::option( 'J', 0, 0 ) );
 
+	//	g_config.insert( "thing", config::option( 0.f, -180.f, 180.f ) );
+
 	static auto misc_tab = new menu::tab{ main_window, std::string( "miscellaneous" ) };
 
 	static auto misc_main_group = new menu::group{ misc_tab, "main", static_cast< int >( menu::group_position::GROUP_LEFT ), true };
@@ -35,6 +37,9 @@ bool menu::impl::init( )
 	static auto double_tap_misc_main_checkbox = new menu::check_box{ misc_main_group, fnv( "double_tap" ), "double tap" };
 	double_tap_misc_main_checkbox->add_keybind( fnv( "double_tap_bind" ) );
 
+	//	static auto test_slider_misc_main_slider = new menu::slider_float{ misc_main_group, fnv( "thing" ), "test" };
+	//
+	//	misc_main_group->objects.push_back( test_slider_misc_main_slider );
 	misc_main_group->objects.push_back( double_tap_misc_main_checkbox );
 	misc_main_group->objects.push_back( bunnyhop_misc_main_checkbox );
 	misc_main_group->objects.push_back( thirdperson_misc_main_checkbox );

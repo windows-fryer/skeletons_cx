@@ -50,6 +50,7 @@ namespace interfaces
 		sdk::i_model_render* model_render;
 		sdk::i_material_system* material_system;
 		sdk::i_localize* localize;
+		sdk::i_base_client_state* client_state;
 
 		void init( );
 		void shutdown( );
