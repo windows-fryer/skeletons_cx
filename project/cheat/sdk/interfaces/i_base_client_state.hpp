@@ -9,7 +9,7 @@ namespace sdk
 	struct i_base_client_state {
 		static int delta_tick( )
 		{
-			return g_signatures[ "8B 15 ? ? ? ? 85 D2 8B 35" ].add( 0x1 ).get( 2 ).as< int >( );
+			return g_signatures[ "8B 15 ? ? ? ? 85 D2 8B 35" ].add( 0x2 ).get( 2 ).as< int >( );
 		}
 		static int last_command_ack( )
 		{

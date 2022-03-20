@@ -49,6 +49,8 @@ namespace globals
 		int last_tick;
 
 		bool running_post_think;
+
+		int simulation_ticks; // SURE!
 	};
 } // namespace globals
 

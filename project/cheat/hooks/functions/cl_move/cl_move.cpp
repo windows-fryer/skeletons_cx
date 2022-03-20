@@ -14,7 +14,7 @@ void hooks::cl_move::cl_move_detour( float accumulated_extra_samples, bool final
 	if ( !g_globals.command )
 		return clear_ticks( accumulated_extra_samples, final_tick );
 
-	if ( g_globals.stored_ticks < 24 && !( g_globals.command->buttons & sdk::in_attack ) && final_tick )
+	if ( g_globals.stored_ticks < 24 && !( g_globals.command->buttons & sdk::in_attack ) )
 		return store_tick( );
 
 	g_globals.charging = false;
@@ -22,7 +22,7 @@ void hooks::cl_move::cl_move_detour( float accumulated_extra_samples, bool final
 	cl_move_hook.call_original( accumulated_extra_samples, final_tick );
 
 	// Not sure if final tick is needed but whatever, makes it more accurate fo da culture!!
-	if ( g_globals.command->buttons & sdk::in_attack && final_tick )
+	if ( g_globals.command->buttons & sdk::in_attack )
 		return shift_ticks( accumulated_extra_samples, final_tick );
 }
 

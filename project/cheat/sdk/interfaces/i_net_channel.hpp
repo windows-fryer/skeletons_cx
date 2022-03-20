@@ -1,6 +1,7 @@
-
 #ifndef SKELETONS_CX_I_NET_CHANNEL_HPP
 #define SKELETONS_CX_I_NET_CHANNEL_HPP
+
+#include "../structs/bf_rw.hpp"
 
 namespace sdk
 {
@@ -29,6 +30,37 @@ namespace sdk
 		virtual const char* get_name( void ) const           = 0; // returns network message name, eg "svc_serverinfo"
 		virtual i_net_channel* get_net_channel( void ) const = 0;
 		virtual const char* to_string( void ) const          = 0; // returns a human readable string about message content
+	};
+
+	struct c_net_message : public i_net_message {
+	public:
+		c_net_message( )
+		{
+			reliable = 0;
+			own_data = false;
+		};
+		virtual ~c_net_message( ){ };
+
+		void set_reliable( bool state = true )
+		{
+			reliable = state;
+		};
+		bool is_reliable( )
+		{
+			return reliable;
+		};
+		bool is_connection_less( )
+		{
+			return false;
+		};
+
+		virtual const char* to_string( )
+		{
+			return "unknown c_net_message";
+		};
+
+		bool reliable;
+		bool own_data;
 	};
 
 	struct i_net_channel_info {
@@ -111,9 +143,9 @@ namespace sdk
 		virtual int send_datagram( void* data )                                         = 0;
 		virtual bool transmit( bool only_reliable = false )                             = 0;
 
-		virtual const netadr_t& get_remote_address( void ) const                                                    = 0;
-		virtual void* get_msg_handler( void ) const                                                                 = 0;
-		virtual int get_drop_number( void ) const                                                                   = 0;
+		virtual const netadr_t& get_remote_address( void ) const = 0;
+		virtual void* get_msg_handler( void ) const              = 0;
+		//		virtual int get_drop_number( void ) const                                                                   = 0;
 		virtual int get_socket( void ) const                                                                        = 0;
 		virtual unsigned int get_challenge_nr( void ) const                                                         = 0;
 		virtual void get_sequence_data( int& n_out_sequence_nr, int& n_in_sequence_nr, int& n_out_sequence_nr_ack ) = 0;
@@ -143,10 +175,23 @@ namespace sdk
 
 		virtual int get_protocol_version( ) = 0;
 
+		int& get_drop_number( )
+		{
+			return *reinterpret_cast< int* >( reinterpret_cast< std::uint32_t >( this ) + 0x22B8 );
+		}
+
 		int& get_choked_packets( )
 		{
 			return *reinterpret_cast< int* >( reinterpret_cast< std::uint32_t >( this ) + 0x1C );
 		}
+	};
+
+	struct clc_move {
+	public:
+		PAD( 0x14 );
+		int backup_commands;
+		int new_commands;
+		int length;
 	};
 
 } // namespace sdk

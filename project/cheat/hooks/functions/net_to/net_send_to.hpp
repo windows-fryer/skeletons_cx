@@ -10,10 +10,11 @@
 
 namespace hooks
 {
-	CREATE_HOOK_HELPER( net_send_to_hook, int( __cdecl )( bool, SOCKET, void*, int, void*, int, int ), int );
+	CREATE_HOOK_HELPER( net_send_to_hook, int( __cdecl )( bool, SOCKET, void*, int, const struct sockaddr*, int, int ), int );
 
 	struct net_send_to {
-		static int __cdecl net_send_to_detour( bool verbose, SOCKET s, void* buf, int len, void* to, int tolen, int iGameDataLength );
+		static int __cdecl net_send_to_detour( bool verbose, SOCKET s, void* buf, int len, const struct sockaddr* to, int tolen,
+		                                       int game_data_length );
 
 		static void init( )
 		{

@@ -10,7 +10,7 @@
 #include "functions/get_time/get_time.hpp"
 #include "functions/is_playing_back/is_playing_back.hpp"
 #include "functions/item_post_frame/item_post_frame.hpp"
-#include "functions/net_to/net_send_long.hpp"
+#include "functions/net_to/net_send_packet.hpp"
 #include "functions/net_to/net_send_to.hpp"
 #include "functions/override_view/override_view.hpp"
 #include "functions/paint_traverse/paint_traverse.hpp"
@@ -44,7 +44,7 @@ void hooks::impl::init( )
 	item_post_frame::init( );
 	get_time::init( );
 	scene_end::init( );
-	net_send_long::init( );
+	net_send_packet::init( );
 	fire_event_intern::init( );
 
 	MH_EnableHook( MH_ALL_HOOKS );
