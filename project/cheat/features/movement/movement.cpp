@@ -58,10 +58,6 @@ void movement::impl::move_fix( sdk::c_user_cmd* cmd, const sdk::qangle& old_angl
 void movement::impl::bunny_hop( ) // @blanket: this is like 2000000 times better than the retard method of static bool was_on_ground
 {
 	// im way to fucking lazy to implement the flags enum for this.
-	if ( g_globals.command->buttons & sdk::in_jump )
-		// if were not currently on ground
-		if ( !( g_prediction.unpredicted_local_data.flags & ( 1 << 0 ) ) )
-			// and were gonna be
-			if ( g_prediction.predicted_local_data.flags & ( 1 << 0 ) )
-				g_globals.command->buttons &= ~sdk::in_jump;
+	if ( g_globals.command->buttons & sdk::in_jump && g_globals.local->flags( ) & sdk::onground )
+		g_globals.command->buttons &= ~sdk::in_jump;
 }

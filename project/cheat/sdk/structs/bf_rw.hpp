@@ -20,6 +20,7 @@ namespace sdk
 	inline std::uint64_t zig_zag_encode64( std::int32_t n )
 	{
 		// note:  the right-shift must be arithmetic
+#pragma warning( disable : 4293 )
 		return ( n << 1 ) ^ ( n >> 63 );
 	}
 

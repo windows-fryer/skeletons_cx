@@ -1,15 +1,16 @@
 #include "cheat.hpp"
+#include "helpers/assertion/assertion.hpp"
 
 void cheat::init( )
 {
 	console::init( );
-	modules::init( );
+	assert_block( "modules", modules::init( ) );
 
-	g_signatures.init( );
-	g_interfaces.init( );
-	g_render.init( g_interfaces.device );
-	g_menu.init( );
-	g_hooks.init( );
+	assert_block( "signatures", g_signatures.init( ) );
+	assert_block( "interfaces", g_interfaces.init( ) );
+	assert_block( "render", g_render.init( g_interfaces.device ) );
+	assert_block( "menu", g_menu.init( ) );
+	assert_block( "hooks", g_hooks.init( ) );
 
 	g_input.add_keybind( VK_DELETE, []( bool down ) {
 		if ( auto handle = create_thread( shutdown ) )

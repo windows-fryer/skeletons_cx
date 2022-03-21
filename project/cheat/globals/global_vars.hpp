@@ -36,6 +36,7 @@ namespace globals
 
 		/* Double Tap Stuff */
 
+		bool did_shift;
 		bool shifting;
 		bool charging;
 

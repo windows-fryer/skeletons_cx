@@ -329,35 +329,29 @@ void visuals::esp_box::render( sdk::c_tf_player* owner )
 			float highest_simulation_time = 0;
 
 			for ( int current_heap_iterator = 0; current_heap_iterator < sv_maxunlag_ticks; current_heap_iterator++ ) {
-				lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entindex( ) ][ current_heap_iterator ];
+				lagcomp::record current_record = g_lagcomp.heap_records[ owner->entindex( ) ][ current_heap_iterator ];
 
-				if ( !current_record )
+				if ( current_record.simulation_time < highest_simulation_time )
 					continue;
 
-				if ( current_record->simulation_time < highest_simulation_time )
-					continue;
-
-				if ( !current_record->valid )
+				if ( !current_record.valid )
 					continue;
 
 				first_valid_heap_record = current_heap_iterator;
-				highest_simulation_time = current_record->simulation_time;
+				highest_simulation_time = current_record.simulation_time;
 			}
 
 			for ( int current_heap_iterator = 0; current_heap_iterator < sv_maxunlag_ticks; current_heap_iterator++ ) {
-				lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entindex( ) ][ current_heap_iterator ];
+				lagcomp::record current_record = g_lagcomp.heap_records[ owner->entindex( ) ][ current_heap_iterator ];
 
-				if ( !current_record )
+				if ( current_record.simulation_time > lowest_simulation_time )
 					continue;
 
-				if ( current_record->simulation_time > lowest_simulation_time )
-					continue;
-
-				if ( !current_record->valid )
+				if ( !current_record.valid )
 					continue;
 
 				last_valid_heap_record = current_heap_iterator;
-				lowest_simulation_time = current_record->simulation_time;
+				lowest_simulation_time = current_record.simulation_time;
 			}
 
 			lagcomp::record current_record = g_lagcomp.heap_records[ owner->entindex( ) ][ last_valid_heap_record ];
@@ -382,6 +376,7 @@ void visuals::esp_box::render( sdk::c_tf_player* owner )
 					}
 				}
 			}
+
 			if ( last_record.player ) {
 				if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
 					for ( int bone_index = 0; bone_index < studio->num_bones; bone_index++ ) {

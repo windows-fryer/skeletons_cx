@@ -185,19 +185,9 @@ void aimbot::impl::think( )
 
 bool aimbot::impl::weapon_is_projectile( sdk::c_tf_weapon_base* weapon )
 {
-	switch ( weapon->get_client_class( )->class_id ) {
-	case sdk::e_class_ids::ctfrocketlauncher_directhit:
-		return true;
-	case sdk::e_class_ids::ctfrocketlauncher:
-		return true;
-	case sdk::e_class_ids::ctfgrenadelauncher:
-		return true;
-	case sdk::e_class_ids::ctfcompoundbow:
-		return true;
-	default:
-		return false;
-	}
+	return get_weapon_info( weapon ).speed > 0;
 }
+
 aimbot::weapon_info aimbot::impl::get_weapon_info( sdk::c_tf_weapon_base* weapon )
 {
 	switch ( weapon->get_client_class( )->class_id ) {
@@ -214,6 +204,10 @@ aimbot::weapon_info aimbot::impl::get_weapon_info( sdk::c_tf_weapon_base* weapon
 		return { ( ( fminf( fmaxf( charge, 0.0f ), 1.0f ) * -0.4f ) + 0.5f ), ( ( fminf( fmaxf( charge, 0.0f ), 1.0f ) * 800.0f ) + 1800.0f ), true,
 			     sdk::hitbox_head };
 	}
+	case sdk::e_class_ids::ctfflaregun:
+		return { 0.9f, 3800.0f, true, sdk::hitboxes::hitbox_chest };
+	case sdk::e_class_ids::ctfshotgunbuildingrescue:
+		return { 0.7f, 4800.0f, true, sdk::hitboxes::hitbox_chest };
 	default:
 		return { };
 	}
@@ -243,12 +237,6 @@ aimbot::proj_solution aimbot::impl::calculate_arch( sdk::vector origin, sdk::vec
 bool aimbot::impl::attack_next_tick( sdk::c_tf_weapon_base* weapon )
 {
 	switch ( weapon->get_client_class( )->class_id ) {
-	case sdk::e_class_ids::ctfrocketlauncher_directhit:
-		return false;
-	case sdk::e_class_ids::ctfrocketlauncher:
-		return false;
-	case sdk::e_class_ids::ctfgrenadelauncher:
-		return false;
 	case sdk::e_class_ids::ctfcompoundbow:
 		return true;
 	default:
