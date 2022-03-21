@@ -14,7 +14,7 @@ void hooks::run_command::run_command_detour( void* ecx, void* edx, sdk::c_base_p
 
 	auto simulation_ticks = g_globals.simulation_ticks;
 
-	int ideal_final_tick     = g_interfaces.globals->tick_count + correction_ticks;
+	int ideal_final_tick     = g_interfaces.globals->tick_count + time_to_ticks( g_interfaces.net_channel->get_latency( 0 ) ) + correction_ticks;
 	int estimated_final_tick = player->tick_base( ) + simulation_ticks;
 	int too_fast_limit       = ideal_final_tick + correction_ticks;
 	int too_slow_limit       = ideal_final_tick - correction_ticks;

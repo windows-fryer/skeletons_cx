@@ -47,6 +47,7 @@ void hooks::cl_move::clear_ticks( float accumulated_extra_samples, bool final_ti
 			g_globals.choke = false;
 
 		g_globals.stored_ticks--;
+		g_globals.shifted_ticks++;
 
 		cl_move_hook.call_original( accumulated_extra_samples, final_tick );
 	}
@@ -84,11 +85,11 @@ void hooks::cl_move::shift_ticks( float accumulated_extra_samples, bool final_ti
 			g_globals.choke = false;
 
 		g_globals.stored_ticks--;
+		g_globals.shifted_ticks++;
 
 		cl_move_hook.call_original( accumulated_extra_samples, final_tick );
 	}
 
-	g_globals.choke     = false;
-	g_globals.shifting  = false;
-	g_globals.did_shift = true;
+	g_globals.choke    = false;
+	g_globals.shifting = false;
 }

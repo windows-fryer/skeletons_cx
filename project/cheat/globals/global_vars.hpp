@@ -36,13 +36,13 @@ namespace globals
 
 		/* Double Tap Stuff */
 
-		bool did_shift;
 		bool shifting;
 		bool charging;
 
 		bool choke;
 
 		int stored_ticks;
+		int shifted_ticks;
 
 		bool force_charge;
 		bool force_shift;
