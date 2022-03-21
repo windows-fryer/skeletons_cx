@@ -16,13 +16,10 @@ namespace modules
 		module( std::string_view module_name )
 		{
 			this->module_name = module_name;
-			
+
 			do {
 				module_handle = get_module_handle( module_name.data( ) );
 			} while ( !module_handle );
-
-			// todo: add assertion
-			// ASSERT( module_handle )
 		}
 
 		patternscan::address pattern_scan( std::string_view sig )
@@ -35,12 +32,12 @@ namespace modules
 		}
 		std::string get_module_name( )
 		{
-			return module_name; // copy is slow.. too bad!
+			return module_name;
 		}
 
 		HMODULE& unsafe_get_handle( )
 		{
-			return module_handle; // i have a feeling this will be called quite a bit so
+			return module_handle;
 		}
 
 		HMODULE get_handle( )

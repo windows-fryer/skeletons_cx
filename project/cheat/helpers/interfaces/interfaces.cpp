@@ -1,5 +1,9 @@
 #include "interfaces.hpp"
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Defines all the interfaces inside the cheat.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void interfaces::impl::init( )
 {
 	find_interfaces( );
@@ -27,8 +31,16 @@ void interfaces::impl::init( )
 	globals     = g_signatures[ "68 ? ? ? ? 50 50 FF 12" ].add( 0x1 ).get( 1 ).as< sdk::i_global_vars_base* >( );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : No purpose.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void interfaces::impl::shutdown( ) { }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Finds every interface inside the game and puts it in a vector.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void interfaces::impl::find_interfaces( )
 {
 	std::vector< const char* > needed_modules = {
@@ -86,6 +98,10 @@ void interfaces::impl::find_interfaces( )
 	}
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Get a relative JMP address for going into a function.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 std::uintptr_t interfaces::impl::jump_address( std::uintptr_t address )
 {
 	auto jump_relative = *reinterpret_cast< std::uintptr_t* >( address + 0x1 );

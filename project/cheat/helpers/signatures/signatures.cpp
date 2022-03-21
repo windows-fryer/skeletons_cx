@@ -1,6 +1,10 @@
 #include "signatures.hpp"
 #include "../console/console.hpp"
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Finds every signature inside our signature database.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void signatures::impl::init( )
 {
 	for ( auto& should_find : find ) {
@@ -26,4 +30,8 @@ void signatures::impl::init( )
 	}
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : No purpose.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void signatures::impl::shutdown( ) { }

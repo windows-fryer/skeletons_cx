@@ -1,18 +1,15 @@
 #include "entry.hpp"
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Initializes the cheat.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void entry::init( )
 {
-	/* initialize console here since we wanna output to it whilst initializing */
-	// console::init( );
-	//  console::log( "console initialized, creating thread\n" );
+	auto thread_handle = create_thread( cheat::init );
 
-	/* setup thread */
-	{
-		auto thread_handle = create_thread( cheat::init );
-
-		if ( thread_handle ) // todo: assertion
-			close_handle( thread_handle );
-	}
+	if ( thread_handle )
+		close_handle( thread_handle );
 }
 
 void entry::shutdown( ) { }

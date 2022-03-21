@@ -1,5 +1,9 @@
 #include "modules.hpp"
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Defines all modules that we use inside the cheat.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void modules::init( )
 {
 	g_client_dll           = module( "client.dll" );
@@ -13,4 +17,8 @@ void modules::init( )
 	g_shaderapidx9_dll     = module( "shaderapidx9.dll" );
 };
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : No purpose.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void modules::shutdown( ) { }

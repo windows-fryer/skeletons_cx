@@ -1,6 +1,11 @@
 #include "renderer.hpp"
 #include "../../globals/snakeify.hpp"
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Defines the device we will render with & our fonts.
+// @INPUT   :
+// 				buffer_device - The device we will render with.
+//-----------------------------------------------------------------------------
 void render::impl::init( IDirect3DDevice9* buffer_device )
 {
 	render::device = buffer_device;
@@ -17,6 +22,10 @@ void render::impl::init( IDirect3DDevice9* buffer_device )
 	g_fonts.create_font( "menu_font", 12, FW_NORMAL, true, "Verdana" );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Creates a renderable state.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void render::impl::setup_state( )
 {
 	device->CreateStateBlock( D3DSBT_PIXELSTATE, &state );
@@ -66,6 +75,10 @@ void render::impl::setup_state( )
 	device->SetSamplerState( 0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Restores our old non-renderable state.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void render::impl::finish_state( )
 {
 	state->Apply( );
@@ -76,6 +89,15 @@ void render::impl::finish_state( )
 	device->SetTexture( 0, texture );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Creates a font.
+// @INPUT   :
+//				size - The font size.
+//				weight - The font weight.
+//				anti_aliased - Smooth or jagged font.
+//				name - TTF name for the font.
+//				font - Reference to where the font should go.
+//-----------------------------------------------------------------------------
 void render::impl::create_font( std::size_t size, std::size_t weight, bool anti_aliased, const char* name, LPD3DXFONT& font )
 {
 	DEVICE_SAFETY( );
@@ -84,6 +106,15 @@ void render::impl::create_font( std::size_t size, std::size_t weight, bool anti_
 	                            DEFAULT_PITCH, name, &font ) )
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Renders a line.
+// @INPUT   :
+//				x - Start of the line's X.
+//				y - Start of the line's Y.
+//				width - End of the line's X.
+//				height - End of the line's Y.
+//				color - Color for the line.
+//-----------------------------------------------------------------------------
 void render::impl::render_line( int x, int y, int width, int height, sdk::color color )
 {
 	DEVICE_SAFETY( );
@@ -94,6 +125,14 @@ void render::impl::render_line( int x, int y, int width, int height, sdk::color 
 	FAIL_CHECK( render::device->DrawPrimitiveUP( D3DPT_LINELIST, 1, segments, sizeof( vertex ) ) );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Renders a non-filled rectangle.
+// @INPUT   :
+//				x - Start of the rectangle's X.
+//				y - Start of the rectangle's Y.
+//				width - End of the rectangle's X relative to x.
+//				height - End of the rectangle's Y relative to y.
+//-----------------------------------------------------------------------------
 void render::impl::render_rectangle( int x, int y, int width, int height, sdk::color color )
 {
 	DEVICE_SAFETY( );
@@ -104,6 +143,14 @@ void render::impl::render_rectangle( int x, int y, int width, int height, sdk::c
 	g_render.render_line( x + width, y, x + width, y + height, color );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Renders a filled rectangle.
+// @INPUT   :
+//				x - Start of the rectangle's X.
+//				y - Start of the rectangle's Y.
+//				width - End of the rectangle's X relative to x.
+//				height - End of the rectangle's Y relative to y.
+//-----------------------------------------------------------------------------
 void render::impl::render_filled_rectangle( int x, int y, int width, int height, sdk::color color )
 {
 	DEVICE_SAFETY( );
@@ -114,6 +161,12 @@ void render::impl::render_filled_rectangle( int x, int y, int width, int height,
 	FAIL_CHECK( render::device->DrawPrimitiveUP( D3DPT_TRIANGLESTRIP, 2, segments, sizeof( vertex ) ) );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Gets size of provided string.
+// @INPUT   :
+//				string - String you are trying to find the size of.
+//				font - What font the string uses.
+//-----------------------------------------------------------------------------
 D3DXVECTOR2 render::impl::render_text_size( const char* string, LPD3DXFONT font )
 {
 	RECT rect{ 0, 0, 0, 0 };
@@ -123,6 +176,10 @@ D3DXVECTOR2 render::impl::render_text_size( const char* string, LPD3DXFONT font 
 	return D3DXVECTOR2( static_cast< const short >( rect.right - rect.left ), static_cast< const short >( rect.bottom - rect.top ) );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Gets our current device's viewport.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 D3DVIEWPORT9 render::impl::get_viewport( )
 {
 	D3DVIEWPORT9 vp{ };
@@ -130,6 +187,12 @@ D3DVIEWPORT9 render::impl::get_viewport( )
 	return vp;
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Sets our current device's viewport.
+// @INPUT   :
+//				pos - Start of our 2 axis vector containing X & Y.
+//				size - End of our 2 axis vector containing X & Y.
+//-----------------------------------------------------------------------------
 bool render::impl::set_viewport( const sdk::vector& pos, const sdk::vector& size )
 {
 	const D3DVIEWPORT9 view = {
@@ -139,11 +202,27 @@ bool render::impl::set_viewport( const sdk::vector& pos, const sdk::vector& size
 	return g_render.set_viewport( view );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Sets our current device's viewport.
+// @INPUT   :
+//				vp - DirectX viewport struct.
+//-----------------------------------------------------------------------------
 bool render::impl::set_viewport( D3DVIEWPORT9 vp )
 {
 	return device->SetViewport( &vp );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Renders a piece of text with a given font & string.
+// @INPUT   :
+//				x - Start of the text's X.
+//				y - Start of the text's Y.
+//				alignment - The font's alignment flag.
+//				flags - The font's flags.
+//				string - String wanting to be rendered.
+//				font - Wanted font for rendering.
+//				_color - Color for string.
+//-----------------------------------------------------------------------------
 void render::impl::render_text( int x, int y, unsigned int alignment, const font_flags flags, const char* string, LPD3DXFONT font, sdk::color _color )
 {
 	DEVICE_SAFETY( );
@@ -224,6 +303,15 @@ void render::impl::render_text( int x, int y, unsigned int alignment, const font
 	}
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Renders a circle.
+// @INPUT   :
+// 				x - Start of the circle's X.
+//				y - Start of the circle's Y.
+//				radius - How big the circle is from its center.
+// 				segments - How many points will be rendered in the circle.
+//				color - Color of the circle.
+//-----------------------------------------------------------------------------
 void render::impl::render_circle( int x, int y, int radius, int segments, sdk::color color )
 {
 	vertex* verticies = new vertex[ segments + 1 ];
@@ -238,6 +326,15 @@ void render::impl::render_circle( int x, int y, int radius, int segments, sdk::c
 	delete[] verticies;
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Creates a font for use.
+// @INPUT   :
+//				name - A unique for the font.
+// 				size - Size of the font.
+//				weight - Weight of the font.
+//				anti_aliased - Smooth or jagged font.
+//				font_name - TTF name for the font.
+//-----------------------------------------------------------------------------
 void fonts::impl::create_font( const char* name, std::size_t size, std::size_t weight, bool anti_aliased, const char* font_name )
 {
 	LPD3DXFONT buffer_font;

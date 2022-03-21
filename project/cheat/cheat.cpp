@@ -1,6 +1,10 @@
 #include "cheat.hpp"
 #include "helpers/assertion/assertion.hpp"
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Starts up every module inside the cheat.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void cheat::init( )
 {
 	console::init( );
@@ -18,6 +22,10 @@ void cheat::init( )
 	} );
 }
 
+//-----------------------------------------------------------------------------
+// @PURPOSE : Used for unloading the cheat.
+// @INPUT   : No arguments.
+//-----------------------------------------------------------------------------
 void cheat::shutdown( )
 {
 	free_library_and_exit_thread( cheat::module_handle, 0 );
