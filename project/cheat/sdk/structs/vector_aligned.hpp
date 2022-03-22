@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_VECTOR_ALIGNED_HPP
-#define SKELETONS_CX_VECTOR_ALIGNED_HPP
+#ifndef WEDNESDAY_WTF_VECTOR_ALIGNED_HPP
+#define WEDNESDAY_WTF_VECTOR_ALIGNED_HPP
 #include "vector.hpp"
 namespace sdk
 {
@@ -34,5 +34,5 @@ namespace sdk
 		float w;
 	};
 
-} // namespace
-#endif // SKELETONS_CX_VECTOR_ALIGNED_HPP
+} // namespace sdk
+#endif // WEDNESDAY_WTF_VECTOR_ALIGNED_HPP

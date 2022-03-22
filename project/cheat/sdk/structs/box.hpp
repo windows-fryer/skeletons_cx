@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_BOX_HPP
-#define SKELETONS_CX_BOX_HPP
+#ifndef WEDNESDAY_WTF_BOX_HPP
+#define WEDNESDAY_WTF_BOX_HPP
 
 namespace sdk
 {
@@ -18,4 +18,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_BOX_HPP
+#endif // WEDNESDAY_WTF_BOX_HPP

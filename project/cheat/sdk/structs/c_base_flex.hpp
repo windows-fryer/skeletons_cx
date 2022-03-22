@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_BASE_FLEX_HPP
-#define SKELETONS_CX_C_BASE_FLEX_HPP
+#ifndef WEDNESDAY_WTF_C_BASE_FLEX_HPP
+#define WEDNESDAY_WTF_C_BASE_FLEX_HPP
 
 #include "c_base_animating_overlay.hpp"
 
@@ -13,4 +13,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_BASE_FLEX_HPP
+#endif // WEDNESDAY_WTF_C_BASE_FLEX_HPP

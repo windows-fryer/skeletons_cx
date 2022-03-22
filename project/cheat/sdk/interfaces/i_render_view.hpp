@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_RENDER_VIEW_HPP
-#define SKELETONS_CX_I_RENDER_VIEW_HPP
+#ifndef WEDNESDAY_WTF_I_RENDER_VIEW_HPP
+#define WEDNESDAY_WTF_I_RENDER_VIEW_HPP
 
 #include "../structs/c_tf_player.hpp"
 #include "../structs/color.hpp"
@@ -166,4 +166,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_I_RENDER_VIEW_HPP
+#endif // WEDNESDAY_WTF_I_RENDER_VIEW_HPP

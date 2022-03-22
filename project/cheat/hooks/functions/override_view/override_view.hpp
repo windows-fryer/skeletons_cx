@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_OVERRIDE_VIEW_HPP
-#define SKELETONS_CX_OVERRIDE_VIEW_HPP
+#ifndef WEDNESDAY_WTF_OVERRIDE_VIEW_HPP
+#define WEDNESDAY_WTF_OVERRIDE_VIEW_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../../sdk/structs/c_view_setup.hpp"
@@ -26,4 +26,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_OVERRIDE_VIEW_HPP
+#endif // WEDNESDAY_WTF_OVERRIDE_VIEW_HPP

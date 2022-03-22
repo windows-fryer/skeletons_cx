@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_PLAYER_INFO_HPP
-#define SKELETONS_CX_PLAYER_INFO_HPP
+#ifndef WEDNESDAY_WTF_PLAYER_INFO_HPP
+#define WEDNESDAY_WTF_PLAYER_INFO_HPP
 
 #include "../../../dependencies/checksum/checksum.hpp"
 #include <iostream>
@@ -21,4 +21,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_PLAYER_INFO_HPP
+#endif // WEDNESDAY_WTF_PLAYER_INFO_HPP

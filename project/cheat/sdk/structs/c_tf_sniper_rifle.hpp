@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_TF_SNIPER_RIFLE_HPP
-#define SKELETONS_CX_C_TF_SNIPER_RIFLE_HPP
+#ifndef WEDNESDAY_WTF_C_TF_SNIPER_RIFLE_HPP
+#define WEDNESDAY_WTF_C_TF_SNIPER_RIFLE_HPP
 
 #include "c_tf_weapon_base.hpp"
 
@@ -11,4 +11,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_TF_SNIPER_RIFLE_HPP
+#endif // WEDNESDAY_WTF_C_TF_SNIPER_RIFLE_HPP

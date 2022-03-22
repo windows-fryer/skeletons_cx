@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_ASSERTION_HPP
-#define SKELETONS_CX_ASSERTION_HPP
+#ifndef WEDNESDAY_WTF_ASSERTION_HPP
+#define WEDNESDAY_WTF_ASSERTION_HPP
 
 #include <chrono>
 #include <exception>
@@ -39,4 +39,4 @@ namespace assertion
 
 } // namespace assertion
 
-#endif // SKELETONS_CX_ASSERTION_HPP
+#endif // WEDNESDAY_WTF_ASSERTION_HPP

@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_HAS_OWNER_HPP
-#define SKELETONS_CX_I_HAS_OWNER_HPP
+#ifndef WEDNESDAY_WTF_I_HAS_OWNER_HPP
+#define WEDNESDAY_WTF_I_HAS_OWNER_HPP
 
 #include "c_base_entity.hpp"
 
@@ -11,4 +11,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_I_HAS_OWNER_HPP
+#endif // WEDNESDAY_WTF_I_HAS_OWNER_HPP

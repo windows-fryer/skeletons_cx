@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_RENDERER_HPP
-#define SKELETONS_CX_RENDERER_HPP
+#ifndef WEDNESDAY_WTF_RENDERER_HPP
+#define WEDNESDAY_WTF_RENDERER_HPP
 
 #include <deque>
 
@@ -232,4 +232,4 @@ namespace fonts
 
 inline fonts::impl g_fonts;
 
-#endif // SKELETONS_CX_RENDERER_HPP
+#endif // WEDNESDAY_WTF_RENDERER_HPP

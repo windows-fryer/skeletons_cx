@@ -111,4 +111,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_QANGLE_HPP
+#endif // WEDNESDAY_WTF_QANGLE_HPP

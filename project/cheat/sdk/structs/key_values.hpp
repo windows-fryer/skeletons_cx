@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_KEY_VALUES_HPP
-#define SKELETONS_CX_KEY_VALUES_HPP
+#ifndef WEDNESDAY_WTF_KEY_VALUES_HPP
+#define WEDNESDAY_WTF_KEY_VALUES_HPP
 
 #include "color.hpp"
 
@@ -365,4 +365,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_KEY_VALUES_HPP
+#endif // WEDNESDAY_WTF_KEY_VALUES_HPP

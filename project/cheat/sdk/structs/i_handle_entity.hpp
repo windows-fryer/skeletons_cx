@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_HANDLE_ENTITY_HPP
-#define SKELETONS_CX_I_HANDLE_ENTITY_HPP
+#ifndef WEDNESDAY_WTF_I_HANDLE_ENTITY_HPP
+#define WEDNESDAY_WTF_I_HANDLE_ENTITY_HPP
 
 namespace sdk
 {
@@ -14,4 +14,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_I_HANDLE_ENTITY_HPP
+#endif // WEDNESDAY_WTF_I_HANDLE_ENTITY_HPP

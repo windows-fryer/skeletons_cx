@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_HOOKS_HPP
-#define SKELETONS_CX_HOOKS_HPP
+#ifndef WEDNESDAY_WTF_HOOKS_HPP
+#define WEDNESDAY_WTF_HOOKS_HPP
 
 #include "../../dependencies/minhook/MinHook.h"
 #include "../cheat.hpp"
@@ -58,4 +58,4 @@ inline hooks::impl g_hooks;
 
 #define CREATE_HOOK_HELPER( name, args, rtn ) inline hook_helper< args, rtn > name;
 
-#endif // SKELETONS_CX_HOOKS_HPP
+#endif // WEDNESDAY_WTF_HOOKS_HPP

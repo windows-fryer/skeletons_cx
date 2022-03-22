@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_LAGCOMP_HPP
-#define SKELETONS_CX_LAGCOMP_HPP
+#ifndef WEDNESDAY_WTF_LAGCOMP_HPP
+#define WEDNESDAY_WTF_LAGCOMP_HPP
 
 #define NOMINMAX
 
@@ -56,4 +56,4 @@ namespace lagcomp
 
 inline lagcomp::impl g_lagcomp;
 
-#endif // SKELETONS_CX_LAGCOMP_HPP
+#endif // WEDNESDAY_WTF_LAGCOMP_HPP

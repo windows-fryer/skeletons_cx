@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_GLOBALS_HPP
-#define SKELETONS_CX_GLOBALS_HPP
+#ifndef WEDNESDAY_WTF_GLOBALS_HPP
+#define WEDNESDAY_WTF_GLOBALS_HPP
 
 #include <Windows.h>
 #include <iostream>
@@ -17,4 +17,4 @@
 
 #include "../sdk/include.hpp"
 
-#endif // SKELETONS_CX_GLOBALS_HPP
+#endif // WEDNESDAY_WTF_GLOBALS_HPP

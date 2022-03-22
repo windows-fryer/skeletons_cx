@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_VIEW_SETUP_HPP
-#define SKELETONS_CX_C_VIEW_SETUP_HPP
+#ifndef WEDNESDAY_WTF_C_VIEW_SETUP_HPP
+#define WEDNESDAY_WTF_C_VIEW_SETUP_HPP
 
 #include "../enums/stereo_eye.hpp"
 #include "matrix.hpp"
@@ -83,4 +83,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_VIEW_SETUP_HPP
+#endif // WEDNESDAY_WTF_C_VIEW_SETUP_HPP

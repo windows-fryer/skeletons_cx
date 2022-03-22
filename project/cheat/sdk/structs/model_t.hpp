@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_MODEL_T_HPP
-#define SKELETONS_CX_MODEL_T_HPP
+#ifndef WEDNESDAY_WTF_MODEL_T_HPP
+#define WEDNESDAY_WTF_MODEL_T_HPP
 
 #include "vector.hpp"
 
@@ -20,4 +20,4 @@ namespace sdk
 	};                          // size=0x0150
 
 } // namespace sdk
-#endif // SKELETONS_CX_MODEL_T_HPP
+#endif // WEDNESDAY_WTF_MODEL_T_HPP

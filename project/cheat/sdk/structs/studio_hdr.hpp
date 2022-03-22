@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_STUDIO_HDR_HPP
-#define SKELETONS_CX_STUDIO_HDR_HPP
+#ifndef WEDNESDAY_WTF_STUDIO_HDR_HPP
+#define WEDNESDAY_WTF_STUDIO_HDR_HPP
 #include "mstudio.hpp"
 
 namespace sdk
@@ -60,4 +60,4 @@ namespace sdk
 
 	}; // size=0x00d4
 } // namespace sdk
-#endif // SKELETONS_CX_STUDIO_HDR_HPP
+#endif // WEDNESDAY_WTF_STUDIO_HDR_HPP

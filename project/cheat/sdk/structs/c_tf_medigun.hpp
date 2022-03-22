@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_TF_MEDIGUN_HPP
-#define SKELETONS_CX_C_TF_MEDIGUN_HPP
+#ifndef WEDNESDAY_WTF_C_TF_MEDIGUN_HPP
+#define WEDNESDAY_WTF_C_TF_MEDIGUN_HPP
 
 #include "c_tf_weapon_base.hpp"
 
@@ -18,4 +18,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_TF_MEDIGUN_HPP
+#endif // WEDNESDAY_WTF_C_TF_MEDIGUN_HPP

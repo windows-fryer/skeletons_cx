@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_BASE_PLAYER_HPP
-#define SKELETONS_CX_C_BASE_PLAYER_HPP
+#ifndef WEDNESDAY_WTF_C_BASE_PLAYER_HPP
+#define WEDNESDAY_WTF_C_BASE_PLAYER_HPP
 
 #include "../enums/life_state.hpp"
 #include "c_base_combat_character.hpp"
@@ -101,4 +101,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_BASE_PLAYER_HPP
+#endif // WEDNESDAY_WTF_C_BASE_PLAYER_HPP

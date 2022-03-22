@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_VECTOR_HPP
-#define SKELETONS_CX_VECTOR_HPP
+#ifndef WEDNESDAY_WTF_VECTOR_HPP
+#define WEDNESDAY_WTF_VECTOR_HPP
 
 #include <cmath>
 #include <iostream>
@@ -223,4 +223,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_VECTOR_HPP
+#endif // WEDNESDAY_WTF_VECTOR_HPP

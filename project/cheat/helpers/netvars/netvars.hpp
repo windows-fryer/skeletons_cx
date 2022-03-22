@@ -1,7 +1,7 @@
 
 
-#ifndef SKELETONS_CX_NETVARS_HPP
-#define SKELETONS_CX_NETVARS_HPP
+#ifndef WEDNESDAY_WTF_NETVARS_HPP
+#define WEDNESDAY_WTF_NETVARS_HPP
 #include "../../sdk/structs/client_class.hpp"
 #include <cstdint>
 
@@ -23,4 +23,4 @@ inline netvar_manager::impl g_netvar_manager;
 		return *reinterpret_cast< type* >( reinterpret_cast< std::uint32_t >( this ) + offset );                                                     \
 	}
 
-#endif // SKELETONS_CX_NETVARS_HPP
+#endif // WEDNESDAY_WTF_NETVARS_HPP

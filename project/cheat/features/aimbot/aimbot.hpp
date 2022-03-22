@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_AIMBOT_HPP
-#define SKELETONS_CX_AIMBOT_HPP
+#ifndef WEDNESDAY_WTF_AIMBOT_HPP
+#define WEDNESDAY_WTF_AIMBOT_HPP
 
 #include "../../helpers/interfaces/interfaces.hpp"
 
@@ -45,4 +45,4 @@ namespace aimbot
 
 inline aimbot::impl g_aimbot;
 
-#endif // SKELETONS_CX_AIMBOT_HPP
+#endif // WEDNESDAY_WTF_AIMBOT_HPP

@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_CLIENT_MODE_HPP
-#define SKELETONS_CX_I_CLIENT_MODE_HPP
+#ifndef WEDNESDAY_WTF_I_CLIENT_MODE_HPP
+#define WEDNESDAY_WTF_I_CLIENT_MODE_HPP
 
 namespace sdk
 {
@@ -68,4 +68,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_I_CLIENT_MODE_HPP
+#endif // WEDNESDAY_WTF_I_CLIENT_MODE_HPP

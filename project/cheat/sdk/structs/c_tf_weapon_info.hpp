@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_TF_WEAPON_INFO_HPP
-#define SKELETONS_CX_C_TF_WEAPON_INFO_HPP
+#ifndef WEDNESDAY_WTF_C_TF_WEAPON_INFO_HPP
+#define WEDNESDAY_WTF_C_TF_WEAPON_INFO_HPP
 
 #include "file_weapon_info.hpp"
 #include "weapon_data.hpp"
@@ -54,4 +54,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_TF_WEAPON_INFO_HPP
+#endif // WEDNESDAY_WTF_C_TF_WEAPON_INFO_HPP

@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_SCENE_END_HPP
-#define SKELETONS_CX_SCENE_END_HPP
+#ifndef WEDNESDAY_WTF_SCENE_END_HPP
+#define WEDNESDAY_WTF_SCENE_END_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../hooks.hpp"
@@ -25,4 +25,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_SCENE_END_HPP
+#endif // WEDNESDAY_WTF_SCENE_END_HPP

@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_DEBUG_OVERLAY_HPP
-#define SKELETONS_CX_I_DEBUG_OVERLAY_HPP
+#ifndef WEDNESDAY_WTF_I_DEBUG_OVERLAY_HPP
+#define WEDNESDAY_WTF_I_DEBUG_OVERLAY_HPP
 
 #include "../structs/qangle.hpp"
 #include "../structs/vector.hpp"
@@ -47,4 +47,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_I_DEBUG_OVERLAY_HPP
+#endif // WEDNESDAY_WTF_I_DEBUG_OVERLAY_HPP

@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_USER_CMD_HPP
-#define SKELETONS_CX_C_USER_CMD_HPP
+#ifndef WEDNESDAY_WTF_C_USER_CMD_HPP
+#define WEDNESDAY_WTF_C_USER_CMD_HPP
 
 #include "../../../dependencies/checksum/checksum.hpp"
 #include "../structs/qangle.hpp"
@@ -49,4 +49,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_USER_CMD_HPP
+#endif // WEDNESDAY_WTF_C_USER_CMD_HPP

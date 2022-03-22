@@ -2,8 +2,8 @@
 // Created by Liga on 2/26/2022.
 //
 
-#ifndef SKELETONS_CX_CLIENT_FRAME_STAGE_HPP
-#define SKELETONS_CX_CLIENT_FRAME_STAGE_HPP
+#ifndef WEDNESDAY_WTF_CLIENT_FRAME_STAGE_HPP
+#define WEDNESDAY_WTF_CLIENT_FRAME_STAGE_HPP
 
 namespace sdk
 {
@@ -28,4 +28,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_CLIENT_FRAME_STAGE_HPP
+#endif // WEDNESDAY_WTF_CLIENT_FRAME_STAGE_HPP

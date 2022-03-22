@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_ENTITY_LIST_HPP
-#define SKELETONS_CX_ENTITY_LIST_HPP
+#ifndef WEDNESDAY_WTF_ENTITY_LIST_HPP
+#define WEDNESDAY_WTF_ENTITY_LIST_HPP
 
 #include "../../globals/global_vars.hpp"
 #include "../../globals/snakeify.hpp"
@@ -71,4 +71,4 @@ namespace entity_list
 
 inline entity_list::impl g_entity_list;
 
-#endif // SKELETONS_CX_ENTITY_LIST_HPP
+#endif // WEDNESDAY_WTF_ENTITY_LIST_HPP

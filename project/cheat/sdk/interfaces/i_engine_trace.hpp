@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_ENGINE_TRACE_HPP
-#define SKELETONS_CX_I_ENGINE_TRACE_HPP
+#ifndef WEDNESDAY_WTF_I_ENGINE_TRACE_HPP
+#define WEDNESDAY_WTF_I_ENGINE_TRACE_HPP
 #include "../enums/dispsurf_flag.hpp"
 #include "../enums/trace_type.hpp"
 #include "../structs/c_base_player.hpp"
@@ -214,4 +214,4 @@ namespace sdk
 	};
 
 } // namespace sdk
-#endif // SKELETONS_CX_I_ENGINE_TRACE_HPP
+#endif // WEDNESDAY_WTF_I_ENGINE_TRACE_HPP

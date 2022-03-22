@@ -1,6 +1,6 @@
 
-#ifndef SKELETONS_CX_ANIMATIONS_HPP
-#define SKELETONS_CX_ANIMATIONS_HPP
+#ifndef WEDNESDAY_WTF_ANIMATIONS_HPP
+#define WEDNESDAY_WTF_ANIMATIONS_HPP
 
 #include "../../helpers/interfaces/interfaces.hpp"
 #include <array>
@@ -26,4 +26,4 @@ namespace animations
 
 inline animations::impl g_animations;
 
-#endif // SKELETONS_CX_ANIMATIONS_HPP
+#endif // WEDNESDAY_WTF_ANIMATIONS_HPP

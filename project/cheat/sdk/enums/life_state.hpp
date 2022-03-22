@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_LIFE_STATE_HPP
-#define SKELETONS_CX_LIFE_STATE_HPP
+#ifndef WEDNESDAY_WTF_LIFE_STATE_HPP
+#define WEDNESDAY_WTF_LIFE_STATE_HPP
 
 namespace sdk
 {
@@ -14,4 +14,4 @@ namespace sdk
 
 } // namespace sdk
 
-#endif // SKELETONS_CX_LIFE_STATE_HPP
+#endif // WEDNESDAY_WTF_LIFE_STATE_HPP

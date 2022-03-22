@@ -1,6 +1,6 @@
 
-#ifndef SKELETONS_CX_ANTIAIM_HPP
-#define SKELETONS_CX_ANTIAIM_HPP
+#ifndef WEDNESDAY_WTF_ANTIAIM_HPP
+#define WEDNESDAY_WTF_ANTIAIM_HPP
 
 #include "../../helpers/interfaces/interfaces.hpp"
 
@@ -23,4 +23,4 @@ namespace antiaim
 
 inline antiaim::impl g_antiaim;
 
-#endif // SKELETONS_CX_ANTIAIM_HPP
+#endif // WEDNESDAY_WTF_ANTIAIM_HPP

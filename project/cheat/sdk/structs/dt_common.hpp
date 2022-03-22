@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_DT_COMMON_HPP
-#define SKELETONS_CX_DT_COMMON_HPP
+#ifndef WEDNESDAY_WTF_DT_COMMON_HPP
+#define WEDNESDAY_WTF_DT_COMMON_HPP
 
 #include <stdio.h>
 
@@ -189,4 +189,4 @@ namespace sdk
 	}
 } // namespace sdk
 
-#endif // SKELETONS_CX_DT_COMMON_HPP
+#endif // WEDNESDAY_WTF_DT_COMMON_HPP

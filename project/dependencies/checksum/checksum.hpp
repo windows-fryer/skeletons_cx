@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_CHECKSUM_HPP
-#define SKELETONS_CX_CHECKSUM_HPP
+#ifndef WEDNESDAY_WTF_CHECKSUM_HPP
+#define WEDNESDAY_WTF_CHECKSUM_HPP
 
 using CRC32_t = unsigned int;
 
@@ -19,4 +19,4 @@ inline CRC32_t CRC32_ProcessSingleBuffer( const void* p, int len )
 	return crc;
 }
 
-#endif // SKELETONS_CX_CHECKSUM_HPP
+#endif // WEDNESDAY_WTF_CHECKSUM_HPP

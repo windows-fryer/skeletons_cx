@@ -1,6 +1,6 @@
 
-#ifndef SKELETONS_CX_PREDICTION_HPP
-#define SKELETONS_CX_PREDICTION_HPP
+#ifndef WEDNESDAY_WTF_PREDICTION_HPP
+#define WEDNESDAY_WTF_PREDICTION_HPP
 
 #include "../../helpers/interfaces/interfaces.hpp"
 #include "../movement/movement.hpp"
@@ -71,4 +71,4 @@ namespace prediction
 
 inline prediction::impl g_prediction;
 
-#endif // SKELETONS_CX_PREDICTION_HPP
+#endif // WEDNESDAY_WTF_PREDICTION_HPP

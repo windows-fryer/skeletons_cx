@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_SETUP_BONES_HPP
-#define SKELETONS_CX_SETUP_BONES_HPP
+#ifndef WEDNESDAY_WTF_SETUP_BONES_HPP
+#define WEDNESDAY_WTF_SETUP_BONES_HPP
 #include "../../../globals/globals.hpp"
 #include "../../hooks.hpp"
 
@@ -20,4 +20,4 @@ namespace hooks
 	};
 
 } // namespace hooks
-#endif // SKELETONS_CX_SETUP_BONES_HPP
+#endif // WEDNESDAY_WTF_SETUP_BONES_HPP

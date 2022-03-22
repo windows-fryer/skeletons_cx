@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_FIRE_EVENT_INTERN_HPP
-#define SKELETONS_CX_FIRE_EVENT_INTERN_HPP
+#ifndef WEDNESDAY_WTF_FIRE_EVENT_INTERN_HPP
+#define WEDNESDAY_WTF_FIRE_EVENT_INTERN_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../../sdk/structs/i_game_event.hpp"
@@ -25,4 +25,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_FIRE_EVENT_INTERN_HPP
+#endif // WEDNESDAY_WTF_FIRE_EVENT_INTERN_HPP

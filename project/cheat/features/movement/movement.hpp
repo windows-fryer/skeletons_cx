@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_MOVEMENT_HPP
-#define SKELETONS_CX_MOVEMENT_HPP
+#ifndef WEDNESDAY_WTF_MOVEMENT_HPP
+#define WEDNESDAY_WTF_MOVEMENT_HPP
 
 #include "../../helpers/interfaces/interfaces.hpp"
 #include "../prediction/prediction.hpp"
@@ -20,4 +20,4 @@ namespace movement
 
 inline movement::impl g_movement;
 
-#endif // SKELETONS_CX_MOVEMENT_HPP
+#endif // WEDNESDAY_WTF_MOVEMENT_HPP

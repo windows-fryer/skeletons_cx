@@ -1,11 +1,11 @@
 
-#ifndef SKELETONS_CX_C_PLAYER_ANIM_STATE_HPP
-#define SKELETONS_CX_C_PLAYER_ANIM_STATE_HPP
+#ifndef WEDNESDAY_WTF_C_PLAYER_ANIM_STATE_HPP
+#define WEDNESDAY_WTF_C_PLAYER_ANIM_STATE_HPP
 #include "c_base_player.hpp"
 #include "qangle.hpp"
 #include "vector.hpp"
 namespace sdk
 {
-	
+
 } // namespace sdk
-#endif // SKELETONS_CX_C_PLAYER_ANIM_STATE_HPP
+#endif // WEDNESDAY_WTF_C_PLAYER_ANIM_STATE_HPP

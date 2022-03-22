@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_FNV_HPP
-#define SKELETONS_CX_FNV_HPP
+#ifndef WEDNESDAY_WTF_FNV_HPP
+#define WEDNESDAY_WTF_FNV_HPP
 
 #include <iostream>
 #include <unordered_map>
@@ -35,4 +35,4 @@ namespace fnv_hashing
 
 using fnv = fnv_hashing::fnv1a< std::uint32_t >;
 
-#endif // SKELETONS_CX_FNV_HPP
+#endif // WEDNESDAY_WTF_FNV_HPP

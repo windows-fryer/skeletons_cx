@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_CLIENT_CLASS_HPP
-#define SKELETONS_CX_CLIENT_CLASS_HPP
+#ifndef WEDNESDAY_WTF_CLIENT_CLASS_HPP
+#define WEDNESDAY_WTF_CLIENT_CLASS_HPP
 
 #include "dt_recv.hpp"
 #include "../enums/class_ids.hpp"
@@ -18,4 +18,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_CLIENT_CLASS_HPP
+#endif // WEDNESDAY_WTF_CLIENT_CLASS_HPP

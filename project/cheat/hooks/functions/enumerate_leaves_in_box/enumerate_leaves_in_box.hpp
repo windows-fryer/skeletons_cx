@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_ENUMERATE_LEAVES_IN_BOX_HPP
-#define SKELETONS_CX_ENUMERATE_LEAVES_IN_BOX_HPP
+#ifndef WEDNESDAY_WTF_ENUMERATE_LEAVES_IN_BOX_HPP
+#define WEDNESDAY_WTF_ENUMERATE_LEAVES_IN_BOX_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../../helpers/entity_list/entity_list.hpp"
@@ -27,4 +27,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_ENUMERATE_LEAVES_IN_BOX_HPP
+#endif // WEDNESDAY_WTF_ENUMERATE_LEAVES_IN_BOX_HPP

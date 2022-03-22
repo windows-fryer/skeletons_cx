@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_CONSOLE_HPP
-#define SKELETONS_CX_CONSOLE_HPP
+#ifndef WEDNESDAY_WTF_CONSOLE_HPP
+#define WEDNESDAY_WTF_CONSOLE_HPP
 
 #include <format>
 #include <iostream>
@@ -41,4 +41,4 @@ namespace console
 	}
 } // namespace console
 
-#endif // SKELETONS_CX_CONSOLE_HPP
+#endif // WEDNESDAY_WTF_CONSOLE_HPP

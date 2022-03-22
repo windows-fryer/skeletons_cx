@@ -2,8 +2,8 @@
 // Created by Liga on 2/24/2022.
 //
 
-#ifndef SKELETONS_CX_COLOR_HPP
-#define SKELETONS_CX_COLOR_HPP
+#ifndef WEDNESDAY_WTF_COLOR_HPP
+#define WEDNESDAY_WTF_COLOR_HPP
 
 #include "../../globals/snakeify.hpp"
 #include <d3dx9.h>
@@ -157,4 +157,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_COLOR_HPP
+#endif // WEDNESDAY_WTF_COLOR_HPP

@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_VFUNC_HPP
-#define SKELETONS_CX_VFUNC_HPP
+#ifndef WEDNESDAY_WTF_VFUNC_HPP
+#define WEDNESDAY_WTF_VFUNC_HPP
 #include <cstdint>
 
 namespace virtual_func
@@ -15,4 +15,4 @@ namespace virtual_func
 
 inline virtual_func::impl g_vfunc;
 
-#endif // SKELETONS_CX_VFUNC_HPP
+#endif // WEDNESDAY_WTF_VFUNC_HPP

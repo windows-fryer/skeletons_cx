@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_MODEL_RENDER_INFO_HPP
-#define SKELETONS_CX_MODEL_RENDER_INFO_HPP
+#ifndef WEDNESDAY_WTF_MODEL_RENDER_INFO_HPP
+#define WEDNESDAY_WTF_MODEL_RENDER_INFO_HPP
 
 #include "c_tf_player.hpp"
 
@@ -23,4 +23,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_MODEL_RENDER_INFO_HPP
+#endif // WEDNESDAY_WTF_MODEL_RENDER_INFO_HPP

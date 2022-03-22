@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_ENTRY_HPP
-#define SKELETONS_CX_ENTRY_HPP
+#ifndef WEDNESDAY_WTF_ENTRY_HPP
+#define WEDNESDAY_WTF_ENTRY_HPP
 
 #include "cheat/globals/globals.hpp"
 #include "cheat/cheat.hpp"
@@ -14,4 +14,4 @@ namespace entry
 	void shutdown( );
 } // namespace entry
 
-#endif // SKELETONS_CX_ENTRY_HPP
+#endif // WEDNESDAY_WTF_ENTRY_HPP

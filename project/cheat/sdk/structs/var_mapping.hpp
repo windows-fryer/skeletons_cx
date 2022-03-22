@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_VAR_MAPPING_HPP
-#define SKELETONS_CX_VAR_MAPPING_HPP
+#ifndef WEDNESDAY_WTF_VAR_MAPPING_HPP
+#define WEDNESDAY_WTF_VAR_MAPPING_HPP
 
 #include "var_map_entry.hpp"
 
@@ -14,4 +14,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_VAR_MAPPING_HPP
+#endif // WEDNESDAY_WTF_VAR_MAPPING_HPP

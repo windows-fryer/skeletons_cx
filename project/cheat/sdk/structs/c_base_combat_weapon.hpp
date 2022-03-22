@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_BASE_COMBAT_WEAPON_HPP
-#define SKELETONS_CX_C_BASE_COMBAT_WEAPON_HPP
+#ifndef WEDNESDAY_WTF_C_BASE_COMBAT_WEAPON_HPP
+#define WEDNESDAY_WTF_C_BASE_COMBAT_WEAPON_HPP
 
 #include "c_base_animating.hpp"
 
@@ -29,4 +29,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_BASE_COMBAT_WEAPON_HPP
+#endif // WEDNESDAY_WTF_C_BASE_COMBAT_WEAPON_HPP

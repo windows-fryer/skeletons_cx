@@ -15,11 +15,11 @@ void menu::window::draw( int& window_x, int& window_y, int& size_x, int& size_y 
 	g_render.render_gradient( window_x + 3, window_y + 22, ( size_x - 6 ) / 2, 1, sdk::color( 0, 0, 0, 0 ), menu_color );
 	g_render.render_gradient( ( window_x + 3 ) + ( size_x - 6 ) / 2, window_y + 22, ( size_x - 6 ) / 2, 1, menu_color, sdk::color( 0, 0, 0, 0 ) );
 
-	auto font_size = g_render.render_text_size( "skeletons.cx", menu_font );
+	auto font_size = g_render.render_text_size( "wednesday.wtf", menu_font );
 
 	g_render.render_text( ( window_x + 3 ) + ( size_x - 6 ) / 2, window_y + 5 + static_cast< int >( font_size.y ) / 2,
-	                      font_alignment::AL_HORIZONTAL_CENTER | font_alignment::AL_VERTICAL_CENTER, font_flags::FLAG_NONE, "skeletons.cx", menu_font,
-	                      sdk::color( 255, 255, 255 ) );
+	                      font_alignment::AL_HORIZONTAL_CENTER | font_alignment::AL_VERTICAL_CENTER, font_flags::FLAG_NONE, "wednesday.wtf",
+	                      menu_font, sdk::color( 255, 255, 255 ) );
 
 	sdk::vector window_inset = { static_cast< float >( window_x + 3 ), static_cast< float >( window_y + 24 ) };
 

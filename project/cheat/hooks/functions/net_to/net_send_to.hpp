@@ -1,7 +1,7 @@
 
 
-#ifndef SKELETONS_CX_NET_SEND_TO_HPP
-#define SKELETONS_CX_NET_SEND_TO_HPP
+#ifndef WEDNESDAY_WTF_NET_SEND_TO_HPP
+#define WEDNESDAY_WTF_NET_SEND_TO_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../../helpers/entity_list/entity_list.hpp"
@@ -29,4 +29,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_NET_SEND_TO_HPP
+#endif // WEDNESDAY_WTF_NET_SEND_TO_HPP

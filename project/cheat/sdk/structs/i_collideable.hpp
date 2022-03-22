@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_COLLIDEABLE_HPP
-#define SKELETONS_CX_I_COLLIDEABLE_HPP
+#ifndef WEDNESDAY_WTF_I_COLLIDEABLE_HPP
+#define WEDNESDAY_WTF_I_COLLIDEABLE_HPP
 
 #include "matrix.hpp"
 #include "vector.hpp"
@@ -71,4 +71,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_I_COLLIDEABLE_HPP
+#endif // WEDNESDAY_WTF_I_COLLIDEABLE_HPP

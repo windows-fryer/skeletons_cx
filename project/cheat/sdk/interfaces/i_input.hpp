@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_INPUT_HPP
-#define SKELETONS_CX_I_INPUT_HPP
+#ifndef WEDNESDAY_WTF_I_INPUT_HPP
+#define WEDNESDAY_WTF_I_INPUT_HPP
 
 #include "../structs/c_verified_cmd.hpp"
 
@@ -112,4 +112,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_I_INPUT_HPP
+#endif // WEDNESDAY_WTF_I_INPUT_HPP

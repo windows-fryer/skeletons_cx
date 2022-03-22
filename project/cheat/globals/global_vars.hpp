@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_GLOBAL_VARS_HPP
-#define SKELETONS_CX_GLOBAL_VARS_HPP
+#ifndef WEDNESDAY_WTF_GLOBAL_VARS_HPP
+#define WEDNESDAY_WTF_GLOBAL_VARS_HPP
 
 #include "snakeify.hpp"
 
@@ -57,4 +57,4 @@ namespace globals
 
 inline globals::impl g_globals;
 
-#endif // SKELETONS_CX_GLOBAL_VARS_HPP
+#endif // WEDNESDAY_WTF_GLOBAL_VARS_HPP

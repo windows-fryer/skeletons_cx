@@ -2,8 +2,8 @@
 // Created by blanket on 2/25/2022.
 //
 
-#ifndef SKELETONS_CX_DT_RECV_HPP
-#define SKELETONS_CX_DT_RECV_HPP
+#ifndef WEDNESDAY_WTF_DT_RECV_HPP
+#define WEDNESDAY_WTF_DT_RECV_HPP
 #include "dt_common.hpp"
 
 namespace sdk
@@ -493,4 +493,4 @@ recv_prop recv_prop_quaternion(
 	}
 } // namespace sdk
 
-#endif // SKELETONS_CX_DT_RECV_HPP
+#endif // WEDNESDAY_WTF_DT_RECV_HPP

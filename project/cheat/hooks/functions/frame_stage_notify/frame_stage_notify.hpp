@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_FRAME_STAGE_NOTIFY_HPP
-#define SKELETONS_CX_FRAME_STAGE_NOTIFY_HPP
+#ifndef WEDNESDAY_WTF_FRAME_STAGE_NOTIFY_HPP
+#define WEDNESDAY_WTF_FRAME_STAGE_NOTIFY_HPP
 
 #include "../../../features/lagcomp/lagcomp.hpp"
 #include "../../../globals/globals.hpp"
@@ -27,4 +27,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_FRAME_STAGE_NOTIFY_HPP
+#endif // WEDNESDAY_WTF_FRAME_STAGE_NOTIFY_HPP

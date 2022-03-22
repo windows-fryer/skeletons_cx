@@ -2,8 +2,8 @@
 // Created by Liga on 2/25/2022.
 //
 
-#ifndef SKELETONS_CX_C_BASE_ENTITY_HPP
-#define SKELETONS_CX_C_BASE_ENTITY_HPP
+#ifndef WEDNESDAY_WTF_C_BASE_ENTITY_HPP
+#define WEDNESDAY_WTF_C_BASE_ENTITY_HPP
 
 #include "../../helpers/netvars/netvars.hpp"
 #include "../../helpers/signatures/signatures.hpp"
@@ -141,4 +141,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_BASE_ENTITY_HPP
+#endif // WEDNESDAY_WTF_C_BASE_ENTITY_HPP

@@ -8,12 +8,13 @@ int hooks::net_send_packet::net_send_packet_detour( sdk::i_net_channel* channel,
 		//
 		//			sdk::bf_write message( packet, 1260 );
 
-		voice_payload->write_long( static_cast< int >( 0xFFFFFFFF ) );
-		voice_payload->write_byte( 0 );
-
-		voice_payload->write_long( g_interfaces.engine_client->get_engine_build_number( ) );
-		voice_payload->write_long( INT_MAX );
-
+		//		voice_payload->write_long( static_cast< int >( 0xFFFFFFFF ) );
+		//		voice_payload->write_byte( 0 );
+		//
+		//		voice_payload->write_long( g_interfaces.engine_client->get_engine_build_number( ) );
+		for ( int i = 0; i < 100; i++ ) {
+			voice_payload->write_long( INT_MAX );
+		}
 		//			hooks::net_send_packet_hook.call_original( channel, socket, to, ( unsigned char* )packet, 576, voice_payload, false );
 	}
 

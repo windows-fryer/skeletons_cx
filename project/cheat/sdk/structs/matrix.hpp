@@ -2,8 +2,8 @@
 // Created by blanket on 2/24/2022.
 //
 
-#ifndef SKELETONS_CX_MATRIX_HPP
-#define SKELETONS_CX_MATRIX_HPP
+#ifndef WEDNESDAY_WTF_MATRIX_HPP
+#define WEDNESDAY_WTF_MATRIX_HPP
 #include "qangle.hpp"
 #include "vector.hpp"
 #include <iostream>
@@ -89,21 +89,22 @@ namespace sdk
 				angles.yaw = ( ( float )( ( atan2f( forward[ 1 ], forward[ 0 ] ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );
 
 				// (pitch)	x = ATAN( -forward.z, sqrt(forward.x*forward.x+forward.y*forward.y) );
-				angles.pitch = ( ( float )( ( atan2f( -forward[ 2 ], xyDist ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );//RAD2DEG( atan2f( -forward[ 2 ], xyDist ) );
+				angles.pitch = ( ( float )( ( atan2f( -forward[ 2 ], xyDist ) ) ) *
+				                 ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) ); // RAD2DEG( atan2f( -forward[ 2 ], xyDist ) );
 
 				// (roll)	z = ATAN( left.z, up.z );
 				angles.roll = ( ( float )( ( atan2f( left[ 2 ], up[ 2 ] ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );
-					//RAD2DEG( atan2f( left[ 2 ], up[ 2 ] ) );
+				// RAD2DEG( atan2f( left[ 2 ], up[ 2 ] ) );
 			} else // forward is mostly Z, gimbal lock-
 			{
 				// (yaw)	y = ATAN( -left.x, left.y );			-- forward is mostly z, so use right for yaw
 				angles.yaw = ( ( float )( ( atan2f( -left[ 0 ], left[ 1 ] ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );
 
-				//RAD2DEG( atan2f( -left[ 0 ], left[ 1 ] ) );
+				// RAD2DEG( atan2f( -left[ 0 ], left[ 1 ] ) );
 
 				// (pitch)	x = ATAN( -forward.z, sqrt(forward.x*forward.x+forward.y*forward.y) );
 				angles.pitch = ( ( float )( ( atan2f( -forward[ 2 ], xyDist ) ) ) * ( float )( 180.0f / ( float )( 3.14159265358979323846f ) ) );
-				//RAD2DEG( atan2f( -forward[ 2 ], xyDist ) );
+				// RAD2DEG( atan2f( -forward[ 2 ], xyDist ) );
 
 				// Assume no roll in this case as one degree of freedom has been lost (i.e. yaw == roll)
 				angles.roll = 0;
@@ -141,4 +142,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_MATRIX_HPP
+#endif // WEDNESDAY_WTF_MATRIX_HPP

@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_PAINT_TRAVERSE_HPP
-#define SKELETONS_CX_PAINT_TRAVERSE_HPP
+#ifndef WEDNESDAY_WTF_PAINT_TRAVERSE_HPP
+#define WEDNESDAY_WTF_PAINT_TRAVERSE_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../../helpers/entity_list/entity_list.hpp"
@@ -26,4 +26,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_PAINT_TRAVERSE_HPP
+#endif // WEDNESDAY_WTF_PAINT_TRAVERSE_HPP

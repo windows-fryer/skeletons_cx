@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_INTERFACES_HPP
-#define SKELETONS_CX_INTERFACES_HPP
+#ifndef WEDNESDAY_WTF_INTERFACES_HPP
+#define WEDNESDAY_WTF_INTERFACES_HPP
 
 #include <Windows.h>
 #include <d3dx9.h>
@@ -59,4 +59,4 @@ namespace interfaces
 
 inline interfaces::impl g_interfaces;
 
-#endif // SKELETONS_CX_INTERFACES_HPP
+#endif // WEDNESDAY_WTF_INTERFACES_HPP

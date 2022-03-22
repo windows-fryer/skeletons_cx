@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_SIGNATURES_HPP
-#define SKELETONS_CX_SIGNATURES_HPP
+#ifndef WEDNESDAY_WTF_SIGNATURES_HPP
+#define WEDNESDAY_WTF_SIGNATURES_HPP
 
 #include <unordered_map>
 #include <vector>
@@ -85,4 +85,4 @@ namespace signatures
 
 inline signatures::impl g_signatures;
 
-#endif // SKELETONS_CX_SIGNATURES_HPP
+#endif // WEDNESDAY_WTF_SIGNATURES_HPP

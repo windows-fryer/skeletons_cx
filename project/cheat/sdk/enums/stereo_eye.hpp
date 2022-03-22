@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_STEREO_EYE_HPP
-#define SKELETONS_CX_STEREO_EYE_HPP
+#ifndef WEDNESDAY_WTF_STEREO_EYE_HPP
+#define WEDNESDAY_WTF_STEREO_EYE_HPP
 
 namespace sdk
 {
@@ -11,4 +11,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_STEREO_EYE_HPP
+#endif // WEDNESDAY_WTF_STEREO_EYE_HPP

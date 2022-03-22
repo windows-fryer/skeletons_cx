@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_CREATE_MOVE_HPP
-#define SKELETONS_CX_CREATE_MOVE_HPP
+#ifndef WEDNESDAY_WTF_CREATE_MOVE_HPP
+#define WEDNESDAY_WTF_CREATE_MOVE_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../hooks.hpp"
@@ -23,4 +23,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_CREATE_MOVE_HPP
+#endif // WEDNESDAY_WTF_CREATE_MOVE_HPP

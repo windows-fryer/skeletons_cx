@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_VISUALS_HPP
-#define SKELETONS_CX_VISUALS_HPP
+#ifndef WEDNESDAY_WTF_VISUALS_HPP
+#define WEDNESDAY_WTF_VISUALS_HPP
 
 #include "../../globals/globals.hpp"
 #include "../../helpers/entity_list/entity_list.hpp"
@@ -103,4 +103,4 @@ namespace visuals
 
 inline visuals::impl g_visuals;
 
-#endif // SKELETONS_CX_VISUALS_HPP
+#endif // WEDNESDAY_WTF_VISUALS_HPP

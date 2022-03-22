@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_INCLUDE_HPP
-#define SKELETONS_CX_INCLUDE_HPP
+#ifndef WEDNESDAY_WTF_INCLUDE_HPP
+#define WEDNESDAY_WTF_INCLUDE_HPP
 
 #include "../helpers/math/math.hpp"
 
@@ -47,4 +47,4 @@
 #include "enums/hitboxes.hpp"
 #include "enums/tf_cond.hpp"
 
-#endif // SKELETONS_CX_INCLUDE_HPP
+#endif // WEDNESDAY_WTF_INCLUDE_HPP

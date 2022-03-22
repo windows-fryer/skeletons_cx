@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_RUN_COMMAND_HPP
-#define SKELETONS_CX_RUN_COMMAND_HPP
+#ifndef WEDNESDAY_WTF_RUN_COMMAND_HPP
+#define WEDNESDAY_WTF_RUN_COMMAND_HPP
 
 #define NOMINMAX
 
@@ -26,4 +26,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_RUN_COMMAND_HPP
+#endif // WEDNESDAY_WTF_RUN_COMMAND_HPP

@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_WEAPON_DATA_HPP
-#define SKELETONS_CX_WEAPON_DATA_HPP
+#ifndef WEDNESDAY_WTF_WEAPON_DATA_HPP
+#define WEDNESDAY_WTF_WEAPON_DATA_HPP
 
 namespace sdk
 {
@@ -24,4 +24,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_WEAPON_DATA_HPP
+#endif // WEDNESDAY_WTF_WEAPON_DATA_HPP

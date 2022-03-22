@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_PREDICTION_HPP
-#define SKELETONS_CX_I_PREDICTION_HPP
+#ifndef WEDNESDAY_WTF_I_PREDICTION_HPP
+#define WEDNESDAY_WTF_I_PREDICTION_HPP
 #include "../structs/c_user_cmd.hpp"
 #include "../structs/vector.hpp"
 
@@ -96,4 +96,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_I_PREDICTION_HPP
+#endif // WEDNESDAY_WTF_I_PREDICTION_HPP

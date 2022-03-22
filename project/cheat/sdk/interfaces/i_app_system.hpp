@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_I_APP_SYSTEM_HPP
-#define SKELETONS_CX_I_APP_SYSTEM_HPP
+#ifndef WEDNESDAY_WTF_I_APP_SYSTEM_HPP
+#define WEDNESDAY_WTF_I_APP_SYSTEM_HPP
 
 namespace sdk
 {
@@ -20,4 +20,4 @@ namespace sdk
 		virtual void shutdown( )        = 0;
 	};
 } // namespace sdk
-#endif // SKELETONS_CX_I_APP_SYSTEM_HPP
+#endif // WEDNESDAY_WTF_I_APP_SYSTEM_HPP

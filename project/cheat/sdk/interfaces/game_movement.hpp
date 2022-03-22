@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_GAME_MOVEMENT_HPP
-#define SKELETONS_CX_GAME_MOVEMENT_HPP
+#ifndef WEDNESDAY_WTF_GAME_MOVEMENT_HPP
+#define WEDNESDAY_WTF_GAME_MOVEMENT_HPP
 
 #include "../../helpers/vfunc/vfunc.hpp"
 #include "../structs/i_client_entity.hpp"
@@ -47,4 +47,4 @@ namespace sdk
 	};
 
 } // namespace sdk
-#endif // SKELETONS_CX_GAME_MOVEMENT_HPP
+#endif // WEDNESDAY_WTF_GAME_MOVEMENT_HPP

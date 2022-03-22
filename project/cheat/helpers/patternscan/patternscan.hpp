@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_PATTERNSCAN_HPP
-#define SKELETONS_CX_PATTERNSCAN_HPP
+#ifndef WEDNESDAY_WTF_PATTERNSCAN_HPP
+#define WEDNESDAY_WTF_PATTERNSCAN_HPP
 #include <iostream>
 #include <vector>
 
@@ -143,4 +143,4 @@ namespace patternscan
 
 inline patternscan::impl g_patternscan;
 
-#endif // SKELETONS_CX_PATTERNSCAN_HPP
+#endif // WEDNESDAY_WTF_PATTERNSCAN_HPP

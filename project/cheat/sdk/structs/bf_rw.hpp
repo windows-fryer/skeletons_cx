@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_BF_RW_HPP
-#define SKELETONS_CX_BF_RW_HPP
+#ifndef WEDNESDAY_WTF_BF_RW_HPP
+#define WEDNESDAY_WTF_BF_RW_HPP
 
 #include "../../helpers/input/input.hpp"
 #include <iostream>
@@ -705,4 +705,4 @@ namespace sdk
 
 } // namespace sdk
 
-#endif // SKELETONS_CX_BF_RW_HPP
+#endif // WEDNESDAY_WTF_BF_RW_HPP

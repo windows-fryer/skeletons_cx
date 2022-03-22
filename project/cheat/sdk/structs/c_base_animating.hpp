@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_BASE_ANIMATING_HPP
-#define SKELETONS_CX_C_BASE_ANIMATING_HPP
+#ifndef WEDNESDAY_WTF_C_BASE_ANIMATING_HPP
+#define WEDNESDAY_WTF_C_BASE_ANIMATING_HPP
 
 #include "c_base_entity.hpp"
 
@@ -32,4 +32,4 @@ namespace sdk
 	};
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_BASE_ANIMATING_HPP
+#endif // WEDNESDAY_WTF_C_BASE_ANIMATING_HPP

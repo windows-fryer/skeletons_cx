@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_SNAKEIFY_HPP
-#define SKELETONS_CX_SNAKEIFY_HPP
+#ifndef WEDNESDAY_WTF_SNAKEIFY_HPP
+#define WEDNESDAY_WTF_SNAKEIFY_HPP
 
 #include "../../dependencies/fnv/fnv.hpp"
 
@@ -41,4 +41,4 @@ private:                                                                        
                                                                                                                                                      \
 public:
 
-#endif // SKELETONS_CX_SNAKEIFY_HPP
+#endif // WEDNESDAY_WTF_SNAKEIFY_HPP

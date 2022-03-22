@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_C_CONVAR_HPP
-#define SKELETONS_CX_C_CONVAR_HPP
+#ifndef WEDNESDAY_WTF_C_CONVAR_HPP
+#define WEDNESDAY_WTF_C_CONVAR_HPP
 #include "../enums/cvar_flags.hpp"
 #include "c_con_command_base.hpp"
 namespace sdk
@@ -77,4 +77,4 @@ namespace sdk
 	}
 } // namespace sdk
 
-#endif // SKELETONS_CX_C_CONVAR_HPP
+#endif // WEDNESDAY_WTF_C_CONVAR_HPP

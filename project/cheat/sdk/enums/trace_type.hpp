@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_TRACE_TYPE_HPP
-#define SKELETONS_CX_TRACE_TYPE_HPP
+#ifndef WEDNESDAY_WTF_TRACE_TYPE_HPP
+#define WEDNESDAY_WTF_TRACE_TYPE_HPP
 namespace sdk
 {
 	enum trace_type {
@@ -9,4 +9,4 @@ namespace sdk
 		TRACE_EVERYTHING_FILTER_PROPS,
 	};
 } // namespace sdk
-#endif // SKELETONS_CX_TRACE_TYPE_HPP
+#endif // WEDNESDAY_WTF_TRACE_TYPE_HPP

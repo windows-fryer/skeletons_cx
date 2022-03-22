@@ -2,8 +2,8 @@
 // Created by Liga on 2/23/2022.
 //
 
-#ifndef SKELETONS_CX_CHEAT_HPP
-#define SKELETONS_CX_CHEAT_HPP
+#ifndef WEDNESDAY_WTF_CHEAT_HPP
+#define WEDNESDAY_WTF_CHEAT_HPP
 
 #include <Windows.h>
 #include <iostream>

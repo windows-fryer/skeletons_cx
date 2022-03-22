@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_MATH_HPP
-#define SKELETONS_CX_MATH_HPP
+#ifndef WEDNESDAY_WTF_MATH_HPP
+#define WEDNESDAY_WTF_MATH_HPP
 
 #include <cmath>
 #include <directxmath.h>
@@ -29,4 +29,4 @@ namespace math
 
 } // namespace math
 
-#endif // SKELETONS_CX_MATH_HPP
+#endif // WEDNESDAY_WTF_MATH_HPP

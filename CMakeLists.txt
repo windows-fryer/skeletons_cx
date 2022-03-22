@@ -1,6 +1,6 @@
 # thank you to cristeigabriel for helping me with this!
 cmake_minimum_required(VERSION 3.21)
-project(skeletons_cx)
+project(wednesday_wtf)
 
 set(CMAKE_CXX_STANDARD 23)
 

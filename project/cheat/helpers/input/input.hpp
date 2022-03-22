@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_INPUT_HPP
-#define SKELETONS_CX_INPUT_HPP
+#ifndef WEDNESDAY_WTF_INPUT_HPP
+#define WEDNESDAY_WTF_INPUT_HPP
 
 #include "../../sdk/include.hpp"
 
@@ -89,4 +89,4 @@ namespace input
 
 inline input::impl g_input;
 
-#endif // SKELETONS_CX_INPUT_HPP
+#endif // WEDNESDAY_WTF_INPUT_HPP

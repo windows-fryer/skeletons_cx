@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_GET_TIME_HPP
-#define SKELETONS_CX_GET_TIME_HPP
+#ifndef WEDNESDAY_WTF_GET_TIME_HPP
+#define WEDNESDAY_WTF_GET_TIME_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../hooks.hpp"
@@ -23,4 +23,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_GET_TIME_HPP
+#endif // WEDNESDAY_WTF_GET_TIME_HPP

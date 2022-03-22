@@ -1,5 +1,5 @@
-#ifndef SKELETONS_CX_SEND_NET_MSG_HPP
-#define SKELETONS_CX_SEND_NET_MSG_HPP
+#ifndef WEDNESDAY_WTF_SEND_NET_MSG_HPP
+#define WEDNESDAY_WTF_SEND_NET_MSG_HPP
 
 #include "../../../globals/globals.hpp"
 #include "../../hooks.hpp"
@@ -24,4 +24,4 @@ namespace hooks
 	};
 } // namespace hooks
 
-#endif // SKELETONS_CX_SEND_NET_MSG_HPP
+#endif // WEDNESDAY_WTF_SEND_NET_MSG_HPP
