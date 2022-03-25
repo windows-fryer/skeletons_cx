@@ -7,8 +7,6 @@ void hooks::run_command::run_command_detour( void* ecx, void* edx, sdk::c_base_p
 	[[unlikely]] if ( !player || player != g_globals.local || !g_globals.local_weapon || !g_globals.local ||
 	                  !g_interfaces.net_channel ) return run_command_hook.call_original( ecx, edx, player, command, move_helper );
 
-	run_command_hook.call_original( ecx, edx, player, command, move_helper );
-
 	static auto clock_correction = g_interfaces.cvar->find_var( "sv_clockcorrection_msecs" );
 	float correction_ticks       = time_to_ticks_round( std::clamp( clock_correction->get_float( ) / 1000.f, 0.f, 1.f ) );
 
@@ -23,9 +21,15 @@ void hooks::run_command::run_command_detour( void* ecx, void* edx, sdk::c_base_p
 	if ( estimated_final_tick > too_fast_limit || estimated_final_tick < too_slow_limit ) {
 		int corrected_tick = ideal_final_tick - simulation_ticks + g_interfaces.globals->sim_ticks_this_frame;
 
-		console::log( "corrected_tick: {} | tick_base: {} | stored_ticks: {} | shifting: {}\n", corrected_tick, player->tick_base( ),
-		              g_globals.stored_ticks, g_globals.shifting );
+		console::color::white( );
+		console::log( "[TICKBASE] " );
+
+		console::color::blue( );
+		console::log( "corrected_tick: {} | tick_base: {}\n", corrected_tick, player->tick_base( ), g_globals.stored_ticks, g_globals.shifting );
+		console::color::white( );
 
 		player->tick_base( ) = corrected_tick;
 	}
+
+	run_command_hook.call_original( ecx, edx, player, command, move_helper );
 }
