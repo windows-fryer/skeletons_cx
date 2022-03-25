@@ -138,13 +138,7 @@ void aimbot::impl::think( )
 
 		g_prediction.projectile_restore( entity );
 
-		entity->set_abs_origin( position );
-		entity->invalidate_bone_cache( );
-
-		position = weapon_info.hitbox == -1 ? entity->get_abs_origin( ) : entity->get_hitbox_position( weapon_info.hitbox );
-
-		sdk::qangle angle_to_hitbox = math::vector_to_angle( position - g_globals.local->eye_position( ) );
-		angle_to_hitbox.normalize( );
+		sdk::qangle angle_to_hitbox{ };
 
 		if ( weapon_info.curves ) {
 			auto arch_info = calculate_arch( g_globals.local->eye_position( ), position, g_globals.command->view_angles, weapon_info );
@@ -168,6 +162,14 @@ void aimbot::impl::think( )
 
 			angle_to_hitbox.pitch = -RAD2DEG( arch_info.pitch );
 			angle_to_hitbox.yaw   = RAD2DEG( arch_info.yaw );
+			angle_to_hitbox.normalize( );
+		} else {
+			entity->set_abs_origin( position );
+			entity->invalidate_bone_cache( );
+
+			position = weapon_info.hitbox == -1 ? entity->get_abs_origin( ) : entity->get_hitbox_position( weapon_info.hitbox );
+
+			angle_to_hitbox = math::vector_to_angle( position - g_globals.local->eye_position( ) );
 			angle_to_hitbox.normalize( );
 		}
 

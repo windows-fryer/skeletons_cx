@@ -21,7 +21,7 @@
 
 #define time_to_ticks( time )       static_cast< std::int32_t >( time / g_interfaces.globals->interval_per_tick )
 #define ticks_to_time( ticks )      static_cast< float >( ticks ) * g_interfaces.globals->interval_per_tick
-#define time_to_ticks_round( time ) static_cast< std::int32_t >( ( time + 0.5f ) / g_interfaces.globals->interval_per_tick )
+#define time_to_ticks_round( time ) static_cast< std::int32_t >( ( time / g_interfaces.globals->interval_per_tick ) + 0.5f )
 
 #define ROUND_UP( value ) static_cast< int >( static_cast< float >( value ) + 0.5f )
 #define DEVICE_SAFETY( )                                                                                                                             \
