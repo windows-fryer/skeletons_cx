@@ -62,6 +62,8 @@ void __fastcall hooks::create_move::create_move_detour( void* ecx, void* edx, in
 	if ( g_globals.shifting )
 		send_packet = !g_globals.choke;
 
+	//	command->view_angles = sdk::qangle( g_globals.local->eye_angles_x( ), g_globals.local->eye_angles_y( ), 0.f );
+
 	verified->cmd = *command;
 	verified->crc = command->get_checksum( );
 }

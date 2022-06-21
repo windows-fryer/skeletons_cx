@@ -4,10 +4,10 @@
 
 void prediction::impl::start( sdk::c_user_cmd* cmd, sdk::c_tf_player* entity )
 {
-	auto last_command    = g_interfaces.client_state->last_command_ack( );
-	auto last_outgoing   = g_interfaces.client_state->last_outgoing_command( );
-	auto choked_commands = g_interfaces.client_state->choked_commands( );
-	auto delta_tick      = g_interfaces.client_state->delta_tick( );
+	auto last_command    = g_interfaces.client_state->last_command_ack;
+	auto last_outgoing   = g_interfaces.client_state->last_out_going_command;
+	auto choked_commands = g_interfaces.client_state->choked_commands;
+	auto delta_tick      = g_interfaces.client_state->delta_tick;
 
 	if ( delta_tick > 0 )
 		g_interfaces.prediction->update( delta_tick, delta_tick > 0, last_command, last_outgoing + choked_commands );

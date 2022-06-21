@@ -6,9 +6,10 @@ bool hooks::send_net_msg::send_net_msg_detour( void* ecx, void* edx, sdk::i_net_
 	if ( message.get_type( ) == 9 ) {
 		auto& move_message = reinterpret_cast< sdk::clc_move& >( message );
 
-		if ( g_interfaces.net_channel ) {
-			g_globals.simulation_ticks = move_message.new_commands + g_interfaces.net_channel->get_drop_number( );
-		}
+		//		if ( g_interfaces.net_channel ) {
+		//			move_message.new_commands    = 0;
+		//			move_message.backup_commands = 1;
+		//		}
 	}
 
 	if ( _ReturnAddress( ) == g_signatures[ "8B 45 ? C7 45 ? ? ? ? ? 5F 5E 85 C0 74 ? 6A ? 50 E8 ? ? ? ? 83 C4 ? 8B E5 5D C3" ] ) {

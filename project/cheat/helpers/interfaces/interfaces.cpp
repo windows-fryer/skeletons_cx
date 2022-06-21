@@ -24,11 +24,12 @@ void interfaces::impl::init( )
 	material_system = reinterpret_cast< sdk::i_material_system* >( interfaces[ fnv( "VMaterialSystem081" ) ] );
 	localize        = reinterpret_cast< sdk::i_localize* >( interfaces[ fnv( "VGUI_Localize005" ) ] );
 
-	input       = g_signatures[ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75" ].add( 0x2 ).get( 2 ).as< sdk::i_input* >( );
-	move_helper = g_signatures[ "8B 0D ? ? ? ? 8B 46 08 68 ? ? ? ? 05 ? ? ? ? 8B 11 50" ].add( 0x2 ).get( 2 ).as< sdk::i_move_helper* >( );
-	client_mode = g_signatures[ "8B 0D ? ? ? ? 8B 02 D9 05" ].add( 0x2 ).get( 2 ).as< sdk::i_client_mode* >( );
-	device      = g_signatures[ "A1 ? ? ? ? 50 8B 08 FF 51 0C" ].add( 0x1 ).get( 2 ).as< IDirect3DDevice9* >( );
-	globals     = g_signatures[ "68 ? ? ? ? 50 50 FF 12" ].add( 0x1 ).get( 1 ).as< sdk::i_global_vars_base* >( );
+	input        = g_signatures[ "8B 0D ? ? ? ? FF 75 ? D9 45 ? 51 8B 01 D9 1C ? FF 75" ].add( 0x2 ).get( 2 ).as< sdk::i_input* >( );
+	move_helper  = g_signatures[ "8B 0D ? ? ? ? 8B 46 08 68 ? ? ? ? 05 ? ? ? ? 8B 11 50" ].add( 0x2 ).get( 2 ).as< sdk::i_move_helper* >( );
+	client_mode  = g_signatures[ "8B 0D ? ? ? ? 8B 02 D9 05" ].add( 0x2 ).get( 2 ).as< sdk::i_client_mode* >( );
+	device       = g_signatures[ "A1 ? ? ? ? 50 8B 08 FF 51 0C" ].add( 0x1 ).get( 2 ).as< IDirect3DDevice9* >( );
+	globals      = g_signatures[ "68 ? ? ? ? 50 50 FF 12" ].add( 0x1 ).get( 1 ).as< sdk::i_global_vars_base* >( );
+	client_state = g_signatures[ "68 ? ? ? ? E8 ? ? ? ? 83 C4 08 5F 5E 5B 5D C3" ].add( 0x1 ).get( 1 ).as< sdk::i_base_client_state* >( );
 }
 
 //-----------------------------------------------------------------------------

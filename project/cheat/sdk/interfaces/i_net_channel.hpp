@@ -192,6 +192,15 @@ namespace sdk
 		int backup_commands;
 		int new_commands;
 		int length;
+
+		//		unsigned int network_message_table{ };
+		//		unsigned int pad1;
+		//		unsigned int pad2;
+		//		int backup_command;
+		//		int new_command;
+		//		void* pad3;
+		//		bf_read data_input;
+		//		bf_write data_output;
 	};
 
 } // namespace sdk

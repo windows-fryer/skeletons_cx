@@ -63,6 +63,7 @@ namespace signatures
 			{ "FF 35 ? ? ? ? 8B 3E", g_engine_dll },
 			{ "55 8B EC 53 56 8B 75 ? 8B CE 57 FF 75 ? E8", g_client_dll },
 			{ "55 8B EC B8 88 20 00 00", g_engine_dll },
+			{ "68 ? ? ? ? E8 ? ? ? ? 83 C4 08 5F 5E 5B 5D C3", g_engine_dll },
 		};
 
 	public:

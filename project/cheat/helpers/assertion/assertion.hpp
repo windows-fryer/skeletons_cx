@@ -13,7 +13,7 @@
 	try {                                                                                                                                            \
 		func;                                                                                                                                        \
 	} catch ( std::exception & exception ) {                                                                                                         \
-		assertion::log( std::format( "Assertion hit on {}", id ), exception );                                                                       \
+		assertion::log( std::format( "Assertion hit on {}", std::string( id ) ), exception );                                                        \
 	}
 
 namespace assertion
